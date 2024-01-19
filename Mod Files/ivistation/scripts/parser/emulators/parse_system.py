@@ -138,12 +138,12 @@ class ParseSystem:
             rom_new_path = os.path.join(path, "{}{}".format(clean_filename, extension))
 
             # The new filename already exists. Perhaps they are duplicates?
-            if (not rom_full_path == rom_new_path) and (os.path.exists(rom_new_path) or rom_new_path in potential_files):
+            if (rom_full_path != rom_new_path) and (os.path.exists(rom_new_path) or rom_new_path in potential_files):
                 # Add the current count number to the path to give some uniqueness
                 rom_new_path = os.path.join(path, "{}_dup{}{}".format(clean_filename, count, extension))
 
             try:
-                if not rom_full_path == rom_new_path:
+                if rom_full_path != rom_new_path:
                     os.rename(rom_full_path, rom_new_path)
             except OSError as e:
                 print(

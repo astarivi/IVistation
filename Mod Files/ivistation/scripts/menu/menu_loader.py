@@ -95,5 +95,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print("Refreshing carousel.")
+    print("Loading menu.")
     main()
