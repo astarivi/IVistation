@@ -21,7 +21,7 @@
 				<systemid>favs</systemid>
 				<systemart>layouts/favourites/art/system_art.png</systemart>
 				<logo>layouts/favourites/art/logo.png</logo>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>IntegerGreaterThan(Skin.String(favs_games),0) + !Skin.HasSetting(hide_favs_title)</visible>
 		</item>
 		<item id="3">
@@ -31,7 +31,7 @@
 				<systemart>layouts/3do/art/system_art.png</systemart>
 				<logo>layouts/3do/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(3do_exists)</visible>
 		</item>
 		<item id="4">
@@ -41,7 +41,7 @@
 				<systemart>layouts/amiga/art/system_art.png</systemart>
 				<logo>layouts/amiga/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(amiga_exists)</visible>
 		</item>
 		<item id="5">
@@ -51,7 +51,7 @@
 				<systemart>layouts/amstradcpc/art/system_art.png</systemart>
 				<logo>layouts/amstradcpc/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(amstradcpc_exists)</visible>
 		</item>
 		<item id="6">
@@ -61,7 +61,7 @@
 				<systemart>layouts/apple2/art/system_art.png</systemart>
 				<logo>layouts/apple2/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(apple2_exists)</visible>
 		</item>
 		<item id="7">
@@ -71,7 +71,7 @@
 				<systemart>layouts/atari2600/art/system_art.png</systemart>
 				<logo>layouts/atari2600/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atari2600_exists)</visible>
 		</item>
 		<item id="8">
@@ -81,7 +81,7 @@
 				<systemart>layouts/atari5200/art/system_art.png</systemart>
 				<logo>layouts/atari5200/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atari5200_exists)</visible>
 		</item>
 		<item id="9">
@@ -91,7 +91,7 @@
 				<systemart>layouts/atari7800/art/system_art.png</systemart>
 				<logo>layouts/atari7800/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atari7800_exists)</visible>
 		</item>
 		<item id="10">
@@ -101,7 +101,7 @@
 				<systemart>layouts/atari800/art/system_art.png</systemart>
 				<logo>layouts/atari800/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atari800_exists)</visible>
 		</item>
 		<item id="11">
@@ -121,7 +121,7 @@
 				<systemart>layouts/atarilynx/art/system_art.png</systemart>
 				<logo>layouts/atarilynx/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atarilynx_exists)</visible>
 		</item>
 		<item id="13">
@@ -131,7 +131,7 @@
 				<systemart>layouts/atarist/art/system_art.png</systemart>
 				<logo>layouts/atarist/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atarist_exists)</visible>
 		</item>
 		<item id="14">
@@ -141,7 +141,7 @@
 				<systemart>layouts/atarixe/art/system_art.png</systemart>
 				<logo>layouts/atarixe/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atarixe_exists)</visible>
 		</item>
 		<item id="15">
@@ -151,7 +151,7 @@
 				<systemart>layouts/atarixl/art/system_art.png</systemart>
 				<logo>layouts/atarixl/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(atarixl_exists)</visible>
 		</item>
 		<item id="16">
@@ -161,7 +161,7 @@
 				<systemart>layouts/c64/art/system_art.png</systemart>
 				<logo>layouts/c64/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(c64_exists)</visible>
 		</item>
 		<item id="17">
@@ -171,7 +171,7 @@
 				<systemart>layouts/c64pet/art/system_art.png</systemart>
 				<logo>layouts/c64pet/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(c64pet_exists)</visible>
 		</item>
 		<item id="18">
@@ -181,7 +181,7 @@
 				<systemart>layouts/chip8x/art/system_art.png</systemart>
 				<logo>layouts/chip8x/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(chip8x_exists)</visible>
 		</item>
 		<item id="19">
@@ -191,7 +191,7 @@
 				<systemart>layouts/coco/art/system_art.png</systemart>
 				<logo>layouts/coco/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(coco_exists)</visible>
 		</item>
 		<item id="20">
@@ -201,7 +201,7 @@
 				<systemart>layouts/colecovision/art/system_art.png</systemart>
 				<logo>layouts/colecovision/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(colecovision_exists)</visible>
 		</item>
 		<item id="21">
@@ -211,7 +211,7 @@
 				<systemart>layouts/cv20/art/system_art.png</systemart>
 				<logo>layouts/cv20/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(cv20_exists)</visible>
 		</item>
 		<item id="22">
@@ -231,7 +231,7 @@
 				<systemart>layouts/dreamcastvmu/art/system_art.png</systemart>
 				<logo>layouts/dreamcastvmu/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(dreamcastvmu_exists)</visible>
 		</item>
 		<item id="24">
@@ -241,7 +241,7 @@
 				<systemart>layouts/famicom/art/system_art.png</systemart>
 				<logo>layouts/famicom/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(famicom_exists)</visible>
 		</item>
 		<item id="25">
@@ -251,7 +251,7 @@
 				<systemart>layouts/fba/art/system_art.png</systemart>
 				<logo>layouts/fba/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(fba_exists)</visible>
 		</item>
 		<item id="26">
@@ -261,7 +261,7 @@
 				<systemart>layouts/fbaxxx/art/system_art.png</systemart>
 				<logo>layouts/fbaxxx/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(fbaxxx_exists)</visible>
 		</item>
 		<item id="27">
@@ -271,7 +271,7 @@
 				<systemart>layouts/fbl/art/system_art.png</systemart>
 				<logo>layouts/fbl/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(fbl_exists)</visible>
 		</item>
 		<item id="28">
@@ -281,7 +281,7 @@
 				<systemart>layouts/fblc/art/system_art.png</systemart>
 				<logo>layouts/fblc/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(fblc_exists)</visible>
 		</item>
 		<item id="29">
@@ -291,7 +291,7 @@
 				<systemart>layouts/gamegear/art/system_art.png</systemart>
 				<logo>layouts/gamegear/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(gamegear_exists)</visible>
 		</item>
 		<item id="30">
@@ -301,7 +301,7 @@
 				<systemart>layouts/gb/art/system_art.png</systemart>
 				<logo>layouts/gb/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(gb_exists)</visible>
 		</item>
 		<item id="31">
@@ -311,7 +311,7 @@
 				<systemart>layouts/gba/art/system_art.png</systemart>
 				<logo>layouts/gba/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(gba_exists)</visible>
 		</item>
 		<item id="32">
@@ -321,7 +321,7 @@
 				<systemart>layouts/gbc/art/system_art.png</systemart>
 				<logo>layouts/gbc/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(gbc_exists)</visible>
 		</item>
 		<item id="33">
@@ -331,7 +331,7 @@
 				<systemart>layouts/genesis/art/system_art.png</systemart>
 				<logo>layouts/genesis/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(genesis_exists)</visible>
 		</item>
 		<item id="34">
@@ -341,7 +341,7 @@
 				<systemart>layouts/homebrew/art/system_art.png</systemart>
 				<logo>layouts/homebrew/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>IntegerGreaterThan(Skin.String(homebrew_games),0)</visible>
 		</item>
 		<item id="35">
@@ -351,7 +351,7 @@
 				<systemart>layouts/intellivision/art/system_art.png</systemart>
 				<logo>layouts/intellivision/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(intellivision_exists)</visible>
 		</item>
 		<item id="36">
@@ -361,7 +361,7 @@
 				<systemart>layouts/mame/art/system_art.png</systemart>
 				<logo>layouts/mame/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(mame_exists)</visible>
 		</item>
 		<item id="37">
@@ -371,7 +371,7 @@
 				<systemart>layouts/mastersystem/art/system_art.png</systemart>
 				<logo>layouts/mastersystem/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(mastersystem_exists)</visible>
 		</item>
 		<item id="38">
@@ -381,7 +381,7 @@
 				<systemart>layouts/megadrive/art/system_art.png</systemart>
 				<logo>layouts/megadrive/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(megadrive_exists)</visible>
 		</item>
 		<item id="39">
@@ -391,7 +391,7 @@
 				<systemart>layouts/mess/art/system_art.png</systemart>
 				<logo>layouts/mess/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(mess_exists)</visible>
 		</item>
 		<item id="40">
@@ -401,7 +401,7 @@
 				<systemart>layouts/msx/art/system_art.png</systemart>
 				<logo>layouts/msx/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(msx_exists)</visible>
 		</item>
 		<item id="41">
@@ -411,7 +411,7 @@
 				<systemart>layouts/n64/art/system_art.png</systemart>
 				<logo>layouts/n64/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(n64_exists)</visible>
 		</item>
 		<item id="42">
@@ -421,7 +421,7 @@
 				<systemart>layouts/nds/art/system_art.png</systemart>
 				<logo>layouts/nds/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(nds_exists)</visible>
 		</item>
 		<item id="43">
@@ -431,7 +431,7 @@
 				<systemart>layouts/neogeo/art/system_art.png</systemart>
 				<logo>layouts/neogeo/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(neogeo_exists)</visible>
 		</item>
 		<item id="44">
@@ -451,7 +451,7 @@
 				<systemart>layouts/nes/art/system_art.png</systemart>
 				<logo>layouts/nes/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(nes_exists)</visible>
 		</item>
 		<item id="46">
@@ -461,7 +461,7 @@
 				<systemart>layouts/ngp/art/system_art.png</systemart>
 				<logo>layouts/ngp/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(ngp_exists)</visible>
 		</item>
 		<item id="47">
@@ -471,7 +471,7 @@
 				<systemart>layouts/ngpc/art/system_art.png</systemart>
 				<logo>layouts/ngpc/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(ngpc_exists)</visible>
 		</item>
 		<item id="48">
@@ -481,7 +481,7 @@
 				<systemart>layouts/odyssey2/art/system_art.png</systemart>
 				<logo>layouts/odyssey2/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(odyssey2_exists)</visible>
 		</item>
 		<item id="49">
@@ -491,7 +491,7 @@
 				<systemart>layouts/pc-98/art/system_art.png</systemart>
 				<logo>layouts/pc-98/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(pc-98_exists)</visible>
 		</item>
 		<item id="50">
@@ -501,7 +501,7 @@
 				<systemart>layouts/pce-cd/art/system_art.png</systemart>
 				<logo>layouts/pce-cd/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(pce-cd_exists)</visible>
 		</item>
 		<item id="51">
@@ -511,17 +511,17 @@
 				<systemart>layouts/pcengine/art/system_art.png</systemart>
 				<logo>layouts/pcengine/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(pcengine_exists)</visible>
 		</item>
 		<item id="52">
 				<name>$INFO[Skin.String(pokemonmini_games)]</name>
 				<systemid>pokemonmini</systemid>
-				<fullname>Nintendo Pokémon Mini</fullname>
+				<fullname>Nintendo Pokï¿½mon Mini</fullname>
 				<systemart>layouts/pokemonmini/art/system_art.png</systemart>
 				<logo>layouts/pokemonmini/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(pokemonmini_exists)</visible>
 		</item>
 		<item id="53">
@@ -531,7 +531,7 @@
 				<systemart>layouts/ports/art/system_art.png</systemart>
 				<logo>layouts/ports/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>IntegerGreaterThan(Skin.String(ports_games),0)</visible>
 		</item>
 		<item id="54">
@@ -541,17 +541,17 @@
 				<systemart>layouts/psx/art/system_art.png</systemart>
 				<logo>layouts/psx/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(psx_exists)</visible>
 		</item>
 		<item id="55">
 				<name>$INFO[Skin.String(samcoupe_games)]</name>
 				<systemid>samcoupe</systemid>
-				<fullname>MGT SAM Coupé</fullname>
+				<fullname>MGT SAM Coupï¿½</fullname>
 				<systemart>layouts/samcoupe/art/system_art.png</systemart>
 				<logo>layouts/samcoupe/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(samcoupe_exists)</visible>
 		</item>
 		<item id="56">
@@ -561,7 +561,7 @@
 				<systemart>layouts/saturn/art/system_art.png</systemart>
 				<logo>layouts/saturn/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(saturn_exists)</visible>
 		</item>
 		<item id="57">
@@ -571,7 +571,7 @@
 				<systemart>layouts/sc-3000/art/system_art.png</systemart>
 				<logo>layouts/sc-3000/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(sc-3000_exists)</visible>
 		</item>
 		<item id="58">
@@ -581,7 +581,7 @@
 				<systemart>layouts/scummvm/art/system_art.png</systemart>
 				<logo>layouts/scummvm/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(scummvm_exists)</visible>
 		</item>
 		<item id="59">
@@ -591,7 +591,7 @@
 				<systemart>layouts/sega32x/art/system_art.png</systemart>
 				<logo>layouts/sega32x/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(sega32x_exists)</visible>
 		</item>
 		<item id="60">
@@ -601,7 +601,7 @@
 				<systemart>layouts/segacd/art/system_art.png</systemart>
 				<logo>layouts/segacd/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(segacd_exists)</visible>
 		</item>
 		<item id="61">
@@ -611,7 +611,7 @@
 				<systemart>layouts/sf-7000/art/system_art.png</systemart>
 				<logo>layouts/sf-7000/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(sf-7000_exists)</visible>
 		</item>
 		<item id="62">
@@ -621,7 +621,7 @@
 				<systemart>layouts/sg-1000/art/system_art.png</systemart>
 				<logo>layouts/sg-1000/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(sg-1000_exists)</visible>
 		</item>
 		<item id="63">
@@ -631,7 +631,7 @@
 				<systemart>layouts/sgb/art/system_art.png</systemart>
 				<logo>layouts/sgb/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(sgb_exists)</visible>
 		</item>
 		<item id="64">
@@ -641,7 +641,7 @@
 				<systemart>layouts/snes/art/system_art.png</systemart>
 				<logo>layouts/snes/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(snes_exists)</visible>
 		</item>
 		<item id="65">
@@ -651,7 +651,7 @@
 				<systemart>layouts/tg-cd/art/system_art.png</systemart>
 				<logo>layouts/tg-cd/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(tg-cd_exists)</visible>
 		</item>
 		<item id="66">
@@ -661,7 +661,7 @@
 				<systemart>layouts/tg16/art/system_art.png</systemart>
 				<logo>layouts/tg16/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(tg16_exists)</visible>
 		</item>
 		<item id="67">
@@ -671,7 +671,7 @@
 				<systemart>layouts/ti99/art/system_art.png</systemart>
 				<logo>layouts/ti99/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(ti99_exists)</visible>
 		</item>
 		<item id="68">
@@ -681,7 +681,7 @@
 				<systemart>layouts/virtualboy/art/system_art.png</systemart>
 				<logo>layouts/virtualboy/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(virtualboy_exists)</visible>
 		</item>
 		<item id="69">
@@ -691,7 +691,7 @@
 				<systemart>layouts/waterasupervision/art/system_art.png</systemart>
 				<logo>layouts/waterasupervision/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(waterasupervision_exists)</visible>
 		</item>
 		<item id="70">
@@ -701,7 +701,7 @@
 				<systemart>layouts/wonderswan/art/system_art.png</systemart>
 				<logo>layouts/wonderswan/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(wonderswan_exists)</visible>
 		</item>
 		<item id="71">
@@ -711,7 +711,7 @@
 				<systemart>layouts/x68000/art/system_art.png</systemart>
 				<logo>layouts/x68000/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(x68000_exists)</visible>
 		</item>
 		<item id="72">
@@ -721,7 +721,7 @@
 				<systemart>layouts/xbox/art/system_art.png</systemart>
 				<logo>layouts/xbox/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>IntegerGreaterThan(Skin.String(xbox_games),0)</visible>
 		</item>
 		<item id="73">
@@ -731,7 +731,7 @@
 				<systemart>layouts/zxspectrum/art/system_art.png</systemart>
 				<logo>layouts/zxspectrum/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 				<visible>Skin.HasSetting(zxspectrum_exists)</visible>
 		</item>
 		<item id="74">

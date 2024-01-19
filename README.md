@@ -1,34 +1,26 @@
-# XBMC-Emustation
+# IViStation
 
-### Front end for some emulators, using XBMC
+### XBMC powered OG Xbox emulators frontend
 
- This is a pet project of mine and its a combination of a skin, python scripts and source edits to XBMC. So don't expect something spectacular.
+IViStation is an original Xbox project that enhances the visual aesthetics and functionality of the platform's emulation. 
+Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing features, and even introduces new ones.
 
- I wanted something that looked like EmulationStation on the Xbox and the only way to do that was to make a skin for XBMC and use it's built in feature to launch .cut files.
- 
- But it wasn't that simple, I wanted menu loading instant and there was no simple way to do that with over 700 roms or a few hundred games, so I modified the XBMC source to bypass the folder check for xbe files. This worked for games, but not roms, so again had to think outside of the box and came up with a workaround :) I create static menus when you scan your roms. There are also a few other scripts I made to do other tasks, but hopefully you like what I have made and get some use out of it.
+## Planned Functionalities
 
-### Contributions
- If you'd like to say thanks by sending a small donation, it'd be a huge help, and it'll allow me to keep spending time towards contributing to the Xbox community in the future.
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65NJWU9PUUX7W&lc=GB&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)
+- [x] Initial framework for further development
+- [x] Basic content scanner implementation
+- [x] Content database implementation, leveraging Dat-O-Matic data
+- [ ] Nintendo consoles emulation (NES, SNES, GB, GBC, GBA)
+- [ ] Emulation cores system
+- [ ] Emulation cores selection
+- [ ] Cores downloader
+- [ ] Fix broken features (a lot)
  
 ## Installation
- ### Download Prebuilt versions: [Download XBMC-Emustation](https://drive.google.com/open?id=1SH84C_T7n59fy0pcz2ji5ouA2NYKRSgR)
-
- <details>
-  <summary>Build from Source: (Note: this is only for advanced users)</summary>
-  
- * Download [XBMC-Emustation](https://github.com/Rocky5/XBMC-Emustation/archive/master.zip) and extract the **XBMC-Emustation-master** folder to your desktop.
- * Download the latest [XBMC4XBOX-*****.zip](https://drive.google.com/drive/folders/0B9zNhNcNUdDTRVFBbHcwc2JCZFE) and extract the **XBMC** folder that is inside the zip to your desktop\\**XBMC-Emustation-master**\\ folder.
- * Now double click the **Build XBMC-Emustation.bat** that's inside the **XBMC-Emustation-master** folder and wait. It will output a new folder named **XBMC-Emustation**
- * FTP this new folder to your Xbox and enjoy.
- </details>
+ ### IViStation is under active development, most things do not work
  
 ## Roms and Emulators
- * You place your roms in the designated subdirectory in the **emustation\roms** folder.
- * Same exact thing for the emulators, but in the **emustation\emulators** folder.
- * **note:** these paths can be customized in the Other Settings menu
+ * Place your roms in the designated subdirectory in the **ivistation\roms** folder.
  
 ## Scanning Roms
  * Press start on the main screen. Other Settings > Auto Scan Roms
@@ -50,11 +42,8 @@
  
 ## Updated XBMC-Emustation to the latest version
  * Head to options > Downloader > Updates > Install: XBMC-Emustation-update-files
-  
-## Everything else
- * The rest should be self explanatory, its all in the menu.
  
-### Acknowledgements:
+### XBMC-Emustation Acknowledgments:
 
 #### Buzz
  For maintaining XBMC4Xbox over the years.
@@ -62,8 +51,6 @@
 #### EmulationStation folk for:
  es-theme-simple - [GitHub es-theme-simple](https://github.com/RetroPie/es-theme-simple)
  es-theme-carbon - [GitHub es-theme-carbon](https://github.com/RetroPie/es-theme-carbon)
- 
- ( I created a few new images to add to these great svg images )
 
 #### TMNTturtleguy
  For the awesome theme ComicBook for EmulationStation [GitHub es-theme-ComicBook](https://github.com/TMNTturtleguy/es-theme-ComicBook)
@@ -74,10 +61,10 @@
  [Emuxtras Website](http://www.emuxtras.net)
  
 #### Voidsentinel
- For the 3 cartridge images I used for the favourites logo - [Deviantart](https://voidsentinel.deviantart.com/gallery/43806141/Video-Game-Icons)
+ For the 3 cartridge images used in the favourites logo - [Deviantart](https://voidsentinel.deviantart.com/gallery/43806141/Video-Game-Icons)
  
 #### Grimdoomer ( thefallen93 )
- For telling me how DLC is hashed on the Xbox.
+ For information on how DLCs are hashed on the Xbox.
  
 #### Testers
  Feedback and suggestions.
@@ -88,4 +75,3 @@
  * Also to anyone else I may have forgot.
 
 #### Note: All other themes were recreated from scratch for the Xbox. ( all assets were make from scratch )
- 

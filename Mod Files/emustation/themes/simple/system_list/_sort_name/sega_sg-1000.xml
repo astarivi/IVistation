@@ -5,6 +5,6 @@
 		<systemart>layouts/sg-1000/art/system_art.png</systemart>
 		<logo>layouts/sg-1000/art/logo.png</logo>
 		<onclick>SetFocus(9100)</onclick>
-		<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+		<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 		<visible>Skin.HasSetting(sg-1000_exists)</visible>
 </item>

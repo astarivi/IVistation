@@ -5,6 +5,6 @@
 		<systemart>layouts/homebrew/art/system_art.png</systemart>
 		<logo>layouts/homebrew/art/logo.png</logo>
 		<onclick>SetFocus(9100)</onclick>
-		<onclick>RunScript(special://emustation_scripts/menu_loader.py)</onclick>
+		<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
 		<visible>IntegerGreaterThan(Skin.String(homebrew_games),0)</visible>
 </item>

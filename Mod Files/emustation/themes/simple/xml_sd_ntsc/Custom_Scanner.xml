@@ -41,7 +41,7 @@
 										<top>0</top>
 										<label>[UPPERCASE]$LOCALIZE[31351][/UPPERCASE]</label>
 										<include>MenuButtonMenuValues</include>
-										<onclick>RunScript(special://emustation_scripts/create_rom_lists.py,0,auto)</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/parser/parse_systems.py,auto)</onclick>
 										<onclick>ActivateWindow(1101)</onclick>
 										<animation effect="fade" time="0">hidden</animation>
 								</control>
@@ -50,7 +50,7 @@
 										<top>0</top>
 										<label>[UPPERCASE]$LOCALIZE[31352][/UPPERCASE]</label>
 										<include>MenuButtonMenuValues</include>
-										<onclick>RunScript(special://emustation_scripts/create_rom_lists.py,manual,0)</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/parser/parse_systems.py,manual)</onclick>
 										<onclick>ActivateWindow(1101)</onclick>
 										<animation effect="fade" time="0">hidden</animation>
 								</control>
