@@ -89,7 +89,7 @@ class GameListCreator:
                     raw_rom_name
                 ),
                 "[ArtworkFolder]",
-                "RunScript(special://root/ivistation/launcher/emulator.py,{},{},{})".format(
+                "RunScript(special://root/ivistation/emulator_launcher.py,{},{},{})".format(
                     self.system,
                     rom[1],
                     rom[2]

@@ -1,0 +1,9 @@
+{
+  "id": "fceultra",
+  "version": 17,
+  "title": "FCE Ultra",
+  "description": "Circa 2007 NES emulator, sporting good support, and decent accuracy and speed.",
+  "authors": "XPorts",
+  "data_folder": "SAVES",
+  "config_file": "SAVES\\fceu.ini"
+}

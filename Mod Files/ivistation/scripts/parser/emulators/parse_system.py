@@ -55,9 +55,9 @@ class ParseSystem:
         chunk_size = 8192
         crc32_checksum = 0
 
-        with open(rom_path, 'rb') as file:
+        with open(rom_path, 'rb') as f:
             while True:
-                chunk = file.read(chunk_size)
+                chunk = f.read(chunk_size)
                 if not chunk:
                     break
                 crc32_checksum = zlib.crc32(chunk, crc32_checksum)
@@ -132,6 +132,8 @@ class ParseSystem:
 
                 if content_title is not None:
                     title = content_title
+            else:
+                title = title.replace("_", " ")
 
             clean_filename = self.clean_filename(title)
 
@@ -171,7 +173,7 @@ class ParseSystem:
     @staticmethod
     def clean_filename(name):
         # Remove problematic stuff
-        filename = name.lower().replace(" ", "_").replace("\\", "").replace("/", "")
+        filename = name.lower().replace(" ", "_").replace("\\", "").replace("/", "").replace(",", "")
 
         # If we killed the filename, create a random one.
         if filename == "" or filename == " ":

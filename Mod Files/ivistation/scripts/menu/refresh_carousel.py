@@ -4,14 +4,7 @@ import xbmc
 import shutil
 import xbmcgui
 
-EMULATORS = ["3do", "amiga", "amstradcpc", "apple2", "atari2600", "atari5200", "atari7800", "atari800", "atarijaguar",
-             "atarilynx", "atarist", "atarixe", "atarixl", "c64", "c64pet", "chip8x", "coco", "colecovision", "cv20",
-             "daphne", "dreamcastvmu", "famicom", "fba", "fbaxxx", "fbl", "fblc", "gamegear", "gb", "gba", "gbc",
-             "genesis", "intellivision", "mame", "mastersystem", "megadrive", "mess", "msx", "n64", "nds", "neogeo",
-             "neogeocd", "nes", "ngp", "ngpc", "odyssey2", "pc-98", "pce-cd", "pcengine", "pokemonmini", "psx",
-             "samcoupe", "saturn", "sc-3000", "scummvm", "sega32x", "segacd", "sf-7000", "sg-1000", "sgb", "snes",
-             "tg-cd", "tg16", "ti99", "virtualboy", "waterasupervision", "wonderswan", "x68000",
-             "zxspectrum"]  ## used to create folders of the supported emulators.
+EMULATORS = ["nes"]  ## used to create folders of the supported emulators.
 
 
 def main():
@@ -21,6 +14,7 @@ def main():
 
     roms_path = "Q:\\ivistation\\roms\\"
     emulators_path = "Q:\\ivistation\\emulators\\"
+    configs_path = "Q:\\ivistation\\configs\\"
 
     for emulator in EMULATORS:
         try:
@@ -30,6 +24,11 @@ def main():
 
         try:
             os.makedirs(os.path.join(emulators_path, emulator))
+        except Exception:
+            pass
+
+        try:
+            os.makedirs(os.path.join(configs_path, emulator))
         except Exception:
             pass
 
