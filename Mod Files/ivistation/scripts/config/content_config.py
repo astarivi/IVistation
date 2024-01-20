@@ -1,6 +1,6 @@
 import os
 import xbmc
-import json
+import simplejson as json
 import shutil
 
 ROOT_DIR = xbmc.translatePath("Special://root/")
