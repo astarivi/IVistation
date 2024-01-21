@@ -79,7 +79,7 @@ class EmulatorSelector:
         """
         User declared configuration, emulator wide
         """
-        emulator_config_manager = EmulatorConfigManager(self.system)
+        emulator_config_manager = CoreConfigManager(self.system)
         emulator_configuration = emulator_config_manager.get_config()
 
         if emulator_configuration is None:
@@ -133,6 +133,10 @@ class EmulatorSelector:
             )
             return None
 
+        # Just use whatever lonely core we have
+        if len(system_emulators) == 1:
+            return self._get_full_path_to_core(system_emulators[0])
+
         xbmc.executebuiltin('Dialog.Close(1101,true)')
         selection = self.dialog.select(
             "SELECT A DEFAULT CORE",
@@ -144,7 +148,7 @@ class EmulatorSelector:
             return None
 
         selected_core = system_emulators[selection]
-        emulator_config_manager = EmulatorConfigManager(self.system)
+        emulator_config_manager = CoreConfigManager(self.system)
 
         emulator_config_manager.save_config({
             "core": selected_core

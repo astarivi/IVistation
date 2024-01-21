@@ -1,6 +1,6 @@
 <includes>
 		<include name="Layout_Horizontal_3_Icons">
-				<control type="group" id="8002">
+				<control type="group" id="8002" >
 						<visible>Container(9000).OnPrevious + [Skin.HasSetting(CarouselAnimation0) | Skin.HasSetting(CarouselAnimation1)]</visible>
 						<animation type="Hidden" reversible="false" condition="Skin.HasSetting(CarouselAnimation1)">
 								<effect type="slide" start="0,0" end="555,0" time="150" />

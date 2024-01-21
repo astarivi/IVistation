@@ -5,7 +5,7 @@
 				<control type="button" id="603">
 						<left>-500</left>
 						<onfocus>dialog.close(114,true)</onfocus>
-						<onfocus>RunScript(special://emustation_scripts/random_select.py)</onfocus>
+						<onfocus>RunScript(Special://root/ivistation/scripts/menu/random_select.py)</onfocus>
 						<visible>!Player.HasMedia | [Window.IsActive(3000) | Window.IsActive(1)]</visible>
 				</control>
 				<control type="group">

@@ -1,18 +1,51 @@
 import os
 import xbmc
-import simplejson as json
 import shutil
+import simplejson as json
+
+from abc import abstractmethod
 
 ROOT_DIR = xbmc.translatePath("Special://root/")
 EMULATORS_DIR = xbmc.translatePath("Special://root/ivistation/emulators/")
 CONFIGS_PATH = xbmc.translatePath("Special://root/ivistation/configs/")
 
 
-class RomConfigManager:
+class BaseConfigManager(object):
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def _get_config_file_path(self):
+        return ""
+
+    def save_config(self, new_configuration, custom_path=None):
+        path = self._get_config_file_path() if custom_path is None else custom_path
+
+        if not new_configuration:
+            return
+
+        if os.path.isfile(path):
+            try:
+                os.remove(path)
+            except Exception as e:
+                print("BaseConfigManager: Couldn't remove: ", path, e)
+                return
+
+        with open(path, "w") as current_config:
+            json.dump(new_configuration, current_config)
+
+    def delete_config(self):
+        if os.path.isfile(self._get_config_file_path()):
+            os.remove(self._get_config_file_path())
+
+
+class RomConfigManager(BaseConfigManager):
     """
     Loads a user declared configuration file, which affects only a given ROM from a given system.
     """
+
     def __init__(self, rom_identifier, system):
+        super(RomConfigManager, self).__init__()
         self.game_identifier = rom_identifier
         self.system = system
         self.override = False
@@ -37,6 +70,9 @@ class RomConfigManager:
             )
         ]
 
+    def _get_config_file_path(self):
+        return self.paths[0]
+
     def is_override(self):
         return self.override
 
@@ -60,26 +96,13 @@ class RomConfigManager:
         return configuration
 
     def save_config(self, new_configuration, override=False):
-        if not new_configuration:
-            return
-
-        if override:
-            path = self.paths[1]
-        else:
-            path = self.paths[0]
-
-        if os.path.isfile(path):
-            try:
-                os.remove(path)
-            except Exception as e:
-                print("RomConfigManager: Couldn't remove: ", path, e)
-                return
-
-        with open(path, "w") as current_config:
-            json.dump(new_configuration, current_config)
+        super(RomConfigManager, self).save_config(
+            new_configuration,
+            custom_path=self.paths[1] if override else self.paths[0]
+        )
 
 
-class EmulatorConfigManager:
+class CoreConfigManager(BaseConfigManager):
     """
     Loads a user declared configuration file, which affects all the roms for an emulator.
     Note that this could be overriden by individual ROM configuration files that were declared by using
@@ -87,7 +110,9 @@ class EmulatorConfigManager:
 
     Although, emulator bundled configurations can be ignored.
     """
+
     def __init__(self, system):
+        super(CoreConfigManager, self).__init__()
         self.system = system
 
         current_configs_path = os.path.join(CONFIGS_PATH, system)
@@ -97,26 +122,15 @@ class EmulatorConfigManager:
             "d  default.json"
         )
 
+    def _get_config_file_path(self):
+        return self.path
+
     def get_config(self):
         if not os.path.isfile(self.path):
             return None
 
         with open(self.path, "r") as current_config:
             return json.load(current_config)
-
-    def save_config(self, new_configuration):
-        if not new_configuration:
-            return
-
-        if os.path.isfile(self.path):
-            try:
-                os.remove(self.path)
-            except Exception as e:
-                print("RomConfigManager: Couldn't remove: ", self.path, e)
-                return
-
-        with open(self.path, "w") as current_config:
-            json.dump(new_configuration, current_config)
 
 
 def verify_emulator_existence(system, emulator):
@@ -182,3 +196,7 @@ def get_system_defaults():
     """
     with open(os.path.join(ROOT_DIR, "ivistation\\data\\default_emus.json"), "r") as defaults:
         return json.load(defaults)
+
+
+def get_core_path(emu_system, core):
+    return os.path.join(EMULATORS_DIR, emu_system, core)

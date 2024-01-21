@@ -9,7 +9,6 @@ SYSTEMS = {
 }
 
 
-# TODO: Check if emulator exists before proceeding
 # Takes two parameters, the system, and a progress dialog to write progress to.
 # Returns a number, which is the amount of processed entries.
 def parse_roms(system, progress_dialog):
