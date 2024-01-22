@@ -205,6 +205,7 @@ class EmuConfigMenu:
         if self.should_save:
             self.config_manager.save_config(self.config)
 
+
 if __name__ == '__main__':
     print("Initializing a systems parse...")
     system = sys.argv[1:][0]
