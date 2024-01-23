@@ -11,7 +11,7 @@ def reset_core_to_defaults(emu_system, core, core_info):
     """
     core_path = get_core_path(emu_system, core)
 
-    if "backup" not in core:
+    if "backup" not in core_info:
         print("Request core reset for ", core, " failed as backup file wasn't declared in info.json file")
         return False
 

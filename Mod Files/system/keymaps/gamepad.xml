@@ -33,9 +33,8 @@
 		</Home>
 		<MyPrograms>
 				<gamepad>
-						<Y>SetFocus(9999)</Y>
 						<X>RunScript(Special://root/ivistation/scripts/menu/random_select.py)</X>
-						<start>XBMC.ActivateWindow(1111)</start>
+						<start>RunScript(Special://root/ivistation/scripts/emu_config_gui.py)</start>
 						<white>SetFocus(9990)</white>
 				</gamepad>
 		</MyPrograms>

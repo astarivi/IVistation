@@ -1,10 +1,11 @@
-import sys
-import xbmc
+import re
 import xbmcgui
 import simplejson as json
 
 from config.content_config import *
 from config.core_general import *
+from config.xports import XportsSettings
+from menu.utils.layout_helper import MY_PROGRAMS_PATH
 
 
 class EmuConfigMenu:
@@ -103,14 +104,12 @@ class EmuConfigMenu:
 
         # User canceled the operation
         if selection == -1:
-            self.main_menu()
             return
 
         selected_core = human_core_list[selection]
 
         # Same core
         if selected_core.startswith("* "):
-            self.main_menu()
             return
 
         self.config["core"] = selected_core
@@ -118,26 +117,21 @@ class EmuConfigMenu:
         self.core = selected_core
         self.core_info = None
 
-        self.main_menu()
-
     def reset_core(self):
         choice = self.dialog.yesno(
             "ARE YOU SURE?",
-            "{} WILL RESET TO DEFAULTS".format(self.core_info["title"])
+            "{} will reset to defaults.".format(self.core_info["title"])
         )
 
         if not choice:
-            self.main_menu()
             return
 
         result = reset_core_to_defaults(self.system, self.core, self.core_info)
 
         self.dialog.ok(
             "CORE RESET RESULT",
-            "CORE RESET WAS SUCCESSFUL" if result else "CORE RESET FAILED"
+            "Core reset was successful" if result else "Core reset failed",
         )
-
-        self.main_menu()
 
     def delete_core_data(self):
         choice = self.dialog.yesno(
@@ -146,7 +140,6 @@ class EmuConfigMenu:
         )
 
         if not choice:
-            self.main_menu()
             return
 
         choice = self.dialog.yesno(
@@ -155,7 +148,6 @@ class EmuConfigMenu:
         )
 
         if not choice:
-            self.main_menu()
             return
 
         result = delete_core_data(self.system, self.core, self.core_info)
@@ -165,40 +157,40 @@ class EmuConfigMenu:
             "CORE DATA REMOVED" if result else "CORE DATA FAILED TO BE REMOVED"
         )
 
-        self.main_menu()
-
     # FIXME: Make this a loop
     def main_menu(self):
         """
         Shows the UI
         """
 
-        if self.core is None:
-            self.handle_no_core()
+        while True:
+            if self.core is None:
+                self.handle_no_core()
 
-        # If the user didn't decide on any core
-        if self.core is None:
-            return
+            # If the user didn't decide on any core
+            if self.core is None:
+                return
 
-        # We have a core
-        title = "CORE SETTINGS"
-        menu = self.get_menu()
-        choice = self.dialog.select(title, menu)
+            # We have a core
+            title = "CORE SETTINGS"
+            menu = self.get_menu()
+            choice = self.dialog.select(title, menu)
 
-        if choice == -1:
-            return
+            if choice == -1:
+                return
 
-        selected_option = menu[choice]
+            selected_option = menu[choice]
 
-        if selected_option.startswith("CORE:"):
-            self.change_core()
-        elif selected_option == "RESET CORE TO DEFAULTS":
-            self.reset_core()
-        elif selected_option == "DELETE ALL CORE DATA":
-            self.delete_core_data()
-        else:
-            # TODO: Core settings
-            pass
+            if selected_option.startswith("CORE:"):
+                self.change_core()
+            elif selected_option == "RESET CORE TO DEFAULTS":
+                self.reset_core()
+            elif selected_option == "DELETE ALL CORE DATA":
+                self.delete_core_data()
+            else:
+                xports_config = XportsSettings(self.system, self.core, self.core_info)
+                xports_config.show_menu(self.dialog)
+                xports_config.save()
 
     # Save when this stuff gets recycled, which would be pronto
     def __del__(self):
@@ -206,8 +198,24 @@ class EmuConfigMenu:
             self.config_manager.save_config(self.config)
 
 
-if __name__ == '__main__':
-    print("Initializing a systems parse...")
-    system = sys.argv[1:][0]
-    rom_identifier = sys.argv[1:][1]
+def main():
+    # Only works in emulators. Maybe modify this if needed for Xbox or homebrew?
+    pattern = r'emulator_launcher\.py,(.*?),'
+    system = None
 
+    with open(MY_PROGRAMS_PATH, "r") as current_system:
+        for line_number, line in enumerate(current_system, 1):
+            match = re.search(pattern, line)
+            if match:
+                system = match.group(1)
+
+    if system is None:
+        return
+
+    EmuConfigMenu(system).main_menu()
+
+
+if __name__ == '__main__':
+    print("Opening Core Config menu (emu_config_gui.py)")
+
+    main()

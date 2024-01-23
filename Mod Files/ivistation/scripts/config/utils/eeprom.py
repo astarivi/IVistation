@@ -14,9 +14,8 @@ class EEPROMReader(object):
         self.eeprom_file_path = os.path.join(SYSTEM_BACKUP_DIR, "EEPROMBackup.bin")
         self.eeprom = None
 
-    # FIXME: Perhaps reading this at launch would be enough?
-    def read_eeprom(self, timeout=5):
-        # If the EEPROM backup exists, remove it
+    def read_eeprom(self, timeout=10, progress_dialog=None):
+        # If the EEPROM backup is already there, delete it
         if os.path.isfile(self.eeprom_file_path):
             try:
                 os.remove(self.eeprom_file_path)
@@ -24,31 +23,38 @@ class EEPROMReader(object):
                 print("Failed to remove existing EEPROM backup file at ", self.eeprom_file_path, e)
                 return False
 
-        # Request a new backup
+        # Ask for a new EEPROM backup
         xbmc.executebuiltin("XBMC.BackupSystemInfo")
 
-        # Wait for timeout for the console to create the backup
+        # Wait until it's ready. This part is tricky, because the console creates the file first, and then writes to
+        # it once the backup is ready. So the file may exist, but we won't be able to read it.
+        error = None
         start_time = time.time()
         while True:
             if os.path.isfile(self.eeprom_file_path):
-                # Exit as soon as found
-                break
+                try:
+                    with open(self.eeprom_file_path, "rb") as eeprom_data:
+                        self.eeprom = eeprom_data.read()
+                        return True
+                except Exception as e:
+                    error = e
+
+            time.sleep(0.5)
 
             elapsed_time = time.time() - start_time
 
+            if progress_dialog is not None:
+                progress_dialog.update(
+                    int(
+                        (elapsed_time / float(timeout)) * 100
+                    ),
+                    "Reading console capabilities"
+                )
+
             # Check if the timeout duration has been exceeded
             if elapsed_time >= timeout:
-                print("Timeout for reading EEPROM reached. Exiting...")
+                print("Timeout for reading EEPROM reached. Error:", error)
                 return False
-
-        try:
-            with open(self.eeprom_file_path, "rb") as eeprom_data:
-                self.eeprom = eeprom_data.read()
-                return True
-        except Exception as e:
-            print("Failed to open EEPROM backup due to ", e)
-
-        return False
 
     def get_user_video_flags(self):
         # Get the address

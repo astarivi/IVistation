@@ -157,20 +157,23 @@ class XportsSettings(object):
             choice
         )
 
-        self.xports_config["GENERAL"]["video_mode"] = str(choice_index)
-        self.xports_config["GENERAL"]["init_video"] = "1"
-
         # If the user has widescreen, let them choose
         if video_flags["Widescreen"]:
-            is_keep_aspect_ratio = dialog.yesno(
-                "CHOOSE ASPECT RATIO",
-                "Please choose a display aspect",
-                "ratio mode for this resolution.",
-                "",
-                "STRETCHED",
+            options = [
+                "STRETCHED (FULL SCREEN)",
                 "KEEP ASPECT RATIO"
+            ]
+
+            selection = dialog.select(
+                "CHOOSE ASPECT RATIO",
+                options
             )
-        # Else, just stretch the hell out
+
+            if selection == -1:
+                return
+
+            is_keep_aspect_ratio = True if selection == 1 else False
+        # Else, just stretch the hell out of it
         else:
             is_keep_aspect_ratio = False
             dialog.ok(
@@ -180,6 +183,8 @@ class XportsSettings(object):
                 "For now, 4:3 display mode will be used, as 16:9 is unavailable."
             )
 
+        self.xports_config["GENERAL"]["video_mode"] = str(choice_index)
+        self.xports_config["GENERAL"]["init_video"] = "1"
         # Set the display mode
         self._set_aspect_ratio(is_keep_aspect_ratio, choice, video_flags)
         self.should_save = True
@@ -187,6 +192,7 @@ class XportsSettings(object):
     def _show_submenu(self, title, option, dialog):
         options = list(SETTINGS_VALUES[option])
         # Add * to the start of the selected value
+        print(self.xports_config.sections())
         current_index = int(self.xports_config["GENERAL"][option])
         current_value = options[current_index]
         options[current_index] = "* " + current_value
@@ -203,16 +209,15 @@ class XportsSettings(object):
             return
 
         user_choice = options[selection]
-        self.xports_config["GENERAL"][option] = options.index(user_choice)
+        self.xports_config["GENERAL"][option] = str(options.index(user_choice))
         self.should_save = True
 
     def show_menu(self, dialog):
-
         while True:
             options = SETTINGS.keys()
 
             selection = dialog.select(
-                "{} SETTINGS".format(self.core_info["title"]),
+                "{} SETTINGS".format(self.core_info["title"]).upper(),
                 options
             )
 
@@ -225,3 +230,14 @@ class XportsSettings(object):
                 self._handle_video_mode(dialog)
             else:
                 self._show_submenu(options[selection], user_choice, dialog)
+
+    def save(self):
+        if not self.should_save:
+            return
+
+        # Remove old file
+        if os.path.isfile(self.settings_path):
+            os.remove(self.settings_path)
+
+        with open(self.settings_path, "w") as config_file:
+            self.xports_config.write(config_file, space_around_delimiters=False)

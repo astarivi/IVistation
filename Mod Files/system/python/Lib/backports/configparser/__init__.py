@@ -161,7 +161,7 @@ import warnings
 
 from backports.configparser.helpers import OrderedDict as _default_dict
 from backports.configparser.helpers import ChainMap as _ChainMap
-from backports.configparser.helpers import from_none, open, str, PY2
+from backports.configparser.helpers import from_none, str, PY2
 from backports.configparser.helpers import PathLike, fspath
 from backports.configparser.helpers import MutableMapping
 
@@ -766,7 +766,7 @@ class RawConfigParser(MutableMapping):
             if isinstance(filename, PathLike):
                 filename = fspath(filename)
             try:
-                with open(filename, encoding=encoding) as fp:
+                with open(filename, "r") as fp:
                     self._read(fp, filename)
             except IOError:
                 continue

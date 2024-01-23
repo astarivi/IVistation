@@ -29,7 +29,6 @@ try:
 except ImportError:
     pathlib = None
 
-from io import open
 import sys
 
 try:
@@ -41,7 +40,7 @@ except ImportError:
         from _dummy_thread import get_ident
 
 
-__all__ = ['UserDict', 'OrderedDict', 'open']
+__all__ = ['UserDict', 'OrderedDict']
 
 
 PY2 = sys.version_info[0] == 2
