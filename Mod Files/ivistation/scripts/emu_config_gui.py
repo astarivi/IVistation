@@ -1,5 +1,6 @@
-import re
 import xbmcgui
+xbmcgui.lock()
+import re
 import simplejson as json
 
 from config.content_config import *
@@ -136,15 +137,8 @@ class EmuConfigMenu:
     def delete_core_data(self):
         choice = self.dialog.yesno(
             "ARE YOU SURE?",
-            "ALL YOUR SAVED DATA FOR THIS CORE WILL BE LOST!".format(self.core_info["title"])
-        )
-
-        if not choice:
-            return
-
-        choice = self.dialog.yesno(
-            self.core_info["title"],
-            "THIS INCLUDES YOUR SAVES IN THIS CORE. ARE YOU REALLY SURE?"
+            "ALL YOUR SAVED DATA FOR THIS CORE WILL BE LOST!",
+            "THIS INCLUDES ALL YOUR SAVES IN THIS CORE"
         )
 
         if not choice:
@@ -154,7 +148,7 @@ class EmuConfigMenu:
 
         self.dialog.ok(
             "CORE WIPE RESULT",
-            "CORE DATA REMOVED" if result else "CORE DATA FAILED TO BE REMOVED"
+            "CORE DATA REMOVED SUCCESSFULLY" if result else "CORE DATA FAILED TO BE REMOVED"
         )
 
     # FIXME: Make this a loop
@@ -174,6 +168,7 @@ class EmuConfigMenu:
             # We have a core
             title = "CORE SETTINGS"
             menu = self.get_menu()
+            xbmcgui.unlock()
             choice = self.dialog.select(title, menu)
 
             if choice == -1:
@@ -218,4 +213,7 @@ def main():
 if __name__ == '__main__':
     print("Opening Core Config menu (emu_config_gui.py)")
 
-    main()
+    try:
+        main()
+    finally:
+        xbmcgui.unlock()
