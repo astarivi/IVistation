@@ -6,8 +6,8 @@ ROOT_DIR = xbmc.translatePath("Special://root/")
 
 def main():
     args = sys.argv[1:]
-    game_title_id = args[1]
-    game_xbe_path = args[2]
+    game_title_id = args[0]
+    game_xbe_path = args[1]
 
     if game_xbe_path.startswith("Q:\\"):
         game_xbe_path = game_xbe_path.replace("Q:\\", ROOT_DIR)

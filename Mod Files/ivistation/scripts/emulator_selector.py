@@ -65,7 +65,9 @@ class EmulatorSelector:
             return selected_core
 
         # This isn't an override, so the user asked for this.
-        if core_exists:
+        if not core_exists:
+            rom_config_manager.delete_config()
+        else:
             return selected_core
 
         # User created this configuration, but the core doesn't exist, so we delete everything related to the core
@@ -87,7 +89,9 @@ class EmulatorSelector:
         selected_core = emulator_configuration["core"]
         core_exists = verify_emulator_existence(self.system, selected_core)
 
-        if core_exists:
+        if not core_exists:
+            emulator_config_manager.delete_config()
+        else:
             return selected_core
 
         return None

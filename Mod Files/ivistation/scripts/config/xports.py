@@ -198,7 +198,7 @@ class XportsSettings(object):
         options[current_index] = "* " + current_value
 
         selection = dialog.select(
-            title,
+            title.upper(),
             options
         )
 

@@ -6,6 +6,7 @@ import xbmcgui
 import time
 
 from parse_roms import parse_roms, SYSTEMS
+from parse_auto import parse_auto
 
 
 # TODO: Test how to remove an item from the carousel if it's empty
@@ -48,28 +49,48 @@ def main():
                     emulated_systems[selected_system].upper()
                 )
             )
-
-        xbmcgui.Window(xbmcgui.getCurrentWindowId()).setProperty("MyScript.ExternalRunning", "True")
-
-        xbmc.executebuiltin(
-            'RunScript({})'.format(
-                os.path.join(
-                    xbmc.translatePath("Special://root/"),
-                    "ivistation\\scripts\\menu\\refresh_carousel.py"
-                )
-            )
-        )
-
-        # Primitive Mutex
-        while xbmcgui.Window(xbmcgui.getCurrentWindowId()).getProperty("MyScript.ExternalRunning") == "True":
-            time.sleep(0.2)
-
-    # TODO: Implement this
     else:
-        if not dialog.yesno("FULL SCAN MODE", "", "Would you like to auto scan your roms?"):
+        if not dialog.yesno(
+            "AUTO SCAN MODE",
+            "Would you like to scan all systems?",
+            "Depending on the game count, this could",
+            "take a long time."
+        ):
             return
 
         progress_dialog.create("AUTO SCAN MODE", "Initializing")
+
+        result = parse_auto(progress_dialog)
+
+        progress_dialog.close()
+
+        if result != 0:
+            dialog.ok(
+                "SCAN RESULTS",
+                "[B]{}[/B] games have been imported successfully.".format(
+                    result
+                )
+            )
+        else:
+            dialog.ok(
+                "SCAN RESULTS",
+                "No valid games have been found."
+            )
+
+    xbmcgui.Window(xbmcgui.getCurrentWindowId()).setProperty("MyScript.ExternalRunning", "True")
+
+    xbmc.executebuiltin(
+        'RunScript({})'.format(
+            os.path.join(
+                xbmc.translatePath("Special://root/"),
+                "ivistation\\scripts\\menu\\refresh_carousel.py"
+            )
+        )
+    )
+
+    # Primitive Mutex
+    while xbmcgui.Window(xbmcgui.getCurrentWindowId()).getProperty("MyScript.ExternalRunning") == "True":
+        time.sleep(0.2)
 
 
 if __name__ == '__main__':

@@ -55,17 +55,15 @@ class RomConfigManager(BaseConfigManager):
         self.paths = [
             os.path.join(
                 current_configs_path,
-                "{}.{}".format(
-                    rom_identifier,
-                    "json"
+                "{}.json".format(
+                    rom_identifier
                 )
             ),
             # Note how the override variant is later, is it's ignored if a user defined one exists
             os.path.join(
                 current_configs_path,
-                "d {}.{}".format(
-                    rom_identifier,
-                    "json"
+                "d {}.json".format(
+                    rom_identifier
                 )
             )
         ]

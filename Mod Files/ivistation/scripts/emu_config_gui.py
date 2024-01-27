@@ -22,7 +22,10 @@ class EmuConfigMenu:
         # Let's check the emulator defaults
         if self.config is not None and "core" in self.config:
             core_exists = verify_emulator_existence(self.system, self.config["core"])
-            if core_exists:
+            if not core_exists:
+                self.config_manager.delete_config()
+                self.config = None
+            else:
                 self.core = self.config["core"]
                 return
 
@@ -31,7 +34,6 @@ class EmuConfigMenu:
 
         try:
             self.core = sys_defaults[self.system]
-            return
         # Not in the system defaults
         except KeyError:
             pass
@@ -62,6 +64,7 @@ class EmuConfigMenu:
             return
 
         self.core = available_cores[selection]
+        self.config["core"] = self.core
         self.should_save = True
 
     def _get_core_info(self, core):
@@ -71,7 +74,6 @@ class EmuConfigMenu:
             return json.load(ci)
 
     def get_menu(self):
-
         # Load the info.json file from the emulator folder
         if self.core_info is None:
             self.core_info = self._get_core_info(self.core)
@@ -202,6 +204,7 @@ def main():
             match = re.search(pattern, line)
             if match:
                 system = match.group(1)
+                break
 
     if system is None:
         return
