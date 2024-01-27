@@ -151,7 +151,6 @@ class EmuConfigMenu:
             "CORE DATA REMOVED SUCCESSFULLY" if result else "CORE DATA FAILED TO BE REMOVED"
         )
 
-    # FIXME: Make this a loop
     def main_menu(self):
         """
         Shows the UI

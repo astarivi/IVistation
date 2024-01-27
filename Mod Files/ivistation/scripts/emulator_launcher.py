@@ -18,7 +18,7 @@ def main():
 
     # Just in case
     if rom_path.startswith("Q:\\"):
-        rom_path.replace("Q:\\", ROOT_DIR)
+        rom_path = rom_path.replace("Q:\\", ROOT_DIR)
 
     # Use CRC32 if available, else, use rom filename
     if rom_crc32 is None or rom_crc32 == "" or rom_crc32 == " " or rom_crc32 == 0:

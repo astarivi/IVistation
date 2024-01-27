@@ -163,7 +163,7 @@
 										<texturenofocus>-</texturenofocus>
 										<onclick>Skin.SetBool(firstrun)</onclick>
 										<onclick>ReplaceWindow(guicalibration)</onclick>
-										<onclick>RunScript(special://emustation_scripts/refresh_carousel.py,scan_emus,0,scan_xbes,silent_mode)</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/menu/refresh_carousel.py,1)</onclick>
 								</control>
 						</control>
 						<!-- <control type="grouplist"> -->

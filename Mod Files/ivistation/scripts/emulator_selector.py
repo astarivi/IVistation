@@ -35,9 +35,8 @@ class EmulatorSelector:
             if not core_exists:
                 selection = self.dialog.yesno(
                     "OPTIMAL CONFIGURATION FOUND",
-                    "",
-                    "An optimal configuration was found for this rom."
-                    "Nonetheless, the target core is not installed."
+                    "An optimal configuration was found for this rom.",
+                    "Nonetheless, the target core is not installed.",
                     "Would you like to download it?"
                 )
                 return None
@@ -47,7 +46,7 @@ class EmulatorSelector:
                 use_optimal = self.dialog.yesno(
                     "OPTIMAL CONFIGURATION FOUND",
                     "",
-                    "An optimal configuration was found for this rom."
+                    "An optimal configuration was found for this rom.",
                     "Would you like to use it?"
                 )
                 xbmc.executebuiltin('ActivateWindow(1101)')

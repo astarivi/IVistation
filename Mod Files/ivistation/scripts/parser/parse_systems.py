@@ -52,12 +52,11 @@ def main():
         xbmcgui.Window(xbmcgui.getCurrentWindowId()).setProperty("MyScript.ExternalRunning", "True")
 
         xbmc.executebuiltin(
-            'RunScript({},{})'.format(
+            'RunScript({})'.format(
                 os.path.join(
                     xbmc.translatePath("Special://root/"),
                     "ivistation\\scripts\\menu\\refresh_carousel.py"
-                ),
-                emulated_systems[selected_system]
+                )
             )
         )
 

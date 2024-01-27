@@ -13,6 +13,10 @@ class ParseSystem:
     def __init__(self):
         pass
 
+    @staticmethod
+    def get_progress_title():
+        return "Processing [B]{}[/B] rom files"
+
     @abstractmethod
     def _get_path(self):
         """
@@ -75,7 +79,7 @@ class ParseSystem:
         """
         path = self._get_path()
         if path == "":
-            yield 100, "Nothing found"
+            yield -1, "Nothing found"
 
         if not os.path.isdir(path):
             print("NES rom folder doesn't exist: {}".format(path))

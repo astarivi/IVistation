@@ -8,7 +8,10 @@ EMULATORS = ["nes"]  ## used to create folders of the supported emulators.
 
 
 def main():
-    system = sys.argv[1:][0]
+    try:
+        silent = True if sys.argv[1:][1] == "1" else False
+    except Exception:
+        silent = False
 
     # Create some folders first
 
@@ -64,8 +67,10 @@ def main():
             )
         )
 
-    xbmc.executebuiltin("Notification(Complete,Carousel Information Updated)")
     xbmcgui.Window(xbmcgui.getCurrentWindowId()).setProperty("MyScript.ExternalRunning", "False")
+
+    if not silent:
+        xbmc.executebuiltin("Notification(Complete,Carousel Information Updated)")
 
 
 if __name__ == '__main__':

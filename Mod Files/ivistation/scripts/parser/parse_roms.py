@@ -1,11 +1,13 @@
 import xbmc
 
 from emulators.parse_nes import ParseNES
+from emulators.parse_xbox import ParseXbox
 from menu.gamelist_helper import GameListCreator
 
 
 SYSTEMS = {
-    "nes": ParseNES
+    "nes": ParseNES,
+    "xbox": ParseXbox
 }
 
 
@@ -14,15 +16,17 @@ SYSTEMS = {
 def parse_roms(system, progress_dialog):
     parser = SYSTEMS[system]()
 
+    progress_title = parser.get_progress_title().format(system.upper())
+
     for progress, title in parser.prepare_entries():
         progress_dialog.update(
             progress,
-            "Processing [B]{}[/B] rom files".format(system.upper()),
+            progress_title,
             title.upper(),
             "This can take some time, please be patient."
         )
 
-        if progress == 100:
+        if progress == -1:
             break
 
     entries = parser.count_entries()

@@ -73,11 +73,16 @@ class GameListCreator:
         self.jump_count = 8000
 
     def add_entry(self, count, rom):
-        raw_rom_name = os.path.splitext(
-            os.path.basename(
-                rom[1]
-            )
-        )[0]
+        if self.system == "xbox":
+            launcher = "RunScript(special://root/ivistation/scripts/xbox_launcher.py,{1},{2})"
+            raw_rom_name = rom[1]
+        else:
+            launcher = "RunScript(special://root/ivistation/scripts/emulator_launcher.py,{},{},{})"
+            raw_rom_name = os.path.splitext(
+                os.path.basename(
+                    rom[2]
+                )
+            )[0]
 
         self.gamelist_file.write(
             GAMELIST_ENTRY.format(
@@ -89,7 +94,7 @@ class GameListCreator:
                     raw_rom_name
                 ),
                 "[ArtworkFolder]",
-                "RunScript(special://root/ivistation/scripts/emulator_launcher.py,{},{},{})".format(
+                launcher.format(
                     self.system,
                     rom[1],
                     rom[2]
