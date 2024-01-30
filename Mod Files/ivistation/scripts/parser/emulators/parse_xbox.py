@@ -18,7 +18,7 @@ class ParseXbox(ParseSystem):
     entries = []
 
     def __init__(self):
-        ParseSystem.__init__(self)
+        super(ParseXbox, self).__init__()
         print("Initializing XBOX parser...")
 
         # TODO: Make this configurable

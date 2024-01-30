@@ -1,6 +1,4 @@
 import os
-import zlib
-
 import xbmc
 
 from content.db_lookup import DatabaseHelper
@@ -13,7 +11,8 @@ ALLOWED_EXTENSIONS = (
 
 class ParseNES(ParseSystem):
     def __init__(self):
-        ParseSystem.__init__(self)
+        super(ParseNES, self).__init__()
+
         print("Initializing NES parser...")
 
         root_path = xbmc.translatePath("Special://root/")
@@ -43,22 +42,17 @@ class ParseNES(ParseSystem):
     def _get_title_from_crc32(self, crc32):
         return self.content_database.get_title_from_crc32(crc32)
 
-    @staticmethod
-    def _get_rom_crc32(rom_path):
-        with open(rom_path, 'rb') as rom_file:
-            rom_data = rom_file.read()
+    def _get_rom_crc32(self, file_handle, chunk_size=8192):
+        header_data = file_handle.read(3)
 
-            # Header found
-            if rom_data[:3] == b'NES':
-                # Remove the header
-                clean_rom_data = rom_data[16:]
-            else:
-                # Parse the ROM as is
-                clean_rom_data = rom_data
+        # Header found
+        if header_data == b'NES':
+            # Remove the header
+            file_handle.seek(16)
+        else:
+            file_handle.seek(0)
 
-            crc32_value = zlib.crc32(clean_rom_data) & 0xFFFFFFFF
-
-            return "{:08x}".format(crc32_value).lower()
+        return super(ParseNES, self)._get_rom_crc32(file_handle)
 
     def finalize(self):
         self.content_database.close()

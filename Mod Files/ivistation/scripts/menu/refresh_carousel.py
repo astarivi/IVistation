@@ -4,7 +4,8 @@ import xbmc
 import shutil
 import xbmcgui
 
-EMULATORS = ["nes"]  ## used to create folders of the supported emulators.
+# used to create folders of the supported emulators.
+EMULATORS = ["nes", "snes", "xbox"]
 
 
 def main():

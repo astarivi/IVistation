@@ -1,12 +1,14 @@
 import xbmc
 
 from emulators.parse_nes import ParseNES
+from emulators.parse_snes import ParseSNES
 from emulators.parse_xbox import ParseXbox
 from menu.gamelist_helper import GameListCreator
 
 
 SYSTEMS = {
     "nes": ParseNES,
+    "snes": ParseSNES,
     "xbox": ParseXbox
 }
 

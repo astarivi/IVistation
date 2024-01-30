@@ -7,7 +7,7 @@ import string
 from abc import abstractmethod
 
 
-class ParseSystem:
+class ParseSystem(object):
     entries = []
 
     def __init__(self):
@@ -49,19 +49,12 @@ class ParseSystem:
         """
         return None
 
-    @staticmethod
-    def _get_rom_crc32(rom_path):
+    def _get_rom_crc32(self, file_handle, chunk_size=8192):
         """
         Calculates the rom CRC32. The default implementation loads chunks into memory, and slowly but surely calculates
         the checksum. If your implementation needs a different method (as in, skipping header bytes), override this
         and provide your own implementation.
         """
-
-        with open(rom_path, 'rb') as file_handle:
-            return ParseSystem._get_handle_crc32(file_handle)
-
-    @staticmethod
-    def _get_handle_crc32(file_handle, chunk_size=8192):
         crc32_checksum = 0
 
         while True:
@@ -86,8 +79,8 @@ class ParseSystem:
             yield -1, "Nothing found"
 
         if not os.path.isdir(path):
-            print("NES rom folder doesn't exist: {}".format(path))
-            print ("Creating the NES rom folder.")
+            print("Rom folder doesn't exist: {}".format(path))
+            print("Creating the rom folder.")
             if os.path.isfile(path):
                 os.remove(path)
 
@@ -135,7 +128,8 @@ class ParseSystem:
             title, extension = os.path.splitext(os.path.basename(rom_full_path))
 
             if self._use_crc32():
-                rom_crc32 = self._get_rom_crc32(rom_full_path)
+                with open(rom_full_path, "rb") as crc_handle:
+                    rom_crc32 = self._get_rom_crc32(crc_handle)
                 content_title = self._get_title_from_crc32(rom_crc32)
 
                 if content_title is not None:
@@ -145,7 +139,7 @@ class ParseSystem:
 
             clean_filename = self.clean_filename(title)
 
-            rom_new_path = os.path.join(path, "{}{}".format(clean_filename, extension))
+            rom_new_path = os.path.join(path, clean_filename + extension)
 
             # The new filename already exists. Perhaps they are duplicates?
             if (rom_full_path != rom_new_path) and (os.path.exists(rom_new_path) or rom_new_path in potential_files):
@@ -187,7 +181,7 @@ class ParseSystem:
         if filename == "" or filename == " ":
             return "".join(random.choice(string.ascii_lowercase) for _ in range(12))
 
-        return filename
+        return filename[:38]
 
     def get_entries(self):
         return sorted(self.entries, key=lambda x: x[0])

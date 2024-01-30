@@ -1,6 +1,4 @@
 import os
-import zlib
-
 import xbmc
 
 from content.db_lookup import DatabaseHelper
@@ -14,7 +12,8 @@ ALLOWED_EXTENSIONS = (
 
 class ParseSNES(ParseSystem):
     def __init__(self):
-        ParseSystem.__init__(self)
+        super(ParseSNES, self).__init__()
+
         print("Initializing SNES parser...")
 
         root_path = xbmc.translatePath("Special://root/")
@@ -44,27 +43,14 @@ class ParseSNES(ParseSystem):
     def _get_title_from_crc32(self, crc32):
         return self.content_database.get_title_from_crc32(crc32)
 
-    @staticmethod
-    def _get_rom_crc32(rom_path):
-        # Will be 0 if the rom is SFC, or the size of the header if it's SMC
-        smc_header_size = os.path.getsize(rom_path) % 1024
+    def _get_rom_crc32(self, file_handle, chunk_size=8192):
+        smc_header_size = os.path.getsize(file_handle.name) % 1024
 
-        with open(rom_path, 'rb') as rom_file:
+        if smc_header_size != 0:
             # Skip the header
-            if smc_header_size != 0:
-                rom_file.seek(smc_header_size)
+            file_handle.seek(smc_header_size)
 
-            # Header found
-            if rom_data[:3] == b'NES':
-                # Remove the header
-                clean_rom_data = rom_data[16:]
-            else:
-                # Parse the ROM as is
-                clean_rom_data = rom_data
-
-            crc32_value = zlib.crc32(clean_rom_data) & 0xFFFFFFFF
-
-            return "{:08x}".format(crc32_value).lower()
+        return super(ParseSNES, self)._get_rom_crc32(file_handle)
 
     def finalize(self):
         self.content_database.close()
