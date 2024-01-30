@@ -1,7 +1,7 @@
 import xbmcgui
 xbmcgui.lock()
 import re
-import simplejson as json
+import xbmc
 
 from config.content_config import *
 from config.core_general import *
@@ -209,6 +209,8 @@ class EmuConfigMenu:
 
 
 def main():
+    xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
+
     # Only works in emulators. Maybe modify this if needed for Xbox or homebrew?
     pattern = r'emulator_launcher\.py,(.*?),'
     system = None

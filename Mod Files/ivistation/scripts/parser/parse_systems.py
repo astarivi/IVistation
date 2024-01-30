@@ -11,6 +11,7 @@ from parse_auto import parse_auto
 
 # TODO: Test how to remove an item from the carousel if it's empty
 def main():
+    xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
     scan_type = sys.argv[1:][0]
 
     print("Systems parse {} mode selected".format(scan_type))
