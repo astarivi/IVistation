@@ -6,7 +6,13 @@ import simplejson as json
 from config.content_config import *
 from config.core_general import *
 from config.xports import XportsSettings
+from config.madmab import MadmabSettings
 from menu.utils.layout_helper import MY_PROGRAMS_PATH
+
+CORE_SETTINGS = {
+    "xports": XportsSettings,
+    "madmab": MadmabSettings
+}
 
 
 class EmuConfigMenu:
@@ -84,7 +90,7 @@ class EmuConfigMenu:
             "DELETE ALL CORE DATA"
         ]
 
-        if self.core_info["config_type"] == "xports":
+        if self.core_info["config_type"] in CORE_SETTINGS.keys():
             options.insert(1, "CORE SETTINGS")
 
         return options
@@ -184,7 +190,8 @@ class EmuConfigMenu:
             elif selected_option == "DELETE ALL CORE DATA":
                 self.delete_core_data()
             else:
-                xports_config = XportsSettings(self.system, self.core, self.core_info)
+                selected_core = CORE_SETTINGS[self.core_info["config_type"]]
+                xports_config = selected_core(self.system, self.core, self.core_info)
                 xports_config.show_menu(self.dialog)
                 xports_config.save()
 

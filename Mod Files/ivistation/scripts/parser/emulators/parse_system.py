@@ -56,15 +56,19 @@ class ParseSystem:
         the checksum. If your implementation needs a different method (as in, skipping header bytes), override this
         and provide your own implementation.
         """
-        chunk_size = 8192
+
+        with open(rom_path, 'rb') as file_handle:
+            return ParseSystem._get_handle_crc32(file_handle)
+
+    @staticmethod
+    def _get_handle_crc32(file_handle, chunk_size=8192):
         crc32_checksum = 0
 
-        with open(rom_path, 'rb') as f:
-            while True:
-                chunk = f.read(chunk_size)
-                if not chunk:
-                    break
-                crc32_checksum = zlib.crc32(chunk, crc32_checksum)
+        while True:
+            chunk = file_handle.read(chunk_size)
+            if not chunk:
+                break
+            crc32_checksum = zlib.crc32(chunk, crc32_checksum)
 
         return "{:08x}".format(crc32_checksum & 0xFFFFFFFF)
 
