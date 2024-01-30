@@ -1,4 +1,5 @@
 import os
+import re
 import xbmc
 import shutil
 import simplejson as json
@@ -175,7 +176,7 @@ def get_emulator_list_for_system(system):
         full_path = os.path.join(emulators_path, emulator)
 
         if os.path.isfile(os.path.join(full_path, "default.xbe")):
-            valid_systems.append(full_path)
+            valid_systems.append(emulator)
         else:
             try:
                 shutil.rmtree(
@@ -198,3 +199,43 @@ def get_system_defaults():
 
 def get_core_path(emu_system, core):
     return os.path.join(EMULATORS_DIR, emu_system, core)
+
+
+def get_core_info(emu_system, core_id):
+    core_path = get_core_path(emu_system, core_id)
+
+    with open(os.path.join(core_path, "info.json"), "r") as ci:
+        return json.load(ci)
+
+
+def is_valid_ini_line(line):
+    # Regular expression pattern for matching section (header)
+    section_pattern = re.compile(r'^\s*\[([^]]+)]\s*$')
+
+    # Regular expression pattern for matching key-value pair
+    key_value_pattern = re.compile(r'^\s*([^=]+)\s*=\s*(.*)\s*$')
+
+    # Check if the line matches the section pattern
+    if section_pattern.match(line):
+        return True
+    # Check if the line matches the key-value pattern
+    elif key_value_pattern.match(line):
+        return True
+    else:
+        return False
+
+
+def prepare_config_file(config_path):
+    """
+    Clean the config file from lines breaking the .ini convention, so it can be
+    parsed by configparser later.
+    """
+    with open(config_path, "r+") as config_file:
+        lines = config_file.readlines()
+        config_file.seek(0)
+
+        for line in lines:
+            if is_valid_ini_line(line):
+                config_file.write(line)
+
+        config_file.truncate()

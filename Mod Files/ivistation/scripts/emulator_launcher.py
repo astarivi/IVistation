@@ -21,7 +21,7 @@ def main():
         rom_path = rom_path.replace("Q:\\", ROOT_DIR)
 
     # Use CRC32 if available, else, use rom filename
-    if rom_crc32 is None or rom_crc32 == "" or rom_crc32 == " " or rom_crc32 == 0:
+    if rom_crc32 is None or rom_crc32 == "" or rom_crc32 == " " or rom_crc32 == 0 or rom_crc32 == "None":
         rom_identifier = os.path.splitext(os.path.basename(rom_path))[0]
     else:
         rom_identifier = rom_crc32

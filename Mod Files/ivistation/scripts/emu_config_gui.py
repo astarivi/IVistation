@@ -35,6 +35,9 @@ class EmuConfigMenu:
                 self.core = self.config["core"]
                 return
 
+        if self.config is None:
+            self.config = {}
+
         # Let's check the system defaults
         sys_defaults = get_system_defaults()
 
@@ -62,27 +65,30 @@ class EmuConfigMenu:
             self.should_save = True
             return
 
+        verbose_available_cores = []
+        core_relation = {}
+
+        for core_id in available_cores:
+            core_name = get_core_info(self.system, core_id)["title"]
+
+            verbose_available_cores.append(core_name)
+            core_relation[core_name] = core_id
+
         # More than one choice, let the user decide
-        selection = self.dialog.select("SELECT A DEFAULT CORE", available_cores)
+        selection = self.dialog.select("SELECT A DEFAULT CORE", verbose_available_cores)
 
         # User didn't decide on anything
         if selection == -1:
             return
 
-        self.core = available_cores[selection]
+        self.core = core_relation[verbose_available_cores[selection]]
         self.config["core"] = self.core
         self.should_save = True
-
-    def _get_core_info(self, core):
-        core_path = get_core_path(self.system, core)
-
-        with open(os.path.join(core_path, "info.json"), "r") as ci:
-            return json.load(ci)
 
     def get_menu(self):
         # Load the info.json file from the emulator folder
         if self.core_info is None:
-            self.core_info = self._get_core_info(self.core)
+            self.core_info = get_core_info(self.system, self.core)
 
         options = [
             "CORE: {}".format(self.core_info["title"]),
@@ -95,19 +101,20 @@ class EmuConfigMenu:
 
         return options
 
-    # This little magic trick here will take us anywhere from 100 ms to 5 seconds
     def change_core(self):
         available_cores = get_emulator_list_for_system(self.system)
 
+        core_relation = {}
         human_core_list = []
 
-        for core in available_cores:
-            core_name = self._get_core_info(core)["title"]
+        for core_id in available_cores:
+            core_name = get_core_info(self.system, core_id)["title"]
             # Selected core
-            if self.core == core_name:
+            if self.core == core_id:
                 core_name = "* " + core_name
 
             human_core_list.append(core_name)
+            core_relation[core_name] = core_id
 
         selection = self.dialog.select("SELECT A CORE", human_core_list)
 
@@ -121,9 +128,9 @@ class EmuConfigMenu:
         if selected_core.startswith("* "):
             return
 
-        self.config["core"] = selected_core
+        self.core = core_relation[selected_core]
+        self.config["core"] = self.core
         self.should_save = True
-        self.core = selected_core
         self.core_info = None
 
     def reset_core(self):

@@ -2,7 +2,7 @@ import os
 import xbmcgui
 
 from backports import configparser
-from content_config import get_core_path
+from content_config import get_core_path, prepare_config_file
 from collections import OrderedDict
 from utils.eeprom import EEPROMReader
 
@@ -64,6 +64,8 @@ class XportsSettings(object):
         self.settings_path = os.path.join(self.full_core_path, self.core_info["config_file"])
 
         # Read the config file
+        prepare_config_file(self.settings_path)
+
         self.xports_config = configparser.ConfigParser()
         self.xports_config.read(self.settings_path)
 
