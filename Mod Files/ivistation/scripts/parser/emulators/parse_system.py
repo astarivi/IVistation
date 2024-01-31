@@ -6,6 +6,8 @@ import string
 
 from abc import abstractmethod
 
+ALLOWED_FILENAME_CHARACTERS = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&'()-.@[]^_`{}~")
+
 
 class ParseSystem(object):
     entries = []
@@ -174,10 +176,17 @@ class ParseSystem(object):
 
     @staticmethod
     def clean_filename(name):
-        # Remove problematic stuff
-        filename = name.lower().replace(" ", "_").replace("\\", "").replace("/", "").replace(",", "")
+        """
+        Returns a clean filename for the file. Why do we apply FATX limitations? Because we
+        may use the dat-o-matic no-intro official title for the ROM. We also remove problematic
+        stuff in the path, like spaces and commmas
+        """
+        # Remove spaces and change them for _
+        filename = name.lower().replace(" ", "_")
 
-        # If we killed the filename, create a random one.
+        filename = ''.join(char for char in filename if char in ALLOWED_FILENAME_CHARACTERS)
+
+        # If we killed the filename (whoops), create a random one.
         if filename == "" or filename == " ":
             return "".join(random.choice(string.ascii_lowercase) for _ in range(12))
 

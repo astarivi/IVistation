@@ -1,6 +1,7 @@
 {
   "id": "snes9xmm",
   "version": 1,
+  "mm_version": "v6b08",
   "title": "SNES9XBox MM",
   "description": "Snes9x port with multiple core versions, offering the best accuracy and compatibility, but requiring some fine tuning for some titles.",
   "authors": "Snes9x Team, XPorts, Madmab",
