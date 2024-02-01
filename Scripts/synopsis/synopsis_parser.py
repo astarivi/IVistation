@@ -1,9 +1,20 @@
+import re
 import os
 import zlib
 import sqlite3
 
 
-def main(folder, database, crc_index=True):
+def clean_thumbnail_name(name):
+    """
+    Subjects the filename to the exact same processing that would
+    take place in IVistation. This is the name of the thumbnail,
+    not the target filename.
+    """
+    pattern = re.compile(r'[(\[][^)\]]*[)\]]')
+    return re.sub(pattern, '', name).strip()
+
+
+def main(folder, database, crc_index=True, no_leading_name_tag=False):
     # Initialize target database
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
@@ -11,7 +22,7 @@ def main(folder, database, crc_index=True):
             CREATE TABLE IF NOT EXISTS root (
                 id INTEGER PRIMARY KEY,
                 name VARCHAR,
-                xtrasname VARCHAR UNIQUE,
+                xtrasname VARCHAR,
                 synopsis BLOB
             );
         ''')
@@ -39,6 +50,9 @@ def main(folder, database, crc_index=True):
             INSERT INTO root (name, xtrasname, synopsis) VALUES (?, ?, ?);
         '''
 
+    xtras_names = []
+    xtras_relation = {}
+
     for synopsis_file in os.listdir(synopsis_folder):
         count += 1
         print("{}/{}".format(count, total_count))
@@ -48,10 +62,15 @@ def main(folder, database, crc_index=True):
 
         with open(full_synopsis_path, 'rb') as synopsis_handle:
             first_line = synopsis_handle.readline().decode('utf-8')
-            if not first_line.startswith("Name: "):
-                continue
+            if first_line.startswith("Name: "):
+                name = first_line[6:].strip()
+            else:
+                if no_leading_name_tag:
+                    name = first_line.strip()
+                else:
+                    continue
+
             # Read the first name, and remove "Name: " from the start, then strip any remaining blank characters.
-            name = first_line[6:].strip()
             # Seek to start again
             synopsis_handle.seek(0)
             compressed_synopsis = zlib.compress(
@@ -59,12 +78,18 @@ def main(folder, database, crc_index=True):
                 9
             )
 
-        print(name, xtrasname)
+        if xtrasname in xtras_names:
+            print("Duplicated!: ", xtrasname)
+            continue
+
+        xtras_names.append(xtrasname)
 
         cursor.execute(
             insert_query,
-            (name, xtrasname, sqlite3.Binary(compressed_synopsis),)
+            (clean_thumbnail_name(name), clean_thumbnail_name(xtrasname), sqlite3.Binary(compressed_synopsis),)
         )
+
+        xtras_relation[xtrasname] = cursor.lastrowid
 
     conn.commit()
 
@@ -74,14 +99,11 @@ def main(folder, database, crc_index=True):
         return
 
     # First table done, now let's parse the indexes
-
-    select_query = '''
-            SELECT * FROM root WHERE xtrasname = ?;
-        '''
-
     crc_insert_query = '''
             INSERT INTO crc (crc, root_id) VALUES (?, ?);
         '''
+
+    crc_values = []
 
     with open("crcindex.txt", "r") as crc_index_handle:
         print("Creating indexes...")
@@ -93,8 +115,13 @@ def main(folder, database, crc_index=True):
                 header_indexes = line.lower()
 
                 # Clean it
-                for char in "[] ":
+                for char in "[] \n":
                     header_indexes = header_indexes.replace(char, "")
+
+                # Empty header
+                if header_indexes.strip() == "":
+                    crc_indexes = []
+                    continue
 
                 crc_indexes = header_indexes.split(",") if "," in header_indexes else [header_indexes]
                 continue
@@ -107,19 +134,29 @@ def main(folder, database, crc_index=True):
 
             xtras_name = line[10:].strip()
 
-            # Look for the id
-            cursor.execute(select_query, (xtras_name,))
+            # Empty Xtrasname value
+            if xtras_name == "":
+                continue
 
-            row = cursor.fetchone()
+            if xtras_name not in xtras_relation:
+                continue
+
+            row_id = xtras_relation[xtras_name]
 
             # This won't be of any use to us.
-            if row is None:
+            if row_id is None:
                 continue
 
             for crc_val in crc_indexes:
+                if crc_val in crc_values:
+                    print("Duplicated CRC value: ", crc_val, xtras_name)
+                    continue
+
+                crc_values.append(crc_val)
+
                 cursor.execute(
                     crc_insert_query,
-                    (crc_val, row[0])
+                    (crc_val, row_id)
                 )
 
         conn.commit()
@@ -128,4 +165,4 @@ def main(folder, database, crc_index=True):
 
 
 if __name__ == '__main__':
-    main("in", "snes.db")
+    main("in", "nes.db", no_leading_name_tag=True)

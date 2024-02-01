@@ -68,18 +68,21 @@ class SynopsisHelper(object):
                 return self._parse_synopsis(cursor.fetchone()[0])
 
         # Try by name
-        select_query = '''
-            SELECT synopsis FROM root WHERE name = ?;
-        '''
+        for column in ["name", "xtrasname"]:
+            select_query = '''
+                SELECT synopsis FROM root WHERE {} = ?;
+            '''.format(column)
 
-        cursor.execute(select_query, (clean_rom_name(name),))
+            cursor.execute(select_query, (clean_rom_name(name),))
 
-        row = cursor.fetchone()
+            row = cursor.fetchone()
 
-        if row is None:
-            raise ValueError
+            if row is None:
+                continue
 
-        return self._parse_synopsis(row[0])
+            return self._parse_synopsis(row[0])
+
+        raise ValueError
 
     @staticmethod
     def _table_exists(cursor, table_name):
