@@ -69,7 +69,7 @@
 										<label>[UPPERCASE]$LOCALIZE[31356][/UPPERCASE]</label>
 										<label2>$INFO[Skin.String(Custom_Emulator_Path)]</label2>
 										<include>MenuButtonMenuValues</include>
-										<onclick>Skin.SetString(Custom_Emulator_Path,Q:\emustation\emulators\)</onclick>
+										<onclick>Skin.SetString(Custom_Emulator_Path,Q:\ivistation\emulators\)</onclick>
 										<onclick>Skin.SetPath(Custom_Emulator_Path)</onclick>
 								</control>
 								<control type="button" id="13">
@@ -78,7 +78,7 @@
 										<label>[UPPERCASE]$LOCALIZE[31357][/UPPERCASE]</label>
 										<label2>$INFO[Skin.String(Custom_Media_Path)]</label2>
 										<include>MenuButtonMenuValues</include>
-										<onclick>Skin.SetString(Custom_Media_Path,Q:\emustation\media\)</onclick>
+										<onclick>Skin.SetString(Custom_Media_Path,Q:\ivistation\media\)</onclick>
 										<onclick>Skin.SetPath(Custom_Media_Path)</onclick>
 								</control>
 								<control type="button" id="15">
@@ -87,7 +87,7 @@
 										<label>[UPPERCASE]$LOCALIZE[31358][/UPPERCASE]</label>
 										<label2>$INFO[Skin.String(Custom_Roms_Path)]</label2>
 										<include>MenuButtonMenuValues</include>
-										<onclick>Skin.SetString(Custom_Roms_Path,Q:\emustation\roms\)</onclick>
+										<onclick>Skin.SetString(Custom_Roms_Path,Q:\ivistation\roms\)</onclick>
 										<onclick>Skin.SetPath(Custom_Roms_Path)</onclick>
 								</control>
 								<control type="button" id="16">
@@ -95,11 +95,11 @@
 										<top>0</top>
 										<label>  -  $LOCALIZE[31359]</label>
 										<include>MenuButtonMenuValues</include>
-										<onclick>Skin.SetString(Custom_Emulator_Path,Q:\emustation\emulators\)</onclick>
-										<onclick>Skin.SetString(Custom_Media_Path,Q:\emustation\media\)</onclick>
-										<onclick>Skin.SetString(Custom_Roms_Path,Q:\emustation\roms\)</onclick>
+										<onclick>Skin.SetString(Custom_Emulator_Path,Q:\ivistation\emulators\)</onclick>
+										<onclick>Skin.SetString(Custom_Media_Path,Q:\ivistation\media\)</onclick>
+										<onclick>Skin.SetString(Custom_Roms_Path,Q:\ivistation\roms\)</onclick>
 										<onclick>SetFocus(15)</onclick>
-										<visible>!StringCompare(Skin.String(Custom_Emulator_Path),Q:\emustation\emulators\) | !StringCompare(Skin.String(Custom_Media_Path),Q:\emustation\media\) | !StringCompare(Skin.String(Custom_Roms_Path),Q:\emustation\roms\)</visible>
+										<visible>!StringCompare(Skin.String(Custom_Emulator_Path),Q:\ivistation\emulators\) | !StringCompare(Skin.String(Custom_Media_Path),Q:\ivistation\media\) | !StringCompare(Skin.String(Custom_Roms_Path),Q:\ivistation\roms\)</visible>
 								</control>
 						</control>
 				</control>

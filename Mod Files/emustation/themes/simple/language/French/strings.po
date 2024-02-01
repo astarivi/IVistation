@@ -380,8 +380,8 @@ msgid "view log files"
 msgstr "afficher les fichiers journaux"
 
 msgctxt "#31369"
-msgid "ignore "the" when sorting"
-msgstr "ignorer "le" lors du tri"
+msgid "disable automatic boxart downloads"
+msgstr "désactiver les téléchargements de boxart"
 
 msgctxt "#31370"
 msgid "remove articles from end of name"

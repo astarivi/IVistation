@@ -1,5 +1,4 @@
 import os
-import re
 import xbmc
 import shutil
 
@@ -74,10 +73,6 @@ class GameListCreator:
 
         self.last_letter = None
         self.jump_count = 8000
-
-    @staticmethod
-    def clean_thumbnail_name(name):
-        return re.sub(THUMBNAIL_PATTERN, '', name.replace("'", "_")).strip()
 
     def add_entry(self, count, rom):
         if self.system == "xbox":

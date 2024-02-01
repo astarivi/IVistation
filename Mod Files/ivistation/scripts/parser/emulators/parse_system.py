@@ -1,5 +1,6 @@
 import os
 import zlib
+import xbmc
 import shutil
 import random
 import string
@@ -7,13 +8,33 @@ import string
 from abc import abstractmethod
 
 ALLOWED_FILENAME_CHARACTERS = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&'()-.@[]^_`{}~")
+ARTWORK_SUB_FOLDERS = [
+    "boxart",
+    "boxart3d",
+    "logo",
+    "mix",
+    "screenshots",
+    "videos"
+]
 
 
 class ParseSystem(object):
     entries = []
 
-    def __init__(self):
-        pass
+    def __init__(self, system):
+        declared_media_path = xbmc.getInfoLabel('skin.string(Custom_Media_Path)')
+        root_media_path = os.path.join(declared_media_path, system)
+
+        for sub_folder in ARTWORK_SUB_FOLDERS:
+            try:
+                os.makedirs(
+                    os.path.join(
+                        root_media_path,
+                        sub_folder
+                    )
+                )
+            except Exception:
+                continue
 
     @staticmethod
     def get_progress_title():

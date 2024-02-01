@@ -211,6 +211,7 @@ class EmuConfigMenu:
 def main():
     xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
 
+    # FIXME: We could use Skin.String(emuname) here
     # Only works in emulators. Maybe modify this if needed for Xbox or homebrew?
     pattern = r'emulator_launcher\.py,(.*?),'
     system = None

@@ -8,7 +8,6 @@ import xbmcgui
 from utils.layout_helper import DEFAULT_LAYOUT_XML, MY_PROGRAMS_PATH, HEADER_DATA_EMU, FOOTER_DATA_EMU, TEMPLATE_JUMP_LIST, OVERLAY_JUMP_LIST
 
 
-# TODO: Implement apps, homebrew and XBOX games
 def main():
     # Get target system to load, try args first
     try:
@@ -37,31 +36,30 @@ def main():
         return
 
     # Write the layout to MY_PROGRAMS_PATH by using DEFAULT_LAYOUT_XML as a template
-    with open(DEFAULT_LAYOUT_XML, "r") as layout_file:
-        with open(MY_PROGRAMS_PATH, "w") as programs_file:
-            programs_file.write(
-                HEADER_DATA_EMU.format("default")
-            )
-            for code in layout_file:
-                code = code.replace(
-                    "[ArtworkFolder]",
-                    "{}{}\$INFO[Skin.String({}_artworkfolder)]\\".format(
-                        xbmc.getInfoLabel('skin.string(Custom_Media_Path)'),
-                        xbmc.getInfoLabel('Skin.String(emuname)'),
-                        target_system
-                    )
+    with open(DEFAULT_LAYOUT_XML, "r") as layout_file, open(MY_PROGRAMS_PATH, "w") as programs_file:
+        programs_file.write(
+            HEADER_DATA_EMU.format("default")
+        )
+        for code in layout_file:
+            code = code.replace(
+                "[ArtworkFolder]",
+                "{}{}\$INFO[Skin.String({}_artworkfolder)]\\".format(
+                    xbmc.getInfoLabel('skin.string(Custom_Media_Path)'),
+                    xbmc.getInfoLabel('Skin.String(emuname)'),
+                    target_system
                 )
-                code = code.replace('[Artwork_Type]', target_system + '_artworkfolder')
-                code = code.replace('[Fanart_Toggle]',
-                                    'Skin.HasSetting(' + xbmc.getInfoLabel('Skin.String(emuname)') + 'fanart)')
-                code = code.replace('[Media_Path]',
-                                    xbmc.getInfoLabel('skin.string(Custom_Media_Path)') + xbmc.getInfoLabel(
-                                        'Skin.String(emuname)'))
-                code = code.replace('[CurrentSystem]', target_system)
-                if '<!-- video preview mode horizontal -->' in code:
-                    xbmc.executebuiltin('Skin.SetBool(videopreviewhorizontal)')
-                programs_file.write(code)
-            programs_file.write(FOOTER_DATA_EMU)
+            )
+            code = code.replace('[Artwork_Type]', target_system + '_artworkfolder')
+            code = code.replace('[Fanart_Toggle]',
+                                'Skin.HasSetting(' + xbmc.getInfoLabel('Skin.String(emuname)') + 'fanart)')
+            code = code.replace('[Media_Path]',
+                                xbmc.getInfoLabel('skin.string(Custom_Media_Path)') + xbmc.getInfoLabel(
+                                    'Skin.String(emuname)'))
+            code = code.replace('[CurrentSystem]', target_system)
+            if '<!-- video preview mode horizontal -->' in code:
+                xbmc.executebuiltin('Skin.SetBool(videopreviewhorizontal)')
+            programs_file.write(code)
+        programs_file.write(FOOTER_DATA_EMU)
 
     # Write the game list to the layout
     with open(gamelist, "r") as gamelist_file:

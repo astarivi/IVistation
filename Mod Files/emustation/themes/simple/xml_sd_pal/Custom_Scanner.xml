@@ -129,8 +129,8 @@
 										<top>0</top>
 										<label>  -  [UPPERCASE]$LOCALIZE[31369][/UPPERCASE]</label>
 										<include>MenuCustomButtonMenuValues</include>
-										<onclick>Skin.ToggleSetting(Ignore_The_In_Names)</onclick>
-										<selected>Skin.HasSetting(Ignore_The_In_Names)</selected>
+										<onclick>Skin.ToggleSetting(disable_art_download)</onclick>
+										<selected>Skin.HasSetting(disable_art_download)</selected>
 										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
 								</control>
 								<control type="radiobutton" id="18">

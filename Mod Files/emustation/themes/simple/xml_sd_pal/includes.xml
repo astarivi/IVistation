@@ -83,9 +83,9 @@
 				<animation effect="fade" time="150">hidden</animation>
 		</include>
 		<include name="defaultassetspaths">
-				<onunload condition="StringCompare(Skin.String(Custom_Emulator_Path),)">Skin.SetString(Custom_Emulator_Path,Q:\emustation\emulators\)</onunload>
-				<onunload condition="StringCompare(Skin.String(Custom_Roms_Path),)">Skin.SetString(Custom_Roms_Path,Q:\emustation\roms\)</onunload>
-				<onunload condition="StringCompare(Skin.String(Custom_Media_Path),)">Skin.SetString(Custom_Media_Path,Q:\emustation\media\)</onunload>
+				<onunload condition="StringCompare(Skin.String(Custom_Emulator_Path),)">Skin.SetString(Custom_Emulator_Path,Q:\ivistation\emulators\)</onunload>
+				<onunload condition="StringCompare(Skin.String(Custom_Roms_Path),)">Skin.SetString(Custom_Roms_Path,Q:\ivistation\roms\)</onunload>
+				<onunload condition="StringCompare(Skin.String(Custom_Media_Path),)">Skin.SetString(Custom_Media_Path,Q:\ivistation\media\)</onunload>
 		</include>
 		<include name="CommonOptionsMenuBack">
 				<include>VisibleFadeEffect</include>

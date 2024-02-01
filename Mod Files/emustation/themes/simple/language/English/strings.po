@@ -381,7 +381,7 @@ msgid "view log files"
 msgstr ""
 
 msgctxt "#31369"
-msgid "ignore "the" when sorting"
+msgid "disable automatic boxart downloads"
 msgstr ""
 
 msgctxt "#31370"

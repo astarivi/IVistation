@@ -1,7 +1,7 @@
 import os
 import xbmc
 
-
+# Handle resolution
 resolution = xbmc.getInfoLabel('system.screenresolution')
 
 if "PAL" in resolution and os.path.isdir(xbmc.translatePath('special://skin/xml_sd_pal')):
@@ -18,8 +18,17 @@ else:
     layout_mode = ""
     xml_mode = "xml/"
 
+# Handle layout type
+if xbmc.getCondVisibility('Skin.HasSetting(synopsislayout)'):
+    layout = "synopsis_layout.xml"
+elif xbmc.getCondVisibility('Skin.HasSetting(thumblayout)'):
+    layout = "thumb_layout.xml"
+else:
+    layout = "layout.xml"
+
+# Export variables
 DEFAULT_LAYOUT_PATH = xbmc.translatePath('special://xbmc/emustation/themes/simple/layouts/default' + layout_mode)
-DEFAULT_LAYOUT_XML = os.path.join(DEFAULT_LAYOUT_PATH, 'layout.xml')
+DEFAULT_LAYOUT_XML = os.path.join(DEFAULT_LAYOUT_PATH, layout)
 MY_PROGRAMS_PATH = xbmc.translatePath('special://skin/{}MyPrograms.xml'.format(xml_mode))
 TEMPLATE_JUMP_LIST = xbmc.translatePath('special://skin/{}_script_jumpList.xml'.format(xml_mode))
 OVERLAY_JUMP_LIST = xbmc.translatePath('special://skin/{}Includes_layout_overlay.xml'.format(xml_mode))
@@ -96,6 +105,7 @@ HEADER_DATA_EMU = '''<window type="window" id="1">
             <visible>!Skin.HasSetting(videolayout) + Skin.HasSetting(videopreviewhorizontal)</visible>
         </control>
     '''
+
 FOOTER_DATA_EMU = '''
     </control>
     </controls>

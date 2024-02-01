@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = (
 
 class ParseNES(ParseSystem):
     def __init__(self):
-        super(ParseNES, self).__init__()
+        super(ParseNES, self).__init__("nes")
 
         print("Initializing NES parser...")
 
