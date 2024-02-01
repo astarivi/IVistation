@@ -38,13 +38,13 @@ def download_file(url, local_path, timeout=20, chunk_size=8192, progress_every=3
         yield 100
 
 
-def turbo_download(url, save_to, chunk_size=8192):
+def turbo_download(url, save_to, timeout=8, chunk_size=8192):
     """
     Downloads a file as fast as possible, disregarding progress.
     Used to download small files, or many sequential files.
     """
 
-    with closing(urllib2.urlopen(url, timeout=5)) as response, open(save_to, 'wb') as output_file:
+    with closing(urllib2.urlopen(url, timeout=timeout)) as response, open(save_to, 'wb') as output_file:
         while True:
             chunk = response.read(chunk_size)
             if not chunk:

@@ -19,9 +19,8 @@ ARTWORK_SUB_FOLDERS = [
 
 
 class ParseSystem(object):
-    entries = []
-
     def __init__(self, system):
+        self.entries = []
         declared_media_path = xbmc.getInfoLabel('skin.string(Custom_Media_Path)')
         root_media_path = os.path.join(declared_media_path, system)
 

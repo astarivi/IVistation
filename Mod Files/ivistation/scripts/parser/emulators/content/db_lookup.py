@@ -29,7 +29,7 @@ class DatabaseHelper:
         return None
 
     def close(self):
-        if self.db_connection is not None:
+        if hasattr(self, 'db_connection') and self.db_connection is not None:
             self.db_connection.close()
 
     def __del__(self):

@@ -43,7 +43,7 @@ def main():
         for code in layout_file:
             code = code.replace(
                 "[ArtworkFolder]",
-                "{}{}\$INFO[Skin.String({}_artworkfolder)]\\".format(
+                "{}{}\\boxart\\".format(
                     xbmc.getInfoLabel('skin.string(Custom_Media_Path)'),
                     xbmc.getInfoLabel('Skin.String(emuname)'),
                     target_system

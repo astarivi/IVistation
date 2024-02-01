@@ -5,7 +5,7 @@ import xbmc
 import xbmcgui
 import time
 
-from parse_roms import parse_roms, SYSTEMS
+from parse_manual import parse_roms, SYSTEMS
 from parse_auto import parse_auto
 
 

@@ -1,6 +1,7 @@
 import os
 import xbmc
 import shutil
+from synopsis_helper import SynopsisHelper, DEFAULT_GAME_DETAILS
 
 GAMELIST_ENTRY = '''\n
 	<item id="{}">
@@ -24,8 +25,6 @@ JUMPLIST_ENTRY = '''<control type="button" id="{}">
 	<onclick>{}</onclick>
 </control>
 '''
-
-THUMBNAIL_PATTERN = re.compile(r'\([^)]*\)')
 
 
 class GameListCreator:
@@ -73,6 +72,7 @@ class GameListCreator:
 
         self.last_letter = None
         self.jump_count = 8000
+        self.synopsis_helper = SynopsisHelper(self.system)
 
     def add_entry(self, count, rom):
         if self.system == "xbox":
@@ -86,12 +86,29 @@ class GameListCreator:
                 )
             )[0]
 
+        try:
+            if not self.synopsis_helper.enabled:
+                raise ValueError
+
+            game_details, game_synopsis = self.synopsis_helper.get_synopsis(
+                rom[0],
+                crc32=rom[1]
+            )
+        except ValueError:
+            game_details = DEFAULT_GAME_DETAILS.format(
+                rom[0],
+                self.system,
+                rom[1]
+            )
+
+            game_synopsis = ""
+
         self.gamelist_file.write(
             GAMELIST_ENTRY.format(
                 count,
                 rom[0],
-                "Nothing here",
-                "",
+                game_details,
+                game_synopsis,
                 "{}.jpg".format(
                     raw_rom_name
                 ),
