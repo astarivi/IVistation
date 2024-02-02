@@ -1,0 +1,17 @@
+{
+  "cores": {
+    "title": "Emulation Cores",
+    "items": [
+      {
+        "id": "fceultra",
+        "title": "FCE UltraX",
+        "thumbnail": "https://i.imgur.com/JgtqqBk.jpeg",
+        "version": 1,
+        "description": "FCE Ultra is a NES emulator with decent accuracy and great speed,[CR] but limited game support. Preferred by many as one of the fastest emulators,[CR] it was brought to the Xbox by XPorts.[CR] Credits: Bero, Ben Parnell, Xodnizel, XPorts",
+        "download_size": "1 MB",
+        "install_size": "2 MB",
+        "url": "https://link.storjshare.io/raw/juxwchaux74wykn24iqolykbsx7a/ivistation%2Ffceultra.zip"
+      }
+    ]
+  }
+}
