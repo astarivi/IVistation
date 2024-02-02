@@ -5,6 +5,7 @@ import xbmc
 import xbmcgui
 import time
 
+from ivistation.verbose import VERBOSE_SYSTEMS
 from parse_manual import parse_roms, SYSTEMS
 from parse_auto import parse_auto
 
@@ -22,7 +23,7 @@ def main():
     progress_dialog = xbmcgui.DialogProgress()
 
     if scan_type == "manual":
-        emulated_systems = sorted(SYSTEMS.keys())
+        emulated_systems = sorted(VERBOSE_SYSTEMS.keys())
 
         selected_system = dialog.select("SELECT A SYSTEM", emulated_systems)
 
@@ -31,7 +32,7 @@ def main():
 
         progress_dialog.create("MANUAL SCAN MODE", "Initializing")
 
-        result = parse_roms(emulated_systems[selected_system], progress_dialog)
+        result = parse_roms(VERBOSE_SYSTEMS[emulated_systems[selected_system]], progress_dialog)
 
         progress_dialog.close()
 
