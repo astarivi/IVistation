@@ -1,0 +1,151 @@
+<window type="dialog" id="1902">
+		<defaultcontrol always="true">9000</defaultcontrol>
+		<controls>
+				<control type="button" id="9001">
+						<description>Hidden button so you can't press A more than once</description>
+						<posx>-1000</posx>
+				</control>
+				<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1280</width>
+						<height>720</height>
+						<aspectratio aligny="top">scale</aspectratio>
+						<texture background="false">Special://root/ivistation/media/downloader/$INFO[Skin.String(downloader_thumb)]</texture>
+						<animation effect="fade" start="0" end="100" time="0">WindowOpen</animation>
+				</control>
+				<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1280</width>
+						<height>720</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>$VAR[background_colour]</colordiffuse>
+						<texture background="false">Special://root/ivistation/data/downloader/artwork/UI/background.jpg</texture>
+						<animation effect="fade" start="98" end="98" delay="0" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="group">
+						<include>downloader_openclose</include>
+						<control type="textbox">
+								<description>Title</description>
+								<posx>20</posx>
+								<posy>90</posy>
+								<width>1240</width>
+								<height>100</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>size_40</font>
+								<textcolor>$VAR[info_text_colour]</textcolor>
+								<label>$INFO[Skin.String(downloader_label)]</label>
+						</control>
+						<control type="group">
+								<posx>485</posx>
+								<posy>200</posy>
+								<control type="label">
+										<description>Sizes label</description>
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>1240</width>
+										<height max="80">auto</height>
+										<align>right</align>
+										<aligny>top</aligny>
+										<font>size_18</font>
+										<textcolor>$VAR[info_text_colour]</textcolor>
+										<label>[UPPERCASE]Download size:[CR]Install size:[/UPPERCASE]</label>
+								</control>
+								<control type="label">
+										<description>Sizes</description>
+										<posx>5</posx>
+										<posy>0</posy>
+										<width>300</width>
+										<height max="80">auto</height>
+										<align>left</align>
+										<aligny>top</aligny>
+										<font>size_18</font>
+										<textcolor>$VAR[info_text_colour]</textcolor>
+										<label>[UPPERCASE]$INFO[Skin.String(downloader_actualicon)][/UPPERCASE]</label>
+								</control>
+						</control>
+						<!-- Download Button -->
+						<control type="button" id="9000">
+								<posx>645</posx>
+								<posy>195</posy>
+								<width>300</width>
+								<height>56</height>
+								<label>DOWNLOAD</label>
+								<texturefocus>Special://root/ivistation/data/downloader/artwork/UI/focus_button.png</texturefocus>
+								<texturenofocus>Special://root/ivistation/data/downloader/artwork/UI/nofocus_button.png</texturenofocus>
+								<font>size_24</font>
+								<textcolor>30FFFFFF</textcolor>
+								<focusedcolor>FFFFFFFF</focusedcolor>
+								<textoffsetx>0</textoffsetx>
+								<textoffsety>10</textoffsety>
+								<align>center</align>
+								<aligny>top</aligny>
+								<onclick>SetFocus(9001)</onclick>
+								<onclick>$INFO[Skin.String(downloader_script)]</onclick>
+								<onclick>ActivateWindow(1904)</onclick>
+						</control>
+						<control type="textbox">
+								<description>Description</description>
+								<posx>140</posx>
+								<posy>265</posy>
+								<width>1000</width>
+								<height>360</height>
+								<align>justify</align>
+								<aligny>center</aligny>
+								<font>size_18</font>
+								<scrolltime>200</scrolltime>
+								<textcolor>$VAR[info_text_colour]</textcolor>
+								<autoscroll delay="5000" time="2000" repeat="10000" condition="Container(9000).HasFocus">Conditional</autoscroll>
+								<label>$INFO[Skin.String(downloader_label2)]</label>
+						</control>
+						<!-- Spacer image -->
+						<control type="image">
+								<posx>120</posx>
+								<posy>265</posy>
+								<width>1040</width>
+								<height>1</height>
+								<aspectratio>stretch</aspectratio>
+								<colordiffuse>$VAR[spacer_colour]</colordiffuse>
+								<texture background="true">Special://root/ivistation/data/downloader/artwork/UI/spacer.jpg</texture>
+						</control>
+						<!-- Spacer image -->
+						<control type="image">
+								<posx>120</posx>
+								<posy>625</posy>
+								<width>1040</width>
+								<height>1</height>
+								<aspectratio>stretch</aspectratio>
+								<colordiffuse>$VAR[spacer_colour]</colordiffuse>
+								<texture background="true">Special://root/ivistation/data/downloader/artwork/UI/spacer.jpg</texture>
+						</control>
+						<!-- Back button -->
+						<control type="image">
+								<posx>598</posx>
+								<posy>637</posy>
+								<width>84</width>
+								<height>32</height>
+								<aspectratio>stretch</aspectratio>
+								<colordiffuse>$VAR[info_text_colour]</colordiffuse>
+								<texture background="true">Special://root/ivistation/data/downloader/artwork/UI/back.png</texture>
+								<animation effect="fade" start="0" end="100" delay="0" time="150">Visible</animation>
+								<animation effect="fade" start="100" end="0" delay="0" time="150">Hidden</animation>
+								<visible>Control.HasFocus(9000)</visible>
+						</control>
+						<control type="label">
+								<description>Helper</description>
+								<posx>240</posx>
+								<posy>43r</posy>
+								<width>800</width>
+								<height>200</height>
+								<align>center</align>
+								<aligny>top</aligny>
+								<font>size_14</font>
+								<textcolor>$VAR[info_text_colour]</textcolor>
+								<label>Downloads not working? astarivi@discord[CR]Made possible by Rocky5, modified by astarivi</label>
+								<wrapmultiline>true</wrapmultiline>
+						</control>
+				</control>
+		</controls>
+</window>

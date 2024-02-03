@@ -155,7 +155,7 @@
 								</item>
 								<item>
 										<label>$LOCALIZE[31103]</label>
-										<onclick>ActivateWindow(1901)</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/download/download_loader.py)</onclick>
 										<icon>-</icon>
 										<visible>!Skin.HasSetting(KioskMode)</visible>
 								</item>

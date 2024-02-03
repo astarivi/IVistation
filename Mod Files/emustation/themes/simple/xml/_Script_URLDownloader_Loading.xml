@@ -1,0 +1,17 @@
+<window type="dialog" id="1904">
+		<controls>
+				<include>Behind.Dialog.FadeOut</include>
+				<control type="image">
+						<posx>20</posx>
+						<posy>20</posy>
+						<width>30</width>
+						<height>30</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<colordiffuse>FFFFFFFF</colordiffuse>
+						<texture>Special://root/ivistation/data/downloader/artwork/UI/busy.png</texture>
+						<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+						<animation effect="rotate" end="360" time="500" center="auto" loop="true" condition="true">Conditional</animation>
+				</control>
+		</controls>
+</window>

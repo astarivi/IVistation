@@ -50,3 +50,21 @@ def turbo_download(url, save_to, timeout=8, chunk_size=8192):
             if not chunk:
                 break
             output_file.write(chunk)
+
+
+def memory_download(url, timeout=8):
+    """
+    Downloads a file asap, and returns the obtained contents.
+    Used to download very small text files for further parsing,
+    such as JSON files.
+    """
+    headers = {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'User-Agent': 'Mozilla/5.0'
+    }
+
+    request = urllib2.Request(url, headers=headers)
+
+    with closing(urllib2.urlopen(request, timeout=timeout)) as response:
+        return response.read()

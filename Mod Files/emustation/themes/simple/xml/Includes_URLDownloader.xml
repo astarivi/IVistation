@@ -1,0 +1,176 @@
+<includes>
+		<!-- Colour values bellow, are used only if the external file is missing or corrupt -->
+		<!-- https://www.colorcombos.com -->
+		<!-- Texture Elements -->
+		<variable name="background_colour">
+				<value>FFD9D9D9</value>
+		</variable>
+		<variable name="content_underlay_colour">
+				<value>FF0a9ece</value>
+		</variable>
+		<variable name="spacer_colour">
+				<value>FA292929</value>
+		</variable>
+		<variable name="tab_underlay_colour">
+				<value>FF0a9ece</value>
+		</variable>
+		<variable name="tabs_underlay_colour">
+				<value>FA292929</value>
+		</variable>
+		<!-- Text Elements -->
+		<variable name="content_fo_colour">
+				<value>FFFFFFFF</value>
+		</variable>
+		<variable name="content_nofo_colour">
+				<value>FF212121</value>
+		</variable>
+		<variable name="content_synopsis_colour">
+				<value>FF212121</value>
+		</variable>
+		<variable name="info_text_colour">
+				<value>FF212121</value>
+		</variable>
+		<variable name="tab_text_fo_colour">
+				<value>FFFFFFFF</value>
+		</variable>
+		<variable name="tab_text_nofo_colour">
+				<value>A0FFFFFF</value>
+		</variable>
+
+		<!-- This is the external file that colours the theme must be bellow the static values -->
+		<include file="Includes_URLDownloader_Colours.xml" />
+		<include name="Downloader_Thumb">
+				<control type="image">
+						<posx>674</posx>
+						<posy>100</posy>
+						<width>540</width>
+						<height>304</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<fadetime>FanartCrossfadeTime</fadetime>
+						<texture background="true">Special://root/ivistation/media/downloader/$INFO[Container(9001).listitem.thumb]</texture>
+						<include>downloader_openclose</include>
+				</control>
+		</include>
+		<include name="Downloader_Synopsis">
+				<control type="textbox">
+						<posx>674</posx>
+						<posy>414</posy>
+						<width>540</width>
+						<height>205</height>
+						<font>size_19</font>
+						<align>justify</align>
+						<aligny>top</aligny>
+						<textcolor>$VAR[content_synopsis_colour]</textcolor>
+						<autoscroll delay="8000" time="1500" repeat="10000" condition="Container(9001).HasFocus">Conditional</autoscroll>
+						<label>$INFO[Container(9001).listitem.Label2]</label>
+						<include>downloader_openclose</include>
+				</control>
+		</include>
+		<include name="Downloader_Scrollbar">
+				<control type="scrollbar" id="90">
+						<left>650</left>
+						<top>100</top>
+						<width>4</width>
+						<height>520</height>
+						<onleft>9001</onleft>
+						<onback>9000</onback>
+						<texturesliderbackground border="2,2,2,2">Special://root/ivistation/data/downloader/artwork/UI/scrollbar_bar_back.png</texturesliderbackground>
+						<texturesliderbar border="2,16,2,16">Special://root/ivistation/data/downloader/artwork/UI/scrollbar_bar.png</texturesliderbar>
+						<texturesliderbarfocus border="2,16,2,16">Special://root/ivistation/data/downloader/artwork/UI/scrollbar_bar.png</texturesliderbarfocus>
+						<textureslidernib>-</textureslidernib>
+						<textureslidernibfocus>-</textureslidernibfocus>
+						<ondown>-</ondown>
+						<colordiffuse>$VAR[content_underlay_colour]</colordiffuse>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<animation reversible="false" effect="fade" start="30" end="30" time="10" condition="!Control.HasFocus(90)">Conditional</animation>
+						<animation reversible="false" effect="fade" start="30" end="70" time="10">Focus</animation>
+						<include>DownloaderVisibleFadeEffect</include>
+						<visible>Control.HasFocus(9001) | Control.HasFocus(90)</visible>
+				</control>
+		</include>
+		<include name="Downloader_Content_Buttons">
+				<posx>40</posx>
+				<posy>100</posy>
+				<width>595</width>
+				<height>520</height>
+				<onleft>9000</onleft>
+				<onright>90</onright>
+				<onback>9000</onback>
+				<scrolltime>150</scrolltime>
+				<preloaditems>1</preloaditems>
+				<pagecontrol>90</pagecontrol>
+				<include>DownloaderVisibleFadeEffect</include>
+		</include>
+		<include name="Downloader_Look_and_Feel">
+		<itemlayout height="52" width="595">
+						<control type="label">
+								<posx>10</posx>
+								<posy>0</posy>
+								<width>535</width>
+								<height>52</height>
+								<font>size_18</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>$VAR[content_nofo_colour]</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						</control>
+						<control type="label">
+								<posx>484</posx>
+								<posy>18</posy>
+								<width>100</width>
+								<height>16</height>
+								<font>size_18</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>$VAR[content_nofo_colour]</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.actualicon][/UPPERCASE]</label>
+						</control>
+				</itemlayout>
+				<focusedlayout height="52" width="595">
+						<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>595</width>
+								<height>52</height>
+								<colordiffuse>$VAR[content_underlay_colour]</colordiffuse>
+								<texture border="5,5,5,5">Special://root/ivistation/data/downloader/artwork/UI/content_underlay_new.png</texture>
+						</control>
+						<control type="label">
+								<posx>10</posx>
+								<posy>0</posy>
+								<width>535</width>
+								<height>52</height>
+								<font>size_18</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>$VAR[content_fo_colour]</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						</control>
+						<control type="label">
+								<posx>484</posx>
+								<posy>18</posy>
+								<width>100</width>
+								<height>16</height>
+								<font>size_18</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>$VAR[content_fo_colour]</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.actualicon][/UPPERCASE]</label>
+						</control>
+				</focusedlayout>
+		</include>
+		<!-- Animations -->
+		<include name="DownloaderVisibleFadeEffect">
+				<animation effect="fade" start="0" end="100" delay="0" time="280">Visible</animation>
+				<animation effect="fade" start="100" end="0" delay="0" time="0">Hidden</animation>
+		</include>
+		<include name="downloader_openclose">
+				<animation type="WindowOpen" reversible="false">
+						<effect type="fade" start="0" end="100" time="280" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+						<effect type="fade" start="100" end="0" time="50" />
+				</animation>
+		</include>
+</includes>
