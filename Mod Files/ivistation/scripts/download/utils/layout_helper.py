@@ -26,7 +26,7 @@ URL_DOWNLOADER_TARGET = xbmc.translatePath(
 # Download items
 DOWNLOAD_ITEM = '''
                                 <item id="{}">
-                                        <label>{}</label>
+                                        <label>{title}</label>
                                         <label2>{}</label2>
                                         <icon>{}[CR]{}</icon>
                                         <thumb>{type}/{}.{img_extension}</thumb>
@@ -34,7 +34,7 @@ DOWNLOAD_ITEM = '''
                                         <onclick>Skin.SetString(downloader_label2,"$INFO[Container(9001).ListItem.Label2]")</onclick>
                                         <onclick>Skin.SetString(downloader_actualicon,"$INFO[Container(9001).ListItem.ActualIcon]")</onclick>
                                         <onclick>Skin.SetString(downloader_thumb,"$INFO[Container(9001).ListItem.Thumb]")</onclick>
-                                        <onclick>Skin.SetString(downloader_script,"RunScript(special://root/ivistation/scripts/download/download.py,{},{type})")</onclick>
+                                        <onclick>Skin.SetString(downloader_script,"RunScript(special://root/ivistation/scripts/download/download.py,{title},{},{type})")</onclick>
                                         <onclick>ActivateWindow(1902)</onclick>
                                 </item>
 '''

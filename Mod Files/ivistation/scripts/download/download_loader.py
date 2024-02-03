@@ -3,6 +3,7 @@ import xbmc
 import xbmcgui
 import datetime
 import traceback
+import xml.sax.saxutils
 import simplejson as json
 
 from utils.layout_helper import *
@@ -71,14 +72,14 @@ class DownloadListingManager(object):
                 layout_target.write(
                     DOWNLOAD_ITEM.format(
                         self.item_id,
-                        item["title"],
-                        item["description"],
+                        xml.sax.saxutils.escape(item["description"]),
                         item["download_size"],
                         item["install_size"],
                         item["id"],
                         item["url"],
                         type=section,
-                        img_extension=img_extension
+                        title=xml.sax.saxutils.escape(item["title"]),
+                        img_extension=img_extension,
                     )
                 )
 

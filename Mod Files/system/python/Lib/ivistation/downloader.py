@@ -1,3 +1,4 @@
+import time
 import urllib2
 
 from contextlib import closing
@@ -14,9 +15,11 @@ def download_file(url, local_path, timeout=20, chunk_size=8192, progress_every=3
         chunk_size: Size of the chunks to download at a time, in bytes
         progress_every: Every how many downloaded chunks to yield progress
     Returns:
-        Yields progress from 0 to 100, as an int
+        Yields progress from 0 to 100 as an int, and human-readable download
+        speed as a string
     """
     repetitions = 0
+    start_time = time.time()
 
     with closing(urllib2.urlopen(url, timeout=timeout)) as response, open(local_path, 'wb') as output_file:
         total_size = float(response.headers['Content-Length'])
@@ -33,9 +36,18 @@ def download_file(url, local_path, timeout=20, chunk_size=8192, progress_every=3
 
             if repetitions >= progress_every:
                 repetitions = 0
-                yield int((downloaded / total_size) * 100)
+                # Calculate speed
+                elapsed_time = time.time() - start_time
+                speed = downloaded / (elapsed_time * 1024)
 
-        yield 100
+                if speed >= 1024:
+                    speed = "{:.2f} MB/s".format(speed / 1024)
+                else:
+                    speed = "{:.2f} KB/s".format(speed)
+
+                yield int((downloaded / total_size) * 100), speed
+
+        yield 100, "0 KB/s"
 
 
 def turbo_download(url, save_to, timeout=8, chunk_size=8192):

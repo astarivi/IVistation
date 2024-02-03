@@ -1,0 +1,12 @@
+{
+  "id": "mednafenxnesmm",
+  "version": 1,
+  "mm_version": "V16",
+  "title": "MDNFX NES MM",
+  "description": "Mednafen is a fast, multi-system emulator. The Xbox port was called MednafenX, and was split into several modules, each covering a different system. This module, MednafenX NES 'MM' (Madmab Edition) is considered by many as the state of the art NES emulator for the Xbox.",
+  "authors": "Mednafen Team, XPorts, Madmab",
+  "data_folder": "SAVES",
+  "config_file": "mednafenx_nes.ini",
+  "backup": "backup.zip",
+  "config_type": "madmab"
+}
