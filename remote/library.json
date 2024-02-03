@@ -4,10 +4,10 @@
     "items": [
       {
         "id": "fceultra",
-        "title": "FCE UltraX",
-        "thumbnail": "https://i.imgur.com/JgtqqBk.jpeg",
+        "title": "NES: FCE UltraX",
+        "thumbnail": "https://i.imgur.com/K1tB9IU.png",
         "version": 1,
-        "description": "FCE Ultra is a NES emulator with decent accuracy and great speed,[CR] but limited game support. Preferred by many as one of the fastest emulators,[CR] it was brought to the Xbox by XPorts.[CR] Credits: Bero, Ben Parnell, Xodnizel, XPorts",
+        "description": "Not to be confused with its modern fork FCEUX, FCE Ultra is a NES emulator with decent accuracy and great speed, but limited game support. It was developed until 2004, where the project was abandoned, further giving birth to FCEUX some time later in 2008. Considered by many as one of the fastest old-school emulators, it was brought to the Xbox by XPorts. [CR] Credits: Bero, Ben Parnell, Xodnizel, FCE Team, FCEU Team, XPorts",
         "download_size": "1 MB",
         "install_size": "2 MB",
         "url": "https://link.storjshare.io/raw/juxwchaux74wykn24iqolykbsx7a/ivistation%2Ffceultra.zip"
