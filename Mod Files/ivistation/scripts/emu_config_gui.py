@@ -91,6 +91,7 @@ class EmuConfigMenu:
 
         options = [
             "CORE: {}".format(self.core_info["title"]),
+            "LAUNCH CORE DIRECTLY",
             "RESET CORE TO DEFAULTS",
             "DELETE ALL CORE DATA"
         ]
@@ -165,6 +166,11 @@ class EmuConfigMenu:
             "CORE DATA REMOVED SUCCESSFULLY" if result else "CORE DATA FAILED TO BE REMOVED"
         )
 
+    def _launch_core(self):
+        xbmc.executebuiltin("RunXBE({})".format(
+            os.path.join(get_core_path(self.system, self.core), "default.xbe")
+        ))
+
     def main_menu(self):
         """
         Shows the UI
@@ -195,6 +201,8 @@ class EmuConfigMenu:
                 self.reset_core()
             elif selected_option == "DELETE ALL CORE DATA":
                 self.delete_core_data()
+            elif selected_option == "LAUNCH CORE DIRECTLY":
+                self._launch_core()
             else:
                 selected_core = CORE_SETTINGS[self.core_info["config_type"]]
                 xports_config = selected_core(self.system, self.core, self.core_info)

@@ -5,6 +5,7 @@ import time
 
 import xbmc
 import xbmcgui
+
 from utils.layout_helper import DEFAULT_LAYOUT_XML, MY_PROGRAMS_PATH, HEADER_DATA_EMU, FOOTER_DATA_EMU, TEMPLATE_JUMP_LIST, OVERLAY_JUMP_LIST
 
 
