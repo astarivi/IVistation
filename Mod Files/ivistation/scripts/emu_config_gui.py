@@ -1,13 +1,10 @@
-import xbmcgui
-xbmcgui.lock()
-import re
 import xbmc
+import xbmcgui
 
 from config.content_config import *
 from config.core_general import *
 from config.xports import XportsSettings
 from config.madmab import MadmabSettings
-from menu.utils.layout_helper import MY_PROGRAMS_PATH
 
 CORE_SETTINGS = {
     "xports": XportsSettings,
@@ -17,6 +14,8 @@ CORE_SETTINGS = {
 
 class EmuConfigMenu:
     def __init__(self, emu_system):
+        xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
+
         self.system = emu_system
         self.dialog = xbmcgui.Dialog()
         self.config_manager = CoreConfigManager(emu_system)
@@ -180,7 +179,7 @@ class EmuConfigMenu:
                 return
 
             # We have a core
-            title = "CORE SETTINGS"
+            title = self.system.upper() + " CORE SETTINGS"
             menu = self.get_menu()
             xbmcgui.unlock()
             choice = self.dialog.select(title, menu)
@@ -209,27 +208,18 @@ class EmuConfigMenu:
 
 
 def main():
-    xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
+    system = xbmc.getInfoLabel("Skin.String(emuname)")
 
-    # FIXME: We could use Skin.String(emuname) here
-    # Only works in emulators. Maybe modify this if needed for Xbox or homebrew?
-    pattern = r'emulator_launcher\.py,(.*?),'
-    system = None
+    print("Core config menu for system {} has been requested".format(system))
 
-    with open(MY_PROGRAMS_PATH, "r") as current_system:
-        for line_number, line in enumerate(current_system, 1):
-            match = re.search(pattern, line)
-            if match:
-                system = match.group(1)
-                break
-
-    if system is None:
+    if system in ["xbox", "homebrew", "apps"]:
         return
 
     EmuConfigMenu(system).main_menu()
 
 
 if __name__ == '__main__':
+    xbmcgui.lock()
     print("Opening Core Config menu (emu_config_gui.py)")
 
     try:

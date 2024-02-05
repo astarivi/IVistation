@@ -103,7 +103,7 @@
 										<description>Disable SD Skins</description>
 										<include>MenuButtonMenuAltValues</include>
 										<label>[UPPERCASE]$LOCALIZE[31273][/UPPERCASE]</label>
-										<onclick>RunScript( special://emustation_scripts/toggle_sd_themes.py )</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/gui/toggle_sd_themes.py)</onclick>
 										<onclick>RunScript( special://emustation_scripts/dialog_ok.py,show_both-hide_sd_themes,NOTICE,,Reboot required,,,reboot )</onclick>
 										<selected>Skin.HasSetting(hide_sd_themes)</selected>
 								</control>

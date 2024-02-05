@@ -1,22 +1,25 @@
-import xbmc
-import random
+import random, xbmc, xbmcgui
 
 
-def main():
-    container_ids = ("9000", "50",)
-
-    for container_id in container_ids:
-        try:
-            item_count = int(xbmc.getInfoLabel(
-                'Container({}).NumItems'.format(container_id))
-            )
-            randr = str(random.randrange(0, item_count, 1))
-            if xbmc.getCondVisibility('Window.IsVisible(10000)') or item_count >= 10:
-                xbmc.executebuiltin('SetFocus({},{})'.format(item_count, randr))
-        except Exception:
-            pass
-
-
-if __name__ == '__main__':
-    print("Random sort in progress.")
-    main()
+# I have no idea why this works, but it does so... let's not mess with this, shall we
+try:
+    ID = "9000"
+    Get_Item_Count = int(xbmc.getInfoLabel('Container(' + ID + ').NumItems'))
+    Random = str(random.randrange(0, Get_Item_Count, 1))
+    if xbmc.getCondVisibility('Window.IsVisible(10000)'):
+        xbmc.executebuiltin('SetFocus(' + ID + ',' + Random + ')')
+    else:
+        if Get_Item_Count >= 10:
+            xbmc.executebuiltin('SetFocus(' + ID + ',' + Random + ')')
+except:
+    try:
+        ID = "50"
+        Get_Item_Count = int(xbmc.getInfoLabel('Container(' + ID + ').NumItems'))
+        Random = str(random.randrange(0, Get_Item_Count, 1))
+        if xbmc.getCondVisibility('Window.IsVisible(10000)'):
+            xbmc.executebuiltin('SetFocus(' + ID + ',' + Random + ')')
+        else:
+            if Get_Item_Count >= 10:
+                xbmc.executebuiltin('SetFocus(' + ID + ',' + Random + ')')
+    except:
+        print "No list with supported IDs, so random script didn't work :D"

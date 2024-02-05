@@ -167,20 +167,6 @@
 						<itemgap>5</itemgap>
 						<orientation>horizontal</orientation>
 						<control type="image">
-								<description>DPad</description>
-								<width>25</width>
-								<height>25</height>
-								<colordiffuse>$VAR[var-context_buttons_home]</colordiffuse>
-								<aspectratio>stretch</aspectratio>
-								<texture>layouts/art/dpad.png</texture>
-						</control>
-						<control type="label">
-								<width min="30" max="250">auto</width>
-								<textcolor>$VAR[var-context_buttons_home]</textcolor>
-								<font>size_19</font>
-								<label>[UPPERCASE]$LOCALIZE[30900] [/UPPERCASE]</label>
-						</control>
-						<control type="image">
 								<description>A Button</description>
 								<width>25</width>
 								<height>25</height>
@@ -215,6 +201,21 @@
 								<font>size_19</font>
 								<label>[UPPERCASE]$LOCALIZE[30909] [/UPPERCASE]</label>
 								<visible>Player.HasMedia</visible>
+						</control>
+						<control type="image">
+								<description>Y Button</description>
+								<width>25</width>
+								<height>25</height>
+								<colordiffuse>$VAR[var-context_buttons_home]</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+								<texture>layouts/art/y.png</texture>
+						</control>
+						<control type="label">
+								<width min="30" max="250">auto</width>
+								<textcolor>$VAR[var-context_buttons_home]</textcolor>
+								<font>size_19</font>
+								<label>[UPPERCASE]configure [/UPPERCASE]</label>
+								<visible>!Player.HasMedia</visible>
 						</control>
 						<control type="image">
 								<description>Start Button</description>

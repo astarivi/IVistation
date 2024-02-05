@@ -36,14 +36,6 @@
 								<onup>9000</onup>
 								<ondown>9000</ondown>
 								<itemgap>-1</itemgap>
-								<control type="button" id="2">
-										<left>0</left>
-										<top>0</top>
-										<label>[UPPERCASE]$LOCALIZE[31362][/UPPERCASE]</label>
-										<textwidth>430</textwidth>
-										<include>MenuButtonMenuValues</include>
-										<onclick>RunScript(special://emustation_scripts/patch_xbe_paths.py)</onclick>
-								</control>
 								<control type="button" id="3">
 										<left>0</left>
 										<top>0</top>

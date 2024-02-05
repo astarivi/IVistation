@@ -126,7 +126,7 @@ class GameListCreator:
             FAVORITES_ENTRY.format(
                 rom[0],
                 self.system,
-                rom[1]
+                rom[2]
             )
         )
 
