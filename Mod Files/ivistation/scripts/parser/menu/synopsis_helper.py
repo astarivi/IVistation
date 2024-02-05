@@ -56,7 +56,7 @@ class SynopsisHelper(object):
                     SELECT root_id FROM crc WHERE crc = ?;
                 '''
 
-            cursor.execute(crc_select_query, (crc32.lower(),))
+            cursor.execute(crc_select_query, (crc32,))
             row = cursor.fetchone()
 
             if row is not None:
