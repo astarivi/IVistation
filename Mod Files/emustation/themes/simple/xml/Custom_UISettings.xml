@@ -149,16 +149,16 @@
 										<onclick>RunScript( special://emustation_scripts/toggle_advancedsettings_settings.py,enableintro,splash )</onclick>
 										<selected>Skin.HasSetting(introenabled)</selected>
 								</control>
-								<control type="radiobutton" id="23">
-										<description>Enable Kiosk Mode</description>
-										<left>0</left>
-										<top>0</top>
-										<label>[UPPERCASE]$LOCALIZE[31270][/UPPERCASE]</label>
-										<label2>-</label2>
-										<include>MenuButtonMenuAltValues</include>
-										<onclick>RunScript( special://emustation_scripts/kioskmode.py )</onclick>
-										<selected>Skin.HasSetting(KioskMode)</selected>
-								</control>
+<!--								<control type="radiobutton" id="23">-->
+<!--										<description>Enable Kiosk Mode</description>-->
+<!--										<left>0</left>-->
+<!--										<top>0</top>-->
+<!--										<label>[UPPERCASE]$LOCALIZE[31270][/UPPERCASE]</label>-->
+<!--										<label2>-</label2>-->
+<!--										<include>MenuButtonMenuAltValues</include>-->
+<!--										<onclick>RunScript( special://emustation_scripts/kioskmode.py )</onclick>-->
+<!--										<selected>Skin.HasSetting(KioskMode)</selected>-->
+<!--								</control>-->
 						</control>
 				</control>
 				<!-- going right -->

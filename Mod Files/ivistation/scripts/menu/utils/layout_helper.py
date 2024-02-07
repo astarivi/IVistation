@@ -61,7 +61,7 @@ HEADER_DATA_EMU = '''<window type="window" id="1">
         <!-- Used to run the script and stop folk moving the list forward or backwards -->
         <control type="button" id="9999">
             <left>-500</left>
-            <onfocus>RunScript(special://emustation_scripts/play_preview.py)</onfocus>
+            <onfocus>RunScript(special://root/ivistation/scripts/gui/play_preview.py)</onfocus>
             <visible>!Skin.HasSetting(videolayout)</visible>
         </control>
         <control type="button" id="9990">
