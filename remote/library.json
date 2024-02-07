@@ -1,4 +1,19 @@
 {
+  "apps": {
+    "title": "APPLICATIONS",
+    "items": [
+      {
+        "id": "unleashx",
+        "title": "UnleashX",
+        "thumbnail": "https://i.imgur.com/0rUxENr.png",
+        "version": 1,
+        "description": "UnleashX is one of the most recognized custom dashboards. Commonly bundled with softmodded consoles back in the day, it is flexible, user friendly, and highly customizable through skins. Although it stopped receiving updates long ago, it remains the staple of dashboards for some, and the top pick for others. Version: 0.39.0528 Build 584 [CR]Credits: UnleashX Team",
+        "download_size": "1.7 MB",
+        "install_size": "3 MB",
+        "url": "https://link.storjshare.io/raw/jusvqmgcijr6zg2x2l3quciicjqq/ivistation%2FUnleashX.zip"
+      }
+    ]
+  },
   "cores": {
     "title": "EMULATION CORES",
     "items": [
