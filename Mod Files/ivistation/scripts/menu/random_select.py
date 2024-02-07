@@ -1,7 +1,7 @@
 import random, xbmc, xbmcgui
 
 
-# I have no idea why this works, but it does so... let's not mess with this, shall we
+# astarivi: I have no idea why this works, but it does so... let's not mess with this, shall we
 try:
     ID = "9000"
     Get_Item_Count = int(xbmc.getInfoLabel('Container(' + ID + ').NumItems'))

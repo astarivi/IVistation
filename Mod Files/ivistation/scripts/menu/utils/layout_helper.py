@@ -26,7 +26,9 @@ elif xbmc.getCondVisibility('Skin.HasSetting(thumblayout)'):
 else:
     layout = "layout.xml"
 
-# Export variables
+# - Export variables
+
+# Emulator listings
 DEFAULT_LAYOUT_PATH = xbmc.translatePath('special://xbmc/emustation/themes/simple/layouts/default' + layout_mode)
 DEFAULT_LAYOUT_XML = os.path.join(DEFAULT_LAYOUT_PATH, layout)
 MY_PROGRAMS_PATH = xbmc.translatePath('special://skin/{}MyPrograms.xml'.format(xml_mode))
@@ -107,6 +109,54 @@ HEADER_DATA_EMU = '''<window type="window" id="1">
     '''
 
 FOOTER_DATA_EMU = '''
+    </control>
+    </controls>
+    </window>
+'''
+
+# XBE listings
+XBE_LAYOUT_XML = os.path.join(DEFAULT_LAYOUT_PATH, "XBE files", layout)
+
+HEADER_DATA_XBE = '''<window id="1">
+    <onunload condition="Player.HasVideo">Stop</onunload>
+    <defaultcontrol always="true">50</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <view>50</view>
+    <layout>{}</layout>
+    <controls>
+        <include>CommonBackground</include>
+        <control type="group">
+            <include>Layout_Animation</include>
+            <control type="button" id="9990">
+                <left>-500</left>
+                <onfocus>SetFocus(50)</onfocus>
+                <onfocus>ContextMenu</onfocus>
+            </control>
+            <control type="button" id="9000">
+                <left>-500</left>
+                <onfocus>SetFocus(50)</onfocus>
+            </control>
+            <!-- Used to stop playback if one of the direction buttons are pressed or the (A) button -->
+            <control type="button" id="9100">
+                <left>-500</left>
+                <onup>setfocus(50)</onup>
+                <ondown>setfocus(50)</ondown>
+                <onleft>setfocus(50)</onleft>
+                <onright>setfocus(50)</onright>
+                <onclick>setfocus(50)</onclick>
+                <onup>stop</onup>
+                <ondown>stop</ondown>
+                <onleft>stop</onleft>
+                <onright>stop</onright>
+                <onclick>stop</onclick>
+                <onup>Control.Move(50,-1)</onup>
+                <ondown>Control.Move(50,1)</ondown>
+                <onleft>PageUp</onleft>
+                <onright>PageDown</onright>
+            </control>
+    '''
+
+FOOTER_DATA_XBE = '''
     </control>
     </controls>
     </window>

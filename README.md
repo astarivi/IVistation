@@ -11,9 +11,9 @@ Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing fe
 - [x] Basic content scanner implementation
 - [x] Content database implementation, leveraging Dat-O-Matic data
 - [ ] Nintendo consoles emulation (NES, SNES, GB, GBC, GBA)
-- [ ] Emulation cores system
-- [ ] Emulation cores selection
-- [ ] Cores downloader
+- [x] Emulation cores system
+- [x] Emulation cores selection
+- [x] Cores downloader
 - [ ] Fix broken features (a lot)
  
 ## Installation

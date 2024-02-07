@@ -52,10 +52,19 @@ class EmuConfigMenu:
         # No cores here, whoops
         # FIXME: Redirect to core downloads
         if len(available_cores) == 0:
-            self.dialog.ok(
-                "NO CORE FOUND",
-                "No cores found for this system. Try downloading some."
+            response = self.dialog.yesno(
+                "{}: NO CORE FOUND".format(self.system.upper()),
+                "No cores found for this system."
+                "Would you like to search the",
+                "downloader for cores?"
             )
+
+            if response:
+                xbmc.executebuiltin(
+                    'RunScript({})'.format(
+                        xbmc.translatePath("Special://root/ivistation/scripts/download/download_loader.py"),
+                    )
+                )
             return
 
         # Guess we will be using that lone core
@@ -187,7 +196,6 @@ class EmuConfigMenu:
             # We have a core
             title = self.system.upper() + " CORE SETTINGS"
             menu = self.get_menu()
-            xbmcgui.unlock()
             choice = self.dialog.select(title, menu)
 
             if choice == -1:
@@ -227,7 +235,6 @@ def main():
 
 
 if __name__ == '__main__':
-    xbmcgui.lock()
     print("Opening Core Config menu (emu_config_gui.py)")
 
     try:
