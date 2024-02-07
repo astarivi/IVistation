@@ -61,7 +61,7 @@
 										<label>[UPPERCASE]$LOCALIZE[31231][/UPPERCASE]</label>
 										<include>MenuButtonMenuAltValues</include>
 										<onclick>Skin.ToggleSetting(DisabledSounds)</onclick>
-										<onclick>RunScript( special://emustation_scripts/dis-enable_navsounds.py )</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/gui/toggle_navsounds.py)</onclick>
 										<selected>Skin.HasSetting(DisabledSounds)</selected>
 										<visible>!Skin.HasSetting(KioskMode)</visible>
 								</control>

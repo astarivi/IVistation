@@ -161,3 +161,45 @@ FOOTER_DATA_XBE = '''
     </controls>
     </window>
 '''
+
+# Home
+
+
+HOME_LAYOUT_XML = xbmc.translatePath('special://skin/{}Home.xml'.format(xml_mode))
+DEFAULT_HOME_LAYOUT = xbmc.translatePath('special://skin/layouts/home{}/layout.xml'.format(layout_mode))
+
+HEADER_DATA_HOME = '''
+<window id="10000">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <onload>Skin.Reset(editmode)</onload>
+    <onload>Skin.Reset(videopreviewhorizontal)</onload>
+    <controls>
+        <include>SecretPassCode</include>
+        <control type="button" id="9100">
+            <left>-500</left>
+            <onclick>-</onclick>
+        </control>
+        <control type="button" id="9999">
+            <left>-500</left>
+            <onfocus>ActivateWindow(Screensaver)</onfocus>
+            <visible>!Player.HasAudio</visible>
+            <animation effect="fade" start="0" end="100" time="100" delay="1000">WindowOpen</animation>
+        </control>
+        <control type="button" id="9999">
+            <left>-500</left>
+            <onfocus>ActivateWindow(2006)</onfocus>
+            <visible>Player.HasAudio</visible>
+            <animation effect="fade" start="0" end="100" time="100" delay="1000">WindowOpen</animation>
+        </control>
+        <include>CommonBackground</include>
+        <control type="group">
+            <include>Home_Animation</include>
+            <include>Home_Fav_Animation</include>
+'''
+
+FOOTER_DATA_HOME = '''
+    </control>
+    <include>overlay_plane</include>
+    </controls>
+</window>
+'''

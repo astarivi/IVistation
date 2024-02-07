@@ -111,7 +111,7 @@
 										<include>MenuCustomButtonMenuValues</include>
 										<onclick>Skin.ToggleSetting(sort_system_name)</onclick>
 										<onclick>Skin.SetBool(ReloadSkin)</onclick>
-										<onclick>RunScript(Special://emustation_scripts/home_themer.py,2)</onclick>
+										<onclick>RunScript(Special://root/ivistation/scripts/menu/sort_carousel.py)</onclick>
 										<selected>Skin.HasSetting(sort_system_name)</selected>
 								</control>
 								<control type="button" id="17">
