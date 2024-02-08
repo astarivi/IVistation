@@ -5,6 +5,7 @@ import xbmc
 import xbmcgui
 import fileinput
 
+from utils.favs_loader import load_favs_layout
 from utils.layout_helper import DEFAULT_LAYOUT_XML, MY_PROGRAMS_PATH, HEADER_DATA_EMU, FOOTER_DATA_EMU, TEMPLATE_JUMP_LIST, OVERLAY_JUMP_LIST
 
 
@@ -16,6 +17,10 @@ def main():
     # Perhaps it would be better to always use the arguments?
     except Exception:
         target_system = xbmc.getInfoLabel('Container(9000).ListItem.Label2')
+
+    if target_system == "favs":
+        load_favs_layout()
+        return
 
     dialog = xbmcgui.Dialog()
 

@@ -1,9 +1,16 @@
-# IViStation
+# IVistation
 
-### XBMC powered OG Xbox emulators frontend
+### XBMC-Emustation powered OG Xbox emulators frontend
+#### IViStation is under active development, most things do not work
+
 
 IViStation is an original Xbox project that enhances the functionality and core integration of XBMC-Emustation.
 Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing features, and introduces new ones.
+ 
+## Index:
+ * ### [Installation](docs/guides/Installation.md)
+ * ### [Guides and How-tos](docs/guides/README.md)
+ * ### [Credits](docs/Credits.md)
 
 ## Planned Functionalities
 
@@ -15,13 +22,7 @@ Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing fe
 - [x] Emulation cores selection
 - [x] Cores downloader
 - [ ] Fix broken features (a lot)
- 
-## Installation
-### IViStation is under active development, most things do not work
 
-## Menu:
- * ### [Credits](CREDITS.md)
- 
 ## Roms and Emulators
  * Place your roms in the designated subdirectory in the **ivistation\roms** folder.
  

@@ -91,7 +91,7 @@
 										<label> -  $LOCALIZE[31233]</label>
 										<label2>E:\Music, F:\Music and G:\Music</label2>
 										<include>MenuButtonMenuAltValues</include>
-										<onclick>RunScript( special://emustation_scripts/generate_playlist.py )</onclick>
+										<onclick>RunScript( special://root/ivistation/scripts/unported/generate_playlist.py )</onclick>
 										<visible>Skin.HasSetting(Use_Startup_Playback)</visible>
 										<visible>!Skin.HasSetting(KioskMode)</visible>
 								</control>

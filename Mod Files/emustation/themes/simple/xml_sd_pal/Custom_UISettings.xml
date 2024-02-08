@@ -78,7 +78,7 @@
 										<include>MenuButtonMenuValues</include>
 										<label>[UPPERCASE]$LOCALIZE[31267][/UPPERCASE]</label>
 										<onclick>Skin.ToggleSetting(festiveoverlaydisabled)</onclick>
-										<onclick>RunScript( special://emustation_scripts/dialog_ok.py,show_both-festiveoverlaydisabled,NOTICE,,Home screen must be reloaded for[CR]this change to take effect )</onclick>
+										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_both-festiveoverlaydisabled,NOTICE,,Home screen must be reloaded for[CR]this change to take effect )</onclick>
 										<selected>Skin.HasSetting(festiveoverlaydisabled)</selected>
 								</control>
 								<control type="radiobutton" id="12">
@@ -93,7 +93,7 @@
 										<include>MenuButtonMenuValues</include>
 										<label>[UPPERCASE]$LOCALIZE[31273][/UPPERCASE]</label>
 										<onclick>RunScript(special://root/ivistation/scripts/gui/toggle_sd_themes.py)</onclick>
-										<onclick>RunScript( special://emustation_scripts/dialog_ok.py,show_both-hide_sd_themes,NOTICE,,Reboot required,,,reboot )</onclick>
+										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_both-hide_sd_themes,NOTICE,,Reboot required,,,reboot )</onclick>
 										<selected>Skin.HasSetting(hide_sd_themes)</selected>
 								</control>
 								<control type="radiobutton" id="20">
@@ -114,7 +114,7 @@
 										<label2>$INFO[Skin.String(selectedintrofile)]</label2>
 										<include>MenuButtonMenuValues</include>
 										<onclick>Skin.ToggleSetting(reloademustation)</onclick>
-										<onclick>RunScript( special://emustation_scripts/dialog_ok.py,show_enabled-reloademustation,NOTICE,This feature requires my dashloader,Included with The Xbox Softmodding Tool v1.1.7+,Hardmod version is on my Github )</onclick>
+										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_enabled-reloademustation,NOTICE,This feature requires my dashloader,Included with The Xbox Softmodding Tool v1.1.7+,Hardmod version is on my Github )</onclick>
 										<selected>Skin.HasSetting(reloademustation)</selected>
 								</control>
 								<control type="radiobutton" id="22">

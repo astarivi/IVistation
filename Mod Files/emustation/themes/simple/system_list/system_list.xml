@@ -111,7 +111,7 @@
 				<systemart>layouts/atarijaguar/art/system_art.png</systemart>
 				<logo>layouts/atarijaguar/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,1,)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
 				<visible>Skin.HasSetting(atarijaguar_exists)</visible>
 		</item>
 		<item id="12">
@@ -221,7 +221,7 @@
 				<systemart>layouts/daphne/art/system_art.png</systemart>
 				<logo>layouts/daphne/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,1,)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
 				<visible>Skin.HasSetting(daphne_exists)</visible>
 		</item>
 		<item id="23">
@@ -441,7 +441,7 @@
 				<systemart>layouts/neogeocd/art/system_art.png</systemart>
 				<logo>layouts/neogeocd/art/logo.png</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,1,)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
 				<visible>Skin.HasSetting(neogeocd_exists)</visible>
 		</item>
 		<item id="45">
@@ -741,7 +741,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile1SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile1Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile1Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile1Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile1Enabled)</visible>
 		</item>
 		<item id="75">
@@ -751,7 +751,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile2SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile2Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile2Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile2Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile2Enabled)</visible>
 		</item>
 		<item id="76">
@@ -761,7 +761,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile3SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile3Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile3Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile3Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile3Enabled)</visible>
 		</item>
 		<item id="77">
@@ -771,7 +771,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile4SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile4Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile4Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile4Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile4Enabled)</visible>
 		</item>
 		<item id="78">
@@ -781,7 +781,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile5SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile5Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile5Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile5Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile5Enabled)</visible>
 		</item>
 		<item id="79">
@@ -791,7 +791,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile6SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile6Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile6Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile6Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile6Enabled)</visible>
 		</item>
 		<item id="80">
@@ -801,7 +801,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile7SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile7Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile7Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile7Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile7Enabled)</visible>
 		</item>
 		<item id="81">
@@ -811,7 +811,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile8SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile8Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile8Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile8Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile8Enabled)</visible>
 		</item>
 		<item id="82">
@@ -821,7 +821,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile9SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile9Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile9Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile9Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile9Enabled)</visible>
 		</item>
 		<item id="83">
@@ -831,7 +831,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile10SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile10Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile10Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile10Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile10Enabled)</visible>
 		</item>
 		<item id="84">
@@ -841,7 +841,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile11SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile11Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile11Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile11Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile11Enabled)</visible>
 		</item>
 		<item id="85">
@@ -851,7 +851,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile12SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile12Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile12Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile12Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile12Enabled)</visible>
 		</item>
 		<item id="86">
@@ -861,7 +861,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile13SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile13Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile13Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile13Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile13Enabled)</visible>
 		</item>
 		<item id="87">
@@ -871,7 +871,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile14SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile14Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile14Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile14Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile14Enabled)</visible>
 		</item>
 		<item id="88">
@@ -881,7 +881,7 @@
 				<systemart>$INFO[Skin.String(CustomHomeTile15SystemArt)]</systemart>
 				<logo>$INFO[Skin.String(CustomHomeTile15Logo)]</logo>
 				<onclick>SetFocus(9100)</onclick>
-				<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile15Xbe)])</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile15Xbe)])</onclick>
 				<visible>Skin.HasSetting(CustomHomeTile15Enabled)</visible>
 		</item>
 </content>

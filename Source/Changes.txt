@@ -46,7 +46,7 @@ I have stopped adding to this file, so you will need to look through the source 
 35) Fixed the internal jpg decoder breaking if ram hits 0MB. If it hits less than 2MB of free ram it will use Imagelib to decode the images.
 36) Added different error screen colour and txt for the forced error screen. ( if you arse something up and its a crash ) (White + Y)
 37) Three new Special:// commands "emustation_scripts", "themes_root" and "theme". "themes_root" will load Q:\.emustation\themes\ and "theme" will load the currently loaded theme directory.
-		( Special://themes_root/carbon/layouts/xbox/system_art_small.png, Special://theme/layouts/xbox/system_art_small.png or Special://emustation_scripts/dialog_ok.py )
+		( Special://themes_root/carbon/layouts/xbox/system_art_small.png, Special://theme/layouts/xbox/system_art_small.png or special://root/ivistation/scripts/unported/dialog_ok.py )
 38) Themes can have there own splash image that will override the default splash.
 	( splash.png inside the current loaded themes folder. Custom_splash.png will override all splash images. )
 39) Added 2 new Programs Settings, Disable slow scrolling and Enable fast game parsing.

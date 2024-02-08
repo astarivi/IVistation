@@ -163,8 +163,6 @@ FOOTER_DATA_XBE = '''
 '''
 
 # Home
-
-
 HOME_LAYOUT_XML = xbmc.translatePath('special://skin/{}Home.xml'.format(xml_mode))
 DEFAULT_HOME_LAYOUT = xbmc.translatePath('special://skin/layouts/home{}/layout.xml'.format(layout_mode))
 
@@ -202,4 +200,25 @@ FOOTER_DATA_HOME = '''
     <include>overlay_plane</include>
     </controls>
 </window>
+'''
+
+# Favorites
+FAVS_LAYOUT_XML = xbmc.translatePath('special://skin/{}DialogFavourites.xml'.format(xml_mode))
+DEFAULT_FAVS_LAYOUT = xbmc.translatePath('special://skin/layouts/favs{}/{}'.format(layout_mode, layout))
+
+HEADER_DATA_FAVS = '''
+<window type="dialog" id="134">
+    <defaultcontrol always="true">450</defaultcontrol>
+    <onunload>Skin.Reset(favsloading)</onunload>
+    <include>Fav_Layout_Animation</include>
+    <controls>
+        <control type="button" id="9990">
+            <left>-500</left>
+            <onfocus>SetFocus(1000)</onfocus>
+        </control>
+'''
+
+FOOTER_DATA_FAVS = '''
+    </controls>
+    </window>
 '''

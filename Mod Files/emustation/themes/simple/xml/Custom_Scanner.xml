@@ -94,7 +94,7 @@
 										<top>0</top>
 										<label>[UPPERCASE]$LOCALIZE[31367][/UPPERCASE]</label>
 										<include>MenuButtonMenuAltValues</include>
-										<onclick>RunScript( special://emustation_scripts/dialog_ok.py,show_enabled-Use_SegaCD_ISO/MP3,NOTICE,SegaCD - NeoGenesis required. On downloader.,ISO/BIN/IMG+MP3 must be in subfolder with,the same name as the ISO/BIN/IMG file. )</onclick>
+										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_enabled-Use_SegaCD_ISO/MP3,NOTICE,SegaCD - NeoGenesis required. On downloader.,ISO/BIN/IMG+MP3 must be in subfolder with,the same name as the ISO/BIN/IMG file. )</onclick>
 										<onclick>Skin.ToggleSetting(Use_SegaCD_ISO/MP3)</onclick>
 										<selected>Skin.HasSetting(Use_SegaCD_ISO/MP3)</selected>
 								</control>

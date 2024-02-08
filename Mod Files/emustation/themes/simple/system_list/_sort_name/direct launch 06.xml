@@ -5,6 +5,6 @@
 		<systemart>$INFO[Skin.String(CustomHomeTile6SystemArt)]</systemart>
 		<logo>$INFO[Skin.String(CustomHomeTile6Logo)]</logo>
 		<onclick>SetFocus(9100)</onclick>
-		<onclick>RunScript(special://emustation_scripts/direct_launch_emulator.py,0,$INFO[Skin.String(CustomHomeTile6Xbe)])</onclick>
+		<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile6Xbe)])</onclick>
 		<visible>Skin.HasSetting(CustomHomeTile6Enabled)</visible>
 </item>
