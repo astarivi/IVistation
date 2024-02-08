@@ -146,7 +146,7 @@
 										<label>[UPPERCASE]$LOCALIZE[31269][/UPPERCASE]</label>
 										<include>MenuButtonMenuAltValues</include>
 										<onclick>Skin.ToggleSetting(introenabled)</onclick>
-										<onclick>RunScript( special://emustation_scripts/toggle_advancedsettings_settings.py,enableintro,splash )</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/gui/toggle_advanced_setting.py,enableintro,splash)</onclick>
 										<selected>Skin.HasSetting(introenabled)</selected>
 								</control>
 <!--								<control type="radiobutton" id="23">-->

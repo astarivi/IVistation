@@ -150,7 +150,7 @@
 								</item>
 								<item>
 										<label>$LOCALIZE[31102]</label>
-										<onclick>XBMC.RunScript(Special://emustation_scripts/text_reader.py,0,Special://root/system/SystemInfo/changes.txt)</onclick>
+										<onclick>XBMC.RunScript(Special://root/ivistation/scripts/gui/text_reader.py,0,Special://root/system/SystemInfo/changes.txt)</onclick>
 										<icon>-</icon>
 								</item>
 								<item>

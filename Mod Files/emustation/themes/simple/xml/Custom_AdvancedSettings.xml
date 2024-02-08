@@ -41,7 +41,7 @@
 										<top>0</top>
 										<label>[UPPERCASE]$LOCALIZE[31368][/UPPERCASE]</label>
 										<include>MenuButtonMenuAltValues</include>
-										<onclick>RunScript(special://emustation_scripts/text_reader.py,2, )</onclick>
+										<onclick>RunScript(special://root/ivistation/scripts/gui/text_reader.py,2,)</onclick>
 								</control>
 								<!-- requires download label -->
 <!--								<control type="label" id="4">-->

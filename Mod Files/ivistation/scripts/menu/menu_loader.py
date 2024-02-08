@@ -88,6 +88,12 @@ def main():
             print line,
 
     time.sleep(0.2)
+
+    # This is here to implement videolayout later.
+    # if xbmc.getCondVisibility('Skin.HasSetting(videolayout)'):
+    #     xbmc.executebuiltin('RunScript(special://root/ivistation/scripts/gui/auto_play_preview.py)')
+    # else:
+
     xbmc.executebuiltin('ActivateWindow(Programs,Static_Menu,return)')
     xbmc.executebuiltin('Dialog.Close(1101,true)')
 
