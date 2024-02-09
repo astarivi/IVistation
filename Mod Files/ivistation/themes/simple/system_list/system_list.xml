@@ -1,0 +1,887 @@
+<content>
+		<item id="0">
+				<name>$LOCALIZE[5]</name>
+				<fullname>Adjust System Settings</fullname>
+				<systemid>$LOCALIZE[5]</systemid>
+				<systemart>layouts/settings/art/system_art.png</systemart>
+				<onclick>ActivateWindow(Settings,return)</onclick>
+				<logo>layouts/settings/art/logo.png</logo>
+		</item>
+		<item id="1">
+				<name>$LOCALIZE[518] $LOCALIZE[427]</name>
+				<systemid>$LOCALIZE[427]</systemid>
+				<systemart>layouts/disc/art/system_art.png</systemart>
+				<logo>layouts/disc/art/logo.png</logo>
+				<onclick>PlayDVD()</onclick>
+				<visible>System.HasMediaDVD</visible>
+		</item>
+		<item id="2">
+				<name>$INFO[Skin.String(favs_games)]</name>
+				<fullname>Your Favorite Games</fullname>
+				<systemid>favs</systemid>
+				<systemart>layouts/favourites/art/system_art.png</systemart>
+				<logo>layouts/favourites/art/logo.png</logo>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>IntegerGreaterThan(Skin.String(favs_games),0) + !Skin.HasSetting(hide_favs_title)</visible>
+		</item>
+		<item id="3">
+				<name>$INFO[Skin.String(3do_games)]</name>
+				<systemid>3do</systemid>
+				<fullname>3DO Interactive Multiplayer</fullname>
+				<systemart>layouts/3do/art/system_art.png</systemart>
+				<logo>layouts/3do/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(3do_exists)</visible>
+		</item>
+		<item id="4">
+				<name>$INFO[Skin.String(amiga_games)]</name>
+				<systemid>amiga</systemid>
+				<fullname>Commodore Amiga</fullname>
+				<systemart>layouts/amiga/art/system_art.png</systemart>
+				<logo>layouts/amiga/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(amiga_exists)</visible>
+		</item>
+		<item id="5">
+				<name>$INFO[Skin.String(amstradcpc_games)]</name>
+				<systemid>amstradcpc</systemid>
+				<fullname>Amstrad CPC</fullname>
+				<systemart>layouts/amstradcpc/art/system_art.png</systemart>
+				<logo>layouts/amstradcpc/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(amstradcpc_exists)</visible>
+		</item>
+		<item id="6">
+				<name>$INFO[Skin.String(apple2_games)]</name>
+				<systemid>apple2</systemid>
+				<fullname>Apple II</fullname>
+				<systemart>layouts/apple2/art/system_art.png</systemart>
+				<logo>layouts/apple2/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(apple2_exists)</visible>
+		</item>
+		<item id="7">
+				<name>$INFO[Skin.String(atari2600_games)]</name>
+				<systemid>atari2600</systemid>
+				<fullname>Atari 2600</fullname>
+				<systemart>layouts/atari2600/art/system_art.png</systemart>
+				<logo>layouts/atari2600/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atari2600_exists)</visible>
+		</item>
+		<item id="8">
+				<name>$INFO[Skin.String(atari5200_games)]</name>
+				<systemid>atari5200</systemid>
+				<fullname>Atari 5200</fullname>
+				<systemart>layouts/atari5200/art/system_art.png</systemart>
+				<logo>layouts/atari5200/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atari5200_exists)</visible>
+		</item>
+		<item id="9">
+				<name>$INFO[Skin.String(atari7800_games)]</name>
+				<systemid>atari7800</systemid>
+				<fullname>Atari 7800 ProSystem</fullname>
+				<systemart>layouts/atari7800/art/system_art.png</systemart>
+				<logo>layouts/atari7800/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atari7800_exists)</visible>
+		</item>
+		<item id="10">
+				<name>$INFO[Skin.String(atari800_games)]</name>
+				<systemid>atari800</systemid>
+				<fullname>Atari 800</fullname>
+				<systemart>layouts/atari800/art/system_art.png</systemart>
+				<logo>layouts/atari800/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atari800_exists)</visible>
+		</item>
+		<item id="11">
+				<name>Launch Emulator: $INFO[Skin.String(atarijaguar_games)]</name>
+				<systemid>atarijaguar</systemid>
+				<fullname>Atari Jaguar</fullname>
+				<systemart>layouts/atarijaguar/art/system_art.png</systemart>
+				<logo>layouts/atarijaguar/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
+				<visible>Skin.HasSetting(atarijaguar_exists)</visible>
+		</item>
+		<item id="12">
+				<name>$INFO[Skin.String(atarilynx_games)]</name>
+				<systemid>atarilynx</systemid>
+				<fullname>Atari Lynx</fullname>
+				<systemart>layouts/atarilynx/art/system_art.png</systemart>
+				<logo>layouts/atarilynx/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atarilynx_exists)</visible>
+		</item>
+		<item id="13">
+				<name>$INFO[Skin.String(atarist_games)]</name>
+				<systemid>atarist</systemid>
+				<fullname>Atari ST</fullname>
+				<systemart>layouts/atarist/art/system_art.png</systemart>
+				<logo>layouts/atarist/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atarist_exists)</visible>
+		</item>
+		<item id="14">
+				<name>$INFO[Skin.String(atarixe_games)]</name>
+				<systemid>atarixe</systemid>
+				<fullname>Atari XE</fullname>
+				<systemart>layouts/atarixe/art/system_art.png</systemart>
+				<logo>layouts/atarixe/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atarixe_exists)</visible>
+		</item>
+		<item id="15">
+				<name>$INFO[Skin.String(atarixl_games)]</name>
+				<systemid>atarixl</systemid>
+				<fullname>ATARI 800XL</fullname>
+				<systemart>layouts/atarixl/art/system_art.png</systemart>
+				<logo>layouts/atarixl/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(atarixl_exists)</visible>
+		</item>
+		<item id="16">
+				<name>$INFO[Skin.String(c64_games)]</name>
+				<systemid>c64</systemid>
+				<fullname>Commodore 64</fullname>
+				<systemart>layouts/c64/art/system_art.png</systemart>
+				<logo>layouts/c64/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(c64_exists)</visible>
+		</item>
+		<item id="17">
+				<name>$INFO[Skin.String(c64pet_games)]</name>
+				<systemid>c64pet</systemid>
+				<fullname>Commodore 64 PET</fullname>
+				<systemart>layouts/c64pet/art/system_art.png</systemart>
+				<logo>layouts/c64pet/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(c64pet_exists)</visible>
+		</item>
+		<item id="18">
+				<name>$INFO[Skin.String(chip8x_games)]</name>
+				<systemid>chip8x</systemid>
+				<fullname>Super Chip8x</fullname>
+				<systemart>layouts/chip8x/art/system_art.png</systemart>
+				<logo>layouts/chip8x/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(chip8x_exists)</visible>
+		</item>
+		<item id="19">
+				<name>$INFO[Skin.String(coco_games)]</name>
+				<systemid>coco</systemid>
+				<fullname>Tandy Color Computer</fullname>
+				<systemart>layouts/coco/art/system_art.png</systemart>
+				<logo>layouts/coco/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(coco_exists)</visible>
+		</item>
+		<item id="20">
+				<name>$INFO[Skin.String(colecovision_games)]</name>
+				<systemid>colecovision</systemid>
+				<fullname>Coleco ColecoVision</fullname>
+				<systemart>layouts/colecovision/art/system_art.png</systemart>
+				<logo>layouts/colecovision/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(colecovision_exists)</visible>
+		</item>
+		<item id="21">
+				<name>$INFO[Skin.String(cv20_games)]</name>
+				<systemid>cv20</systemid>
+				<fullname>Commodore VIC-20</fullname>
+				<systemart>layouts/cv20/art/system_art.png</systemart>
+				<logo>layouts/cv20/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(cv20_exists)</visible>
+		</item>
+		<item id="22">
+				<name>Launch Emulator: $INFO[Skin.String(daphne_games)]</name>
+				<systemid>daphne</systemid>
+				<fullname>Daphne Arcade LaserDisc Emulator</fullname>
+				<systemart>layouts/daphne/art/system_art.png</systemart>
+				<logo>layouts/daphne/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
+				<visible>Skin.HasSetting(daphne_exists)</visible>
+		</item>
+		<item id="23">
+				<name>$INFO[Skin.String(dreamcastvmu_games)]</name>
+				<systemid>dreamcastvmu</systemid>
+				<fullname>Sega Dreamcast VMU</fullname>
+				<systemart>layouts/dreamcastvmu/art/system_art.png</systemart>
+				<logo>layouts/dreamcastvmu/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(dreamcastvmu_exists)</visible>
+		</item>
+		<item id="24">
+				<name>$INFO[Skin.String(famicom_games)]</name>
+				<systemid>famicom</systemid>
+				<fullname>Nintendo Family Computer</fullname>
+				<systemart>layouts/famicom/art/system_art.png</systemart>
+				<logo>layouts/famicom/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(famicom_exists)</visible>
+		</item>
+		<item id="25">
+				<name>$INFO[Skin.String(fba_games)]</name>
+				<systemid>fba</systemid>
+				<fullname>FinalBurn Alpha</fullname>
+				<systemart>layouts/fba/art/system_art.png</systemart>
+				<logo>layouts/fba/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(fba_exists)</visible>
+		</item>
+		<item id="26">
+				<name>$INFO[Skin.String(fbaxxx_games)]</name>
+				<systemid>fbaxxx</systemid>
+				<fullname>FinalBurn Alpha XXX</fullname>
+				<systemart>layouts/fbaxxx/art/system_art.png</systemart>
+				<logo>layouts/fbaxxx/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(fbaxxx_exists)</visible>
+		</item>
+		<item id="27">
+				<name>$INFO[Skin.String(fbl_games)]</name>
+				<systemid>fbl</systemid>
+				<fullname>FinalBurn Legends</fullname>
+				<systemart>layouts/fbl/art/system_art.png</systemart>
+				<logo>layouts/fbl/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(fbl_exists)</visible>
+		</item>
+		<item id="28">
+				<name>$INFO[Skin.String(fblc_games)]</name>
+				<systemid>fblc</systemid>
+				<fullname>FinalBurn Legends Console</fullname>
+				<systemart>layouts/fblc/art/system_art.png</systemart>
+				<logo>layouts/fblc/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(fblc_exists)</visible>
+		</item>
+		<item id="29">
+				<name>$INFO[Skin.String(gamegear_games)]</name>
+				<systemid>gamegear</systemid>
+				<fullname>Sega Game Gear</fullname>
+				<systemart>layouts/gamegear/art/system_art.png</systemart>
+				<logo>layouts/gamegear/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(gamegear_exists)</visible>
+		</item>
+		<item id="30">
+				<name>$INFO[Skin.String(gb_games)]</name>
+				<systemid>gb</systemid>
+				<fullname>Nintendo Game Boy</fullname>
+				<systemart>layouts/gb/art/system_art.png</systemart>
+				<logo>layouts/gb/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(gb_exists)</visible>
+		</item>
+		<item id="31">
+				<name>$INFO[Skin.String(gba_games)]</name>
+				<systemid>gba</systemid>
+				<fullname>Nintendo Game Boy Advance</fullname>
+				<systemart>layouts/gba/art/system_art.png</systemart>
+				<logo>layouts/gba/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(gba_exists)</visible>
+		</item>
+		<item id="32">
+				<name>$INFO[Skin.String(gbc_games)]</name>
+				<systemid>gbc</systemid>
+				<fullname>Nintendo Game Boy Color</fullname>
+				<systemart>layouts/gbc/art/system_art.png</systemart>
+				<logo>layouts/gbc/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(gbc_exists)</visible>
+		</item>
+		<item id="33">
+				<name>$INFO[Skin.String(genesis_games)]</name>
+				<systemid>genesis</systemid>
+				<fullname>Sega Genesis</fullname>
+				<systemart>layouts/genesis/art/system_art.png</systemart>
+				<logo>layouts/genesis/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(genesis_exists)</visible>
+		</item>
+		<item id="34">
+				<name>$INFO[Skin.String(homebrew_games)]</name>
+				<systemid>homebrew</systemid>
+				<fullname>Homebrew</fullname>
+				<systemart>layouts/homebrew/art/system_art.png</systemart>
+				<logo>layouts/homebrew/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>IntegerGreaterThan(Skin.String(homebrew_games),0)</visible>
+		</item>
+		<item id="35">
+				<name>$INFO[Skin.String(intellivision_games)]</name>
+				<systemid>intellivision</systemid>
+				<fullname>Mattel Electronics Intellivision</fullname>
+				<systemart>layouts/intellivision/art/system_art.png</systemart>
+				<logo>layouts/intellivision/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(intellivision_exists)</visible>
+		</item>
+		<item id="36">
+				<name>$INFO[Skin.String(mame_games)]</name>
+				<systemid>mame</systemid>
+				<fullname>Multiple Arcade Machine Emulator</fullname>
+				<systemart>layouts/mame/art/system_art.png</systemart>
+				<logo>layouts/mame/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(mame_exists)</visible>
+		</item>
+		<item id="37">
+				<name>$INFO[Skin.String(mastersystem_games)]</name>
+				<systemid>mastersystem</systemid>
+				<fullname>Sega Master System</fullname>
+				<systemart>layouts/mastersystem/art/system_art.png</systemart>
+				<logo>layouts/mastersystem/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(mastersystem_exists)</visible>
+		</item>
+		<item id="38">
+				<name>$INFO[Skin.String(megadrive_games)]</name>
+				<systemid>megadrive</systemid>
+				<fullname>Sega Mega Drive</fullname>
+				<systemart>layouts/megadrive/art/system_art.png</systemart>
+				<logo>layouts/megadrive/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(megadrive_exists)</visible>
+		</item>
+		<item id="39">
+				<name>$INFO[Skin.String(mess_games)]</name>
+				<systemid>mess</systemid>
+				<fullname>Multi Emulator Super System</fullname>
+				<systemart>layouts/mess/art/system_art.png</systemart>
+				<logo>layouts/mess/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(mess_exists)</visible>
+		</item>
+		<item id="40">
+				<name>$INFO[Skin.String(msx_games)]</name>
+				<systemid>msx</systemid>
+				<fullname>MSX</fullname>
+				<systemart>layouts/msx/art/system_art.png</systemart>
+				<logo>layouts/msx/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(msx_exists)</visible>
+		</item>
+		<item id="41">
+				<name>$INFO[Skin.String(n64_games)]</name>
+				<systemid>n64</systemid>
+				<fullname>Nintendo 64</fullname>
+				<systemart>layouts/n64/art/system_art.png</systemart>
+				<logo>layouts/n64/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(n64_exists)</visible>
+		</item>
+		<item id="42">
+				<name>$INFO[Skin.String(nds_games)]</name>
+				<systemid>nds</systemid>
+				<fullname>Nintendo DS</fullname>
+				<systemart>layouts/nds/art/system_art.png</systemart>
+				<logo>layouts/nds/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(nds_exists)</visible>
+		</item>
+		<item id="43">
+				<name>$INFO[Skin.String(neogeo_games)]</name>
+				<systemid>neogeo</systemid>
+				<fullname>SNK Neo Geo</fullname>
+				<systemart>layouts/neogeo/art/system_art.png</systemart>
+				<logo>layouts/neogeo/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(neogeo_exists)</visible>
+		</item>
+		<item id="44">
+				<name>Launch Emulator: $INFO[Skin.String(neogeocd_games)]</name>
+				<systemid>neogeocd</systemid>
+				<fullname>SNK Neo Geo CD</fullname>
+				<systemart>layouts/neogeocd/art/system_art.png</systemart>
+				<logo>layouts/neogeocd/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_emulator_launcher.py)</onclick>
+				<visible>Skin.HasSetting(neogeocd_exists)</visible>
+		</item>
+		<item id="45">
+				<name>$INFO[Skin.String(nes_games)]</name>
+				<systemid>nes</systemid>
+				<fullname>Nintendo Entertainment System</fullname>
+				<systemart>layouts/nes/art/system_art.png</systemart>
+				<logo>layouts/nes/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(nes_exists)</visible>
+		</item>
+		<item id="46">
+				<name>$INFO[Skin.String(ngp_games)]</name>
+				<systemid>ngp</systemid>
+				<fullname>SNK Neo Geo Pocket</fullname>
+				<systemart>layouts/ngp/art/system_art.png</systemart>
+				<logo>layouts/ngp/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(ngp_exists)</visible>
+		</item>
+		<item id="47">
+				<name>$INFO[Skin.String(ngpc_games)]</name>
+				<systemid>ngpc</systemid>
+				<fullname>SNK Neo Geo Pocket Color</fullname>
+				<systemart>layouts/ngpc/art/system_art.png</systemart>
+				<logo>layouts/ngpc/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(ngpc_exists)</visible>
+		</item>
+		<item id="48">
+				<name>$INFO[Skin.String(odyssey2_games)]</name>
+				<systemid>odyssey2</systemid>
+				<fullname>Magnavox Odyssey2</fullname>
+				<systemart>layouts/odyssey2/art/system_art.png</systemart>
+				<logo>layouts/odyssey2/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(odyssey2_exists)</visible>
+		</item>
+		<item id="49">
+				<name>$INFO[Skin.String(pc-98_games)]</name>
+				<systemid>pc-98</systemid>
+				<fullname>NEC PC-9800 Series</fullname>
+				<systemart>layouts/pc-98/art/system_art.png</systemart>
+				<logo>layouts/pc-98/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(pc-98_exists)</visible>
+		</item>
+		<item id="50">
+				<name>$INFO[Skin.String(pce-cd_games)]</name>
+				<systemid>pce-cd</systemid>
+				<fullname>NEC PC Engine CD</fullname>
+				<systemart>layouts/pce-cd/art/system_art.png</systemart>
+				<logo>layouts/pce-cd/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(pce-cd_exists)</visible>
+		</item>
+		<item id="51">
+				<name>$INFO[Skin.String(pcengine_games)]</name>
+				<systemid>pcengine</systemid>
+				<fullname>NEC PC Engine</fullname>
+				<systemart>layouts/pcengine/art/system_art.png</systemart>
+				<logo>layouts/pcengine/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(pcengine_exists)</visible>
+		</item>
+		<item id="52">
+				<name>$INFO[Skin.String(pokemonmini_games)]</name>
+				<systemid>pokemonmini</systemid>
+				<fullname>Nintendo Pok�mon Mini</fullname>
+				<systemart>layouts/pokemonmini/art/system_art.png</systemart>
+				<logo>layouts/pokemonmini/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(pokemonmini_exists)</visible>
+		</item>
+		<item id="53">
+				<name>$INFO[Skin.String(ports_games)]</name>
+				<systemid>ports</systemid>
+				<fullname>Ports</fullname>
+				<systemart>layouts/ports/art/system_art.png</systemart>
+				<logo>layouts/ports/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>IntegerGreaterThan(Skin.String(ports_games),0)</visible>
+		</item>
+		<item id="54">
+				<name>$INFO[Skin.String(psx_games)]</name>
+				<systemid>psx</systemid>
+				<fullname>Sony PlayStation</fullname>
+				<systemart>layouts/psx/art/system_art.png</systemart>
+				<logo>layouts/psx/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(psx_exists)</visible>
+		</item>
+		<item id="55">
+				<name>$INFO[Skin.String(samcoupe_games)]</name>
+				<systemid>samcoupe</systemid>
+				<fullname>MGT SAM Coup�</fullname>
+				<systemart>layouts/samcoupe/art/system_art.png</systemart>
+				<logo>layouts/samcoupe/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(samcoupe_exists)</visible>
+		</item>
+		<item id="56">
+				<name>$INFO[Skin.String(saturn_games)]</name>
+				<systemid>saturn</systemid>
+				<fullname>Sega Saturn</fullname>
+				<systemart>layouts/saturn/art/system_art.png</systemart>
+				<logo>layouts/saturn/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(saturn_exists)</visible>
+		</item>
+		<item id="57">
+				<name>$INFO[Skin.String(sc-3000_games)]</name>
+				<systemid>sc-3000</systemid>
+				<fullname>Sega Computer 3000</fullname>
+				<systemart>layouts/sc-3000/art/system_art.png</systemart>
+				<logo>layouts/sc-3000/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(sc-3000_exists)</visible>
+		</item>
+		<item id="58">
+				<name>$INFO[Skin.String(scummvm_games)]</name>
+				<systemid>scummvm</systemid>
+				<fullname>ScummVM Game Engine</fullname>
+				<systemart>layouts/scummvm/art/system_art.png</systemart>
+				<logo>layouts/scummvm/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(scummvm_exists)</visible>
+		</item>
+		<item id="59">
+				<name>$INFO[Skin.String(sega32x_games)]</name>
+				<systemid>sega32x</systemid>
+				<fullname>Sega Mega Drive 32X</fullname>
+				<systemart>layouts/sega32x/art/system_art.png</systemart>
+				<logo>layouts/sega32x/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(sega32x_exists)</visible>
+		</item>
+		<item id="60">
+				<name>$INFO[Skin.String(segacd_games)]</name>
+				<systemid>segacd</systemid>
+				<fullname>Sega CD</fullname>
+				<systemart>layouts/segacd/art/system_art.png</systemart>
+				<logo>layouts/segacd/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(segacd_exists)</visible>
+		</item>
+		<item id="61">
+				<name>$INFO[Skin.String(sf-7000_games)]</name>
+				<systemid>sf-7000</systemid>
+				<fullname>Super Control Station</fullname>
+				<systemart>layouts/sf-7000/art/system_art.png</systemart>
+				<logo>layouts/sf-7000/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(sf-7000_exists)</visible>
+		</item>
+		<item id="62">
+				<name>$INFO[Skin.String(sg-1000_games)]</name>
+				<systemid>sg-1000</systemid>
+				<fullname>Sega SG-1000</fullname>
+				<systemart>layouts/sg-1000/art/system_art.png</systemart>
+				<logo>layouts/sg-1000/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(sg-1000_exists)</visible>
+		</item>
+		<item id="63">
+				<name>$INFO[Skin.String(sgb_games)]</name>
+				<systemid>sgb</systemid>
+				<fullname>Nintendo Super Game Boy</fullname>
+				<systemart>layouts/sgb/art/system_art.png</systemart>
+				<logo>layouts/sgb/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(sgb_exists)</visible>
+		</item>
+		<item id="64">
+				<name>$INFO[Skin.String(snes_games)]</name>
+				<systemid>snes</systemid>
+				<fullname>Nintendo SNES (Super Nintendo)</fullname>
+				<systemart>layouts/snes/art/system_art.png</systemart>
+				<logo>layouts/snes/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(snes_exists)</visible>
+		</item>
+		<item id="65">
+				<name>$INFO[Skin.String(tg-cd_games)]</name>
+				<systemid>tg-cd</systemid>
+				<fullname>NEC TurboGrafx-CD</fullname>
+				<systemart>layouts/tg-cd/art/system_art.png</systemart>
+				<logo>layouts/tg-cd/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(tg-cd_exists)</visible>
+		</item>
+		<item id="66">
+				<name>$INFO[Skin.String(tg16_games)]</name>
+				<systemid>tg16</systemid>
+				<fullname>NEC TurboGrafx-16</fullname>
+				<systemart>layouts/tg16/art/system_art.png</systemart>
+				<logo>layouts/tg16/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(tg16_exists)</visible>
+		</item>
+		<item id="67">
+				<name>$INFO[Skin.String(ti99_games)]</name>
+				<systemid>ti99</systemid>
+				<fullname>Texas Instruments TI-99</fullname>
+				<systemart>layouts/ti99/art/system_art.png</systemart>
+				<logo>layouts/ti99/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(ti99_exists)</visible>
+		</item>
+		<item id="68">
+				<name>$INFO[Skin.String(virtualboy_games)]</name>
+				<systemid>virtualboy</systemid>
+				<fullname>Nintendo Virtual Boy</fullname>
+				<systemart>layouts/virtualboy/art/system_art.png</systemart>
+				<logo>layouts/virtualboy/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(virtualboy_exists)</visible>
+		</item>
+		<item id="69">
+				<name>$INFO[Skin.String(waterasupervision_games)]</name>
+				<systemid>waterasupervision</systemid>
+				<fullname>Watara Supervision</fullname>
+				<systemart>layouts/waterasupervision/art/system_art.png</systemart>
+				<logo>layouts/waterasupervision/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(waterasupervision_exists)</visible>
+		</item>
+		<item id="70">
+				<name>$INFO[Skin.String(wonderswan_games)]</name>
+				<systemid>wonderswan</systemid>
+				<fullname>Bandai WonderSwan</fullname>
+				<systemart>layouts/wonderswan/art/system_art.png</systemart>
+				<logo>layouts/wonderswan/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(wonderswan_exists)</visible>
+		</item>
+		<item id="71">
+				<name>$INFO[Skin.String(x68000_games)]</name>
+				<systemid>x68000</systemid>
+				<fullname>Sharp X68000</fullname>
+				<systemart>layouts/x68000/art/system_art.png</systemart>
+				<logo>layouts/x68000/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(x68000_exists)</visible>
+		</item>
+		<item id="72">
+				<name>$INFO[Skin.String(xbox_games)]</name>
+				<systemid>xbox</systemid>
+				<fullname>Microsoft Xbox</fullname>
+				<systemart>layouts/xbox/art/system_art.png</systemart>
+				<logo>layouts/xbox/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>IntegerGreaterThan(Skin.String(xbox_games),0)</visible>
+		</item>
+		<item id="73">
+				<name>$INFO[Skin.String(zxspectrum_games)]</name>
+				<systemid>zxspectrum</systemid>
+				<fullname>Sinclair ZX Spectrum</fullname>
+				<systemart>layouts/zxspectrum/art/system_art.png</systemart>
+				<logo>layouts/zxspectrum/art/logo.png</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/menu/menu_loader.py)</onclick>
+				<visible>Skin.HasSetting(zxspectrum_exists)</visible>
+		</item>
+		<item id="74">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile1SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile1Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile1Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile1Enabled)</visible>
+		</item>
+		<item id="75">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile2SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile2Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile2Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile2Enabled)</visible>
+		</item>
+		<item id="76">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile3SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile3Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile3Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile3Enabled)</visible>
+		</item>
+		<item id="77">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile4SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile4Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile4Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile4Enabled)</visible>
+		</item>
+		<item id="78">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile5SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile5Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile5Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile5Enabled)</visible>
+		</item>
+		<item id="79">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile6SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile6Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile6Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile6Enabled)</visible>
+		</item>
+		<item id="80">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile7SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile7Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile7Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile7Enabled)</visible>
+		</item>
+		<item id="81">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile8SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile8Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile8Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile8Enabled)</visible>
+		</item>
+		<item id="82">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile9SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile9Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile9Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile9Enabled)</visible>
+		</item>
+		<item id="83">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile10SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile10Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile10Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile10Enabled)</visible>
+		</item>
+		<item id="84">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile11SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile11Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile11Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile11Enabled)</visible>
+		</item>
+		<item id="85">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile12SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile12Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile12Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile12Enabled)</visible>
+		</item>
+		<item id="86">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile13SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile13Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile13Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile13Enabled)</visible>
+		</item>
+		<item id="87">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile14SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile14Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile14Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile14Enabled)</visible>
+		</item>
+		<item id="88">
+				<name>Direct Launch</name>
+				<systemid>customtile</systemid>
+				<fullname>Direct Launch</fullname>
+				<systemart>$INFO[Skin.String(CustomHomeTile15SystemArt)]</systemart>
+				<logo>$INFO[Skin.String(CustomHomeTile15Logo)]</logo>
+				<onclick>SetFocus(9100)</onclick>
+				<onclick>RunScript(special://root/ivistation/scripts/gui/direct_launcher.py,$INFO[Skin.String(CustomHomeTile15Xbe)])</onclick>
+				<visible>Skin.HasSetting(CustomHomeTile15Enabled)</visible>
+		</item>
+</content>

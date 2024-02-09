@@ -17,7 +17,7 @@ if not xbmc.Player().isPlayingVideo():
         if str(xbmc.getCondVisibility('Skin.String(Custom_Media_Path)')) == "1":
             Media_Folder_Path = xbmc.getInfoLabel('Skin.String(Custom_Media_Path)')
         else:
-            Media_Folder_Path = 'Q:/emustation/media/'
+            Media_Folder_Path = 'Q:/ivistation/media/'
         Current_System = xbmc.getInfoLabel('Skin.String(emuname)')
         Current_Memory = xbmc.getInfoLabel("system.freememory")[:-2]
         # XBE Files

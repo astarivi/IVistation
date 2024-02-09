@@ -83,7 +83,7 @@ if __name__ == '__main__':
     if xbmc.getCondVisibility('Skin.String(Custom_Media_Path)') == 1:
         Media_Folder_Path = xbmc.getInfoLabel('Skin.String(Custom_Media_Path)')
     else:
-        Media_Folder_Path = 'Q:/emustation/media/'
+        Media_Folder_Path = 'Q:/ivistation/media/'
     if xbmc.Player().isPlayingAudio(): Music_Playing = 1
     try:
         ui = GUI('MyPrograms.xml', os.getcwd())

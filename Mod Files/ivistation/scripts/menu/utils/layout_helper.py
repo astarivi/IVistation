@@ -29,7 +29,7 @@ else:
 # - Export variables
 
 # Emulator listings
-DEFAULT_LAYOUT_PATH = xbmc.translatePath('special://xbmc/emustation/themes/simple/layouts/default' + layout_mode)
+DEFAULT_LAYOUT_PATH = xbmc.translatePath('special://skin/layouts/default' + layout_mode)
 DEFAULT_LAYOUT_XML = os.path.join(DEFAULT_LAYOUT_PATH, layout)
 MY_PROGRAMS_PATH = xbmc.translatePath('special://skin/{}MyPrograms.xml'.format(xml_mode))
 TEMPLATE_JUMP_LIST = xbmc.translatePath('special://skin/{}_script_jumpList.xml'.format(xml_mode))

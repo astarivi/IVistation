@@ -1,9 +1,0 @@
-<window type="window" id="1901">
-		<defaultcontrol always="true">1</defaultcontrol>
-		<controls>
-				<!-- Background Images -->
-				<include>CommonBackground</include>
-				<include>WindowHeader</include>
-				<include>ContextButtonsSettings</include>
-		</controls>
-</window>
