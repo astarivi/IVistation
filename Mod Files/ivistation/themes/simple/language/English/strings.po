@@ -407,7 +407,7 @@ msgstr ""
 ## quit - custom_quit.xml - 31380 to 31399
 
 msgctxt "#31380"
-msgid "reload xbmc-emustation"
+msgid "reload ivistation"
 msgstr ""
 
 msgctxt "#31381"

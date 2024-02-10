@@ -406,8 +406,8 @@ msgstr "autres options"
 ## quit - custom_quit.xml - 31380 to 31399
 
 msgctxt "#31380"
-msgid "reload xbmc-emustation"
-msgstr "recharger xbmc-emustation"
+msgid "reload ivistation"
+msgstr "recharger ivistation"
 
 msgctxt "#31381"
 msgid "restart xbox"

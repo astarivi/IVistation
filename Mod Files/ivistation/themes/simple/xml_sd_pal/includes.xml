@@ -182,30 +182,6 @@
 								<label>[UPPERCASE]$LOCALIZE[30902] [/UPPERCASE]</label>
 						</control>
 						<control type="image">
-								<description>X Button</description>
-								<width>35</width>
-								<height>35</height>
-								<colordiffuse>context_buttons_home</colordiffuse>
-								<aspectratio>stretch</aspectratio>
-								<texture>layouts/art/x.png</texture>
-						</control>
-						<control type="label">
-								<textoffsety>5</textoffsety>						
-								<width min="30" max="250">auto</width>
-								<textcolor>context_buttons_home</textcolor>
-								<font>size_20</font>
-								<label>[UPPERCASE]$LOCALIZE[30904] [/UPPERCASE]</label>
-								<visible>!Player.HasMedia</visible>
-						</control>
-						<control type="label">
-								<textoffsety>5</textoffsety>						
-								<width min="30" max="250">auto</width>
-								<textcolor>context_buttons_home</textcolor>
-								<font>size_20</font>
-								<label>[UPPERCASE]$LOCALIZE[30909] [/UPPERCASE]</label>
-								<visible>Player.HasMedia</visible>
-						</control>
-						<control type="image">
 								<description>Y Button</description>
 								<width>35</width>
 								<height>35</height>
@@ -217,7 +193,7 @@
 								<width min="30" max="250">auto</width>
 								<textcolor>$VAR[var-context_buttons_home]</textcolor>
 								<font>size_20</font>
-								<label>[UPPERCASE]configure [/UPPERCASE]</label>
+								<label>[UPPERCASE]configure system [/UPPERCASE]</label>
 								<visible>!Player.HasMedia</visible>
 						</control>
 						<control type="image">
@@ -258,6 +234,30 @@
 								<font>size_20</font>
 								<label>[UPPERCASE]$LOCALIZE[30908] [/UPPERCASE]</label>
 								<visible>Player.HasAudio</visible>
+						</control>
+						<control type="image">
+								<description>Black Button</description>
+								<width>35</width>
+								<height>35</height>
+								<colordiffuse>context_buttons_home</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+								<texture>layouts/art/black.png</texture>
+						</control>
+						<control type="label">
+								<textoffsety>5</textoffsety>
+								<width min="30" max="250">auto</width>
+								<textcolor>context_buttons_home</textcolor>
+								<font>size_20</font>
+								<label>[UPPERCASE]$LOCALIZE[30904] [/UPPERCASE]</label>
+								<visible>!Player.HasMedia</visible>
+						</control>
+						<control type="label">
+								<textoffsety>5</textoffsety>
+								<width min="30" max="250">auto</width>
+								<textcolor>context_buttons_home</textcolor>
+								<font>size_20</font>
+								<label>[UPPERCASE]$LOCALIZE[30909] [/UPPERCASE]</label>
+								<visible>Player.HasMedia</visible>
 						</control>
 				</control>
 		</include>
@@ -387,21 +387,6 @@
 						<itemgap>5</itemgap>
 						<orientation>horizontal</orientation>
 						<control type="image">
-								<description>DPad</description>
-								<width>35</width>
-								<height>35</height>
-								<colordiffuse>context_buttons_layouts</colordiffuse>
-								<aspectratio>stretch</aspectratio>
-								<texture>layouts/art/dpad.png</texture>
-						</control>
-						<control type="label">
-								<width min="30" max="350">auto</width>
-								<textoffsety>5</textoffsety>														
-								<textcolor>context_buttons_layouts</textcolor>
-								<font>size_19</font>
-								<label>[UPPERCASE]$LOCALIZE[30900] [/UPPERCASE]</label>
-						</control>
-						<control type="image">
 								<description>A Button</description>
 								<width>35</width>
 								<height>35</height>
@@ -438,15 +423,13 @@
 								<colordiffuse>context_buttons_layouts</colordiffuse>
 								<aspectratio>stretch</aspectratio>
 								<texture>layouts/art/x.png</texture>
-								<visible>IntegerGreaterThan(Container(9000).NumItems,9)</visible>
 						</control>
 						<control type="label">
 								<width min="30" max="350">auto</width>
-								<textoffsety>5</textoffsety>														
+								<textoffsety>5</textoffsety>
 								<textcolor>context_buttons_layouts</textcolor>
 								<font>size_19</font>
-								<label>[UPPERCASE]$LOCALIZE[30904] [/UPPERCASE]</label>
-								<visible>IntegerGreaterThan(Container(9000).NumItems,9)</visible>
+								<label>[UPPERCASE]configure game [/UPPERCASE]</label>
 						</control>
 						<control type="image">
 								<description>Y Button</description>
@@ -455,30 +438,45 @@
 								<colordiffuse>context_buttons_layouts</colordiffuse>
 								<aspectratio>stretch</aspectratio>
 								<texture>layouts/art/y.png</texture>
-								<visible>Skin.HasSetting(synopsislayout) + !Skin.HasSetting(videolayout)</visible>
 						</control>
 						<control type="label">
 								<width min="30" max="350">auto</width>
-								<textoffsety>5</textoffsety>														
+								<textoffsety>5</textoffsety>
 								<textcolor>context_buttons_layouts</textcolor>
 								<font>size_19</font>
-								<label>[UPPERCASE]$LOCALIZE[30905] [/UPPERCASE]</label>
-								<visible>Skin.HasSetting(synopsislayout) + !Skin.HasSetting(videolayout)</visible>
+								<label>[UPPERCASE]configure system [/UPPERCASE]</label>
 						</control>
+<!--						<control type="image">-->
+<!--								<description>Start Button</description>-->
+<!--								<width>35</width>-->
+<!--								<height>35</height>-->
+<!--								<colordiffuse>context_buttons_layouts</colordiffuse>-->
+<!--								<aspectratio>stretch</aspectratio>-->
+<!--								<texture>layouts/art/start.png</texture>-->
+<!--						</control>-->
+<!--						<control type="label">-->
+<!--								<width min="30" max="350">auto</width>-->
+<!--								<textoffsety>5</textoffsety>														-->
+<!--								<textcolor>context_buttons_layouts</textcolor>-->
+<!--								<font>size_19</font>-->
+<!--								<label>[UPPERCASE]$LOCALIZE[30910] [/UPPERCASE]</label>-->
+<!--						</control>-->
 						<control type="image">
-								<description>Start Button</description>
+								<description>Back Button</description>
 								<width>35</width>
 								<height>35</height>
 								<colordiffuse>context_buttons_layouts</colordiffuse>
 								<aspectratio>stretch</aspectratio>
-								<texture>layouts/art/start.png</texture>
+								<texture>layouts/art/back.png</texture>
+								<visible>Skin.HasSetting(synopsislayout) + !Skin.HasSetting(videolayout)</visible>
 						</control>
 						<control type="label">
 								<width min="30" max="350">auto</width>
-								<textoffsety>5</textoffsety>														
+								<textoffsety>5</textoffsety>
 								<textcolor>context_buttons_layouts</textcolor>
 								<font>size_19</font>
-								<label>[UPPERCASE]$LOCALIZE[30910] [/UPPERCASE]</label>
+								<label>[UPPERCASE]$LOCALIZE[30905] [/UPPERCASE]</label>
+								<visible>Skin.HasSetting(synopsislayout) + !Skin.HasSetting(videolayout)</visible>
 						</control>
 						<control type="image">
 								<description>White Button</description>
@@ -493,6 +491,23 @@
 								<textcolor>context_buttons_layouts</textcolor>
 								<font>size_19</font>
 								<label>[UPPERCASE]$LOCALIZE[30911] [/UPPERCASE]</label>
+						</control>
+						<control type="image">
+								<description>Black Button</description>
+								<width>35</width>
+								<height>35</height>
+								<colordiffuse>context_buttons_layouts</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+								<texture>layouts/art/black.png</texture>
+								<visible>IntegerGreaterThan(Container(9000).NumItems,9)</visible>
+						</control>
+						<control type="label">
+								<width min="30" max="350">auto</width>
+								<textoffsety>5</textoffsety>
+								<textcolor>context_buttons_layouts</textcolor>
+								<font>size_19</font>
+								<label>[UPPERCASE]$LOCALIZE[30904] [/UPPERCASE]</label>
+								<visible>IntegerGreaterThan(Container(9000).NumItems,9)</visible>
 						</control>
 				</control>
 		</include>

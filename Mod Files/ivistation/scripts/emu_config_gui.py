@@ -176,9 +176,14 @@ class EmuConfigMenu:
         )
 
     def _launch_core(self):
-        xbmc.executebuiltin("RunXBE({})".format(
-            os.path.join(get_core_path(self.system, self.core), "default.xbe")
+        xbe_path = os.path.join(get_core_path(self.system, self.core), "default.xbe")
+        print("Direct emulator launch for ", xbe_path)
+
+        xbmc.executebuiltin("runxbe({})".format(
+            xbe_path
         ))
+
+        raise KeyboardInterrupt
 
     def main_menu(self):
         """
@@ -239,5 +244,7 @@ if __name__ == '__main__':
 
     try:
         main()
-    finally:
-        xbmcgui.unlock()
+    except KeyboardInterrupt as b:
+        pass
+    except Exception as e:
+        print("emu_config_gui.py: ", e)

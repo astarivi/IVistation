@@ -105,4 +105,8 @@ def main():
 
 if __name__ == '__main__':
     print("Loading menu.")
-    main()
+
+    try:
+        main()
+    except Exception as e:
+        print("menu_loader.py: ", e)
