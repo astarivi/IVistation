@@ -54,18 +54,22 @@ class EmuConfigMenu:
         if len(available_cores) == 0:
             response = self.dialog.yesno(
                 "{}: NO CORE FOUND".format(self.system.upper()),
-                "No cores found for this system."
+                "No cores found for this system.",
                 "Would you like to search the",
                 "downloader for cores?"
             )
 
             if response:
+                xbmc.executebuiltin("ActivateWindow(1101)")
+
                 xbmc.executebuiltin(
                     'RunScript({})'.format(
                         xbmc.translatePath("Special://root/ivistation/scripts/download/download_loader.py"),
                     )
                 )
-            return
+
+            # Stop execution immediately to free RAM up for the downloader
+            raise KeyboardInterrupt
 
         # Guess we will be using that lone core
         if len(available_cores) == 1:
