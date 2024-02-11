@@ -115,43 +115,25 @@
 										<textcolor>menu_header_label</textcolor>
 										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
 								</control>
-								<control type="radiobutton" id="16">
-										<left>0</left>
-										<top>0</top>
-										<label>  -  [UPPERCASE]$LOCALIZE[31366][/UPPERCASE]</label>
-										<include>MenuCustomButtonMenuValues</include>
-										<onclick>Skin.ToggleSetting(Use_Synopsis_Names)</onclick>
-										<selected>Skin.HasSetting(Use_Synopsis_Names)</selected>
-										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
-								</control>
 								<control type="radiobutton" id="17">
 										<left>0</left>
 										<top>0</top>
-										<label>  -  [UPPERCASE]$LOCALIZE[31369][/UPPERCASE]</label>
+										<label>  -  [UPPERCASE]automatic boxart downloads[/UPPERCASE]</label>
 										<include>MenuCustomButtonMenuValues</include>
 										<onclick>Skin.ToggleSetting(disable_art_download)</onclick>
-										<selected>Skin.HasSetting(disable_art_download)</selected>
+										<selected>!Skin.HasSetting(disable_art_download)</selected>
 										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
 								</control>
-								<control type="radiobutton" id="18">
-										<left>0</left>
-										<top>0</top>
-										<label>  -  [UPPERCASE]$LOCALIZE[31370][/UPPERCASE]</label>
-										<include>MenuCustomButtonMenuValues</include>
-										<onclick>Skin.ToggleSetting(Remove_Articles_In_Name)</onclick>
-										<selected>Skin.HasSetting(Remove_Articles_In_Name)</selected>
-										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
-								</control>
-								<control type="radiobutton" id="19">
-										<left>0</left>
-										<top>0</top>
-										<label>  -  [UPPERCASE]$LOCALIZE[31367][/UPPERCASE]</label>
-										<include>MenuCustomButtonMenuValues</include>
-										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_enabled-Use_SegaCD_ISO/MP3,NOTICE,SegaCD - NeoGenesis required. On downloader.,ISO/BIN/IMG+MP3 must be in subfolder with,the same name as the ISO/BIN/IMG file. )</onclick>
-										<onclick>Skin.ToggleSetting(Use_SegaCD_ISO/MP3)</onclick>
-										<selected>Skin.HasSetting(Use_SegaCD_ISO/MP3)</selected>
-										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
-								</control>
+<!--								<control type="radiobutton" id="19">-->
+<!--										<left>0</left>-->
+<!--										<top>0</top>-->
+<!--										<label>  -  [UPPERCASE]$LOCALIZE[31367][/UPPERCASE]</label>-->
+<!--										<include>MenuCustomButtonMenuValues</include>-->
+<!--										<onclick>RunScript( special://root/ivistation/scripts/unported/dialog_ok.py,show_enabled-Use_SegaCD_ISO/MP3,NOTICE,SegaCD - NeoGenesis required. On downloader.,ISO/BIN/IMG+MP3 must be in subfolder with,the same name as the ISO/BIN/IMG file. )</onclick>-->
+<!--										<onclick>Skin.ToggleSetting(Use_SegaCD_ISO/MP3)</onclick>-->
+<!--										<selected>Skin.HasSetting(Use_SegaCD_ISO/MP3)</selected>-->
+<!--										<visible>Skin.HasSetting(Show_Scan_Options)</visible>-->
+<!--								</control>-->
 								<control type="button" id="20">
 										<left>0</left>
 										<top>0</top>
@@ -161,24 +143,24 @@
 										<visible>Skin.HasSetting(Show_Scan_Options)</visible>
 								</control>
 								<!-- requires download label -->
-								<control type="label" id="30">
-										<left>320</left>
-										<top>130</top>
-										<width>640</width>
-										<height>43</height>
-										<align>center</align>
-										<aligny>center</aligny>
-										<font>size_23</font>
-										<label>[B][UPPERCASE]$LOCALIZE[31360][/UPPERCASE][/B]</label>
-										<textcolor>menu_header_label</textcolor>
-								</control>
-								<control type="button" id="31">
-										<left>0</left>
-										<top>0</top>
-										<label>[UPPERCASE]$LOCALIZE[31354][/UPPERCASE]</label>
-										<include>MenuButtonMenuValues</include>
-										<onclick>RunScript(special://emustation_scripts/run_artwork_installer.py)</onclick>
-								</control>
+<!--								<control type="label" id="30">-->
+<!--										<left>320</left>-->
+<!--										<top>130</top>-->
+<!--										<width>640</width>-->
+<!--										<height>43</height>-->
+<!--										<align>center</align>-->
+<!--										<aligny>center</aligny>-->
+<!--										<font>size_23</font>-->
+<!--										<label>[B][UPPERCASE]$LOCALIZE[31360][/UPPERCASE][/B]</label>-->
+<!--										<textcolor>menu_header_label</textcolor>-->
+<!--								</control>-->
+<!--								<control type="button" id="31">-->
+<!--										<left>0</left>-->
+<!--										<top>0</top>-->
+<!--										<label>[UPPERCASE]$LOCALIZE[31354][/UPPERCASE]</label>-->
+<!--										<include>MenuButtonMenuValues</include>-->
+<!--										<onclick>RunScript(special://emustation_scripts/run_artwork_installer.py)</onclick>-->
+<!--								</control>-->
 						</control>
 				</control>
 				<control type="image">

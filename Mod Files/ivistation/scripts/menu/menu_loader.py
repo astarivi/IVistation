@@ -48,12 +48,12 @@ def main():
         for code in layout_file:
             code = code.replace(
                 "[ArtworkFolder]",
-                "{}{}\\boxart\\".format(
+                "{}{system}\\$INFO[Skin.String({system}_artworkfolder)]\\".format(
                     xbmc.getInfoLabel('skin.string(Custom_Media_Path)'),
-                    xbmc.getInfoLabel('Skin.String(emuname)'),
-                    target_system
+                    system=target_system
                 )
             )
+
             code = code.replace('[Artwork_Type]', target_system + '_artworkfolder')
             code = code.replace('[Fanart_Toggle]',
                                 'Skin.HasSetting(' + xbmc.getInfoLabel('Skin.String(emuname)') + 'fanart)')

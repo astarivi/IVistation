@@ -1,10 +1,13 @@
 import os
 import xbmc
 import sqlite3
+import urllib2
+
 from ivistation.downloader import turbo_download
 from ivistation.utils import clean_rom_name
 
 
+# noinspection PyClassHasNoInit
 class DownloadResult:
     SUCCESSFUL = 1
     FAILED = 2
@@ -24,7 +27,7 @@ class BoxArtDownloader(object):
         declared_media_path = xbmc.getInfoLabel('skin.string(Custom_Media_Path)')
         self.media_path = os.path.join(declared_media_path, system, "boxart")
         # TODO: Opt out of downloads here by setting enabled to false
-        if not os.path.isfile(self.db_path):
+        if xbmc.getCondVisibility('Skin.HasSetting(disable_art_download)') or not os.path.isfile(self.db_path):
             self.enabled = False
             return
 
@@ -55,6 +58,11 @@ class BoxArtDownloader(object):
 
         try:
             turbo_download(url, target_path)
+        except urllib2.HTTPError as e:
+            # We could try again later.
+            if e.code == 404 or e.code == 500:
+                return DownloadResult.REMOTE_MISSING
+            return DownloadResult.FAILED
         except Exception as e:
             print("Failed to download artwork from ", url, " due to: ", e)
             return DownloadResult.FAILED

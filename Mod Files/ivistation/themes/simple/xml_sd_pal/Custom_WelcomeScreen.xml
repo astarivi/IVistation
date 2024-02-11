@@ -1,5 +1,9 @@
 <window type="window" id="1310">
 		<defaultcontrol always="true">9000</defaultcontrol>
+		<onload>Skin.SetBool(synopsislayout)</onload>
+		<onload>Skin.Reset(thumblayout)</onload>
+		<onload>Skin.Reset(videolayout)</onload>
+		<onload>Skin.SetString(CurrentLayoutTheme,$LOCALIZE[31262])</onload>
 		<controls>
 				<control type="button" id="9000">
 						<left>-500</left>
