@@ -7,10 +7,20 @@
         "title": "UnleashX",
         "thumbnail": "https://i.imgur.com/0rUxENr.png",
         "version": 1,
-        "description": "UnleashX is one of the most recognized custom dashboards. Commonly bundled with softmodded consoles back in the day, it is flexible, user friendly, and highly customizable through skins. Although it stopped receiving updates long ago, it remains the staple of dashboards for some, and the top pick for others. Version: 0.39.0528 Build 584 [CR]Credits: UnleashX Team",
+        "description": "UnleashX is one of the most recognized custom dashboards. Commonly bundled with softmodded consoles back in the day, it is flexible, user friendly, and highly customizable through skins. Although it stopped receiving updates long ago, it remains the staple of dashboards for some, and the top pick for others.[CR]Version: 0.39.0528 Build 584[CR]Credits: UnleashX Team",
         "download_size": "1.7 MB",
         "install_size": "3 MB",
         "url": "https://link.storjshare.io/raw/jusvqmgcijr6zg2x2l3quciicjqq/ivistation%2FUnleashX.zip"
+      },
+      {
+        "id": "lithiumx",
+        "title": "LithiumX",
+        "thumbnail": "https://i.imgur.com/7oqkuPf.png",
+        "version": 1,
+        "description": "LithiumX is an open source, lightning fast, simple dashboard. It includes some useful features such as an FTP server and an XBE launcher. LithiumX is still in development, and receives somewhat frequent updates.[CR]Source: https://github.com/Ryzee119/LithiumX[CR]Version: 0.9.4[CR]Credits: Ryzee119, LoveMHz, GXTX, Ernegien",
+        "download_size": "1.3 MB",
+        "install_size": "3 MB",
+        "url": "https://link.storjshare.io/raw/jx4nmcbtgyq2tzlkj4x43rkd532a/ivistation%2FLithiumX.zip"
       }
     ]
   },
