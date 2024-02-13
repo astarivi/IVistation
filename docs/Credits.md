@@ -1,4 +1,4 @@
-## IVistation Credits:
+# IVistation Credits
 
 ### Madmab
 For his amazing, well maintained emulators, and for keeping the emulation scene alive.
@@ -38,7 +38,7 @@ For the included configparser backport, slightly modified to work on the Xbox
 ### xbmcswift2 (Jonathan Beluch and contributors)
 For the included xbmcswift2 bundled as a _module, and used as a library. No source modifications have been done.
 
-## XBMC-Emustation Acknowledgments:
+# XBMC-Emustation Acknowledgments:
 
 #### Buzz
  For maintaining XBMC4Xbox over the years.

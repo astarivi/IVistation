@@ -1,6 +1,7 @@
 import re
 import xbmc
 
+IVISTATION_VERSION = 1
 THUMBNAIL_PATTERN = re.compile(r'\([^)]*\)')
 
 
