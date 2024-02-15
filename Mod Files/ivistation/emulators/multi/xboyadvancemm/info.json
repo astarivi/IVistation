@@ -1,0 +1,18 @@
+{
+  "id": "xboyadvancemm",
+  "version": 1,
+  "mm_version": "v26",
+  "title": "XboyAdvance MM",
+  "authors": "Julian Henry Hitchcock, XPorts, Madmab",
+  "data_folder": "SAVES",
+  "config_file": "xboyadvance.ini",
+  "backup": "backup.zip",
+  "config_type": "madmab",
+  "multi": {
+    "systems": [
+      "gb",
+      "gbc",
+      "gba"
+    ]
+  }
+}
