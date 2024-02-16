@@ -1,4 +1,7 @@
 {
   "nes": "mednafenxnesmm",
-  "snes": "snes9xmm"
+  "snes": "snes9xmm",
+  "gb": "xboyadvancemm",
+  "gbc": "xboyadvancemm",
+  "gba": "xboyadvancemm"
 }

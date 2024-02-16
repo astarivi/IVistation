@@ -1,0 +1,5 @@
+Short name	Full name	ID	Version	Emulator version	Supported systems	Built-in
+MDNFX NES MM	MednafenX NES Madmab Edition	mednafenxnesmm	1	v16	NES	Y
+FCE UltraX	FCE UltraX	fceultra	1	v17	NES	N
+SNES9XBox MM	SNES9XBox Madmab Edition	snes9xmm	1	v6b08	SNES	Y
+XboyAdvance MM	XboyAdvance Madmab Edition	xboyadvancemm	1	v26	GB, GBC, GBA	Y

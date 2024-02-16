@@ -3,6 +3,7 @@
 ### Looking for any of these?
 
  * ### [Guides and How-tos](guides/README.md)
+ * ### [Supported Cores](Cores.tsv)
  * ### [Credits](Credits.md)
  * ### [IVistation Changes](IVistation_changes.md)
 

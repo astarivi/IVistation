@@ -55,7 +55,7 @@ found in their respective guide pages, too)
     XISO Xbox games can be parsed by using the scanner. This requires an up-to-date softmod, or a hardmod and a bios
     that supports this. To use this feature, locate your Xbox games folder, usually a `Games` folder at the root
     of a drive, like `E:\Games`, and create a folder related to the title of your game, ex: `E:\Games\Halo`, place
-    your XISO files there, then run the scanner.
+    your XISO files there, then run the scanner. A separate folder is needed for each game.
 
     **Note: Xbox games are considered as roms by IVistation.**
 

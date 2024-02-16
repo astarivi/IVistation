@@ -9,9 +9,11 @@ import simplejson as json
 from utils.layout_helper import *
 from ivistation.downloader import memory_download, turbo_download
 
+LISTING_URL = "https://raw.githubusercontent.com/astarivi/IVistation/master/remote/library.json"
+
 
 class DownloadListingManager(object):
-    def __init__(self, listing_url, progress_dialog):
+    def __init__(self, progress_dialog):
         self.progress_dialog = progress_dialog
 
         self.progress_dialog.update(
@@ -22,7 +24,7 @@ class DownloadListingManager(object):
         )
 
         self.library = json.loads(
-            memory_download(listing_url, timeout=10)
+            memory_download(LISTING_URL, timeout=10)
         )
 
         self.progress_dialog.update(
@@ -161,6 +163,27 @@ class DownloadListingManager(object):
         )
 
 
+def retrieve_from_library(item_id, dwn_type):
+    """
+    For usage with intents
+    """
+
+    library = json.loads(
+        memory_download(LISTING_URL, timeout=10)
+    )
+
+    if dwn_type not in library:
+        raise ValueError("This dwn_type wasn't found in the library", dwn_type)
+
+    for item in library[dwn_type]["items"]:
+        if not item["id"] == item_id:
+            continue
+
+        return item["name"], item["url"], dwn_type
+
+    raise KeyError("item_id wasn't found in the library", item_id)
+
+
 def main():
     progress_dialog = xbmcgui.DialogProgress()
 
@@ -168,7 +191,6 @@ def main():
 
     try:
         listing_manager = DownloadListingManager(
-            "https://raw.githubusercontent.com/astarivi/IVistation/master/remote/library.json",
             progress_dialog
         )
 

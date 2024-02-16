@@ -18,10 +18,18 @@ def download_file(url, local_path, timeout=20, chunk_size=8192, progress_every=3
         Yields progress from 0 to 100 as an int, and human-readable download
         speed as a string
     """
+    headers = {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'User-Agent': 'Mozilla/5.0'
+    }
+
+    request = urllib2.Request(url, headers=headers)
+
     repetitions = 0
     start_time = time.time()
 
-    with closing(urllib2.urlopen(url, timeout=timeout)) as response, open(local_path, 'wb') as output_file:
+    with closing(urllib2.urlopen(request, timeout=timeout)) as response, open(local_path, 'wb') as output_file:
         total_size = float(response.headers['Content-Length'])
         downloaded = 0
 

@@ -136,12 +136,9 @@ class Download(object):
 
 
 # TODO: CHECK IF THERE'S ENOUGH STORAGE SPACE TO DOWNLOAD THIS
-if __name__ == '__main__':
-    print("Starting download.py...")
-
-    args = sys.argv[1:]
-
-    downloader = Download(args[0], args[1], args[2])
+def run_downloader(name, url, dwn_type):
+    xbmc.executebuiltin('Dialog.Close(1101,true)')
+    downloader = Download(name, url, dwn_type)
 
     try:
         downloader.download()
@@ -157,3 +154,11 @@ if __name__ == '__main__':
             downloader.progress_dialog.close()
         except:
             pass
+
+
+if __name__ == '__main__':
+    print("Starting download.py...")
+
+    args = sys.argv[1:]
+
+    run_downloader(args[0], args[1], args[2])

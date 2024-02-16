@@ -10,6 +10,7 @@ Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing fe
 ## Index:
  * ### [Installation](docs/guides/Installation.md)
  * ### [Guides and How-tos](docs/guides/README.md)
+ * ### [Supported Cores](docs/Cores.tsv)
  * ### [Credits](docs/Credits.md)
 
 ## Planned Functionalities
