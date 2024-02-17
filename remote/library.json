@@ -7,6 +7,7 @@
         "title": "UnleashX",
         "thumbnail": "https://i.imgur.com/0rUxENr.png",
         "version": 1,
+        "required_version": 1,
         "description": "UnleashX is one of the most recognized custom dashboards. Commonly bundled with softmodded consoles back in the day, it is flexible, user friendly, and highly customizable through skins. Although it stopped receiving updates long ago, it remains the staple of dashboards for some, and the top pick for others.[CR]Version: 0.39.0528 Build 584[CR]Credits: UnleashX Team",
         "download_size": "1.7 MB",
         "install_size": "3 MB",
@@ -17,6 +18,7 @@
         "title": "LithiumX",
         "thumbnail": "https://i.imgur.com/7oqkuPf.png",
         "version": 1,
+        "required_version": 1,
         "description": "LithiumX is an open source, lightning fast, simple dashboard. It includes some useful features such as an FTP server and an XBE launcher. LithiumX is still in development, and receives somewhat frequent updates.[CR]Source: https://github.com/Ryzee119/LithiumX[CR]Version: 0.9.4[CR]Credits: Ryzee119, LoveMHz, GXTX, Ernegien",
         "download_size": "1.3 MB",
         "install_size": "3 MB",
@@ -32,10 +34,39 @@
         "title": "NES: FCE UltraX",
         "thumbnail": "https://i.imgur.com/K1tB9IU.png",
         "version": 1,
+        "required_version": 1,
         "description": "Not to be confused with its modern fork FCEUX, FCE Ultra is a NES emulator with decent accuracy and great speed, but limited game support. It was developed until 2004, where the project was abandoned, further giving birth to FCEUX some time later in 2008. Considered by many as one of the fastest old-school emulators, it was brought to the Xbox by XPorts. [CR] Credits: Bero, Ben Parnell, Xodnizel, FCE Team, FCEU Team, XPorts",
         "download_size": "1 MB",
         "install_size": "2 MB",
         "url": "https://link.storjshare.io/raw/jvftrlao27x2ea357w4thx6osmea/ivistation%2Ffceultra.zip"
+      }
+    ]
+  },
+  "updates": {
+    "title": "PLATFORM UPDATES",
+    "items": [
+      {
+        "id": "ivistation",
+        "title": "IVistation",
+        "thumbnail": "https://i.imgur.com/Xrt4uwF.png",
+        "version": 1,
+        "required_version": 0,
+        "required_updater": 1,
+        "description": "Fetches the latest IVistation update package, and installs it. Make sure to have enough storage space available.[CR]Source: https://github.com/astarivi/IVistation[CR]Latest release: v1[CR]Credits: astarivi, Rocky5",
+        "download_size": "? MB",
+        "install_size": "? MB",
+        "url": "https://github.com/astarivi/IVistation/releases/latest/download/update.tar"
+      },
+      {
+        "id": "ivupdater",
+        "title": "IVistation Updater",
+        "thumbnail": "https://i.imgur.com/DvV0ckx.png",
+        "version": 1,
+        "required_version": 0,
+        "description": "IVistation Updater is an open-source, standalone update installer and rescue environment for IVistation in the form of a single 'update.xbe' executable.[CR]Source: https://github.com/astarivi/IVistation-Updater[CR]Latest release: v1[CR]Credits: astarivi",
+        "download_size": "5 MB",
+        "install_size": "0 MB",
+        "url": "https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.xbe"
       }
     ]
   }

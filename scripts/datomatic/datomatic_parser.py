@@ -65,4 +65,4 @@ def main(file):
 
 
 if __name__ == '__main__':
-    main("snes.dat")
+    main("gbc.dat")

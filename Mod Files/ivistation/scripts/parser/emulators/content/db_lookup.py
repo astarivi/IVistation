@@ -1,6 +1,8 @@
 import os
 import sqlite3
 
+from contextlib import closing
+
 
 class DatabaseHelper:
     def __init__(self, database):
@@ -13,20 +15,19 @@ class DatabaseHelper:
         self.db_connection = sqlite3.connect(database)
 
     def get_title_from_crc32(self, crc32):
-        cursor = self.db_connection.cursor()
+        with closing(self.db_connection.cursor()) as cursor:
+            select_query = '''
+                SELECT title FROM root WHERE crc = ?;
+            '''
 
-        select_query = '''
-            SELECT * FROM root WHERE crc = ?;
-        '''
+            cursor.execute(select_query, (crc32,))
 
-        cursor.execute(select_query, (crc32,))
+            row = cursor.fetchone()
 
-        row = cursor.fetchone()
+            if row is not None:
+                return row[0]
 
-        if row is not None:
-            return row[2]
-
-        return None
+            return None
 
     def close(self):
         if hasattr(self, 'db_connection') and self.db_connection is not None:
@@ -35,5 +36,5 @@ class DatabaseHelper:
     def __del__(self):
         try:
             self.close()
-        except Exception:
-            print("Couldn't destroy database helper for {}".format(self.database))
+        except Exception as e:
+            print("Couldn't destroy database helper for {}".format(self.database), e)

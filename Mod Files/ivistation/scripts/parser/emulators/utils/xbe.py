@@ -125,10 +125,9 @@ class XBE_SECTION(object):
 
 
 class XBE(object):
-    raw_cert = None
-
     def __init__(self, xbe_path, keep_raw_cert=False):
         self.path = xbe_path
+        self.raw_cert = None
 
         with open(xbe_path, "rb") as xbe_file:
             # Read the first 376 bytes to populate the header

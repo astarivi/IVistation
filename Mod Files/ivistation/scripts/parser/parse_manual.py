@@ -4,6 +4,7 @@ import xbmc
 from emulators.parse_nes import ParseNES
 from emulators.parse_snes import ParseSNES
 from emulators.parse_xbox import ParseXbox
+from emulators.parse_generic import ParseGeneric
 from menu.gamelist_helper import GameListCreator
 from menu.boxart_downloader import DownloadResult, BoxArtDownloader
 
@@ -11,14 +12,22 @@ from menu.boxart_downloader import DownloadResult, BoxArtDownloader
 SYSTEMS = {
     "nes": ParseNES,
     "snes": ParseSNES,
-    "xbox": ParseXbox
+    "xbox": ParseXbox,
+    "gb": ParseGeneric,
+    "gbc": ParseGeneric,
+    "gba": ParseGeneric
 }
 
 
 # Takes two parameters, the system, and a progress dialog to write progress to.
 # Returns a number, which is the amount of processed entries.
 def parse_roms(system, progress_dialog):
-    parser = SYSTEMS[system]()
+    parser_class = SYSTEMS[system]
+
+    if parser_class == ParseGeneric:
+        parser = parser_class(system)
+    else:
+        parser = parser_class()
 
     # Prepare entries
     progress_title = parser.get_progress_title().format(system.upper())
