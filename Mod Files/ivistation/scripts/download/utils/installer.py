@@ -124,7 +124,7 @@ def calculate_crc32(file_path, chunk_size=8192, progress_threshold_kb=512):
 
 
 def get_update_installer_version():
-    update_xbe_path = xbmc.translatePath("special://root/ivistation/update.xbe")
+    update_xbe_path = xbmc.translatePath("special://root/update.xbe")
 
     if not os.path.isfile(update_xbe_path):
         return -1

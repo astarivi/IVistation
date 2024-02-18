@@ -146,7 +146,7 @@ class Download(object):
         # Valid file, keep going with the installation
         xbmc.executebuiltin("runxbe({})".format(
             xbmc.translatePath(
-                "special://root/ivistation/update.xbe"
+                "special://root/update.xbe"
             )
         ))
         raise KeyboardInterrupt
@@ -241,7 +241,6 @@ if __name__ == '__main__':
     print("Starting download.py...")
 
     args = sys.argv[1:]
-    print(args)
 
     with closing(xbmcgui.DialogProgress()) as dialog_window:
         dialog_window.create("DOWNLOAD AND INSTALL", "...Decoding data...")
