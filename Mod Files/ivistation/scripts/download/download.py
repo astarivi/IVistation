@@ -8,22 +8,30 @@ import traceback
 import simplejson as json
 
 from contextlib import closing
-from utils.installer import install_zip
+from utils.installer import install_zip, calculate_crc32, get_update_installer_version
 from ivistation.downloader import download_file
+from ivistation.utils import IVISTATION_VERSION
 
 
 class Download(object):
     def __init__(self, dwn_type, entry):
         xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
 
+        # gui
         self.dialog = xbmcgui.Dialog()
         self.progress_dialog = xbmcgui.DialogProgress()
         self.progress_dialog.create("DOWNLOAD AND INSTALL", "Initializing...")
+
+        # data
         self.entry = entry
         self.type = dwn_type
-        self.extension = entry["url"].split(".")[-1]
+        self.self_update = self.entry["id"] == "ivistation"
 
-        self.download_file = "Z:\\download." + self.extension
+        # path
+        if self.self_update:
+            self.download_file = "Q:\\update.tar"
+        else:
+            self.download_file = "Z:\\download." + self.entry["url"].split(".")[-1]
 
     def _get_available_mounts(self):
         default_routes = [
@@ -63,12 +71,8 @@ class Download(object):
 
         raise KeyboardInterrupt
 
-    def _core_installer(self):
-        core_path = xbmc.translatePath(
-            "special://root/ivistation/emulators"
-        )
-
-        for progress, current_file in install_zip(self.download_file, core_path):
+    def _generic_installer(self, i_path):
+        for progress, current_file in install_zip(self.download_file, i_path):
             self.progress_dialog.update(
                 progress,
                 "Installing " + self.entry["title"],
@@ -110,9 +114,70 @@ class Download(object):
                 "This can take a long time, please be patient."
             )
 
+    def _self_update_install(self):
+        if "checksum" in self.entry and self.entry["checksum"] is not None:
+            expected_checksum = self.entry["checksum"].lower()
+            crc32_checksum = None
+
+            for progress, checksum in calculate_crc32(self.download_file):
+                self.progress_dialog.update(
+                    progress,
+                    "Verifying update integrity",
+                    "This can take a long time, please be patient."
+                )
+
+                # We're done
+                if checksum != "":
+                    crc32_checksum = checksum
+                    break
+
+            # If we don't match
+            if expected_checksum != crc32_checksum:
+                self.dialog.ok(
+                    "UPDATE INSTALLER",
+                    "Invalid checksum, corrupt update file.",
+                    "Expected: " + expected_checksum,
+                    "Got: " + crc32_checksum
+                )
+                print("Invalid checksum for platform update", expected_checksum, crc32_checksum)
+                os.remove(self.download_file)
+                raise KeyboardInterrupt
+
+        # Valid file, keep going with the installation
+        xbmc.executebuiltin("runxbe({})".format(
+            xbmc.translatePath(
+                "special://root/ivistation/update.xbe"
+            )
+        ))
+        raise KeyboardInterrupt
+
     def download(self):
         if os.path.isfile(self.download_file):
             os.remove(self.download_file)
+
+        # If we require a higher version of IVistation
+        if self.entry["required_version"] > IVISTATION_VERSION:
+            self.dialog.ok(
+                "INVALID VERSION",
+                "Please update IVistation to use this package.",
+                "Required version: v" + str(self.entry["required_version"]),
+                "Current version: v" + str(IVISTATION_VERSION)
+            )
+            raise KeyboardInterrupt
+
+        # If we're trying to update IVistation and require a newer update.xbe
+        if self.self_update:
+            updater_version = get_update_installer_version()
+            if self.entry["required_updater"] > get_update_installer_version():
+                current_version = str(updater_version) if updater_version != -1 else "MISSING!"
+
+                self.dialog.ok(
+                    "INVALID UPDATER",
+                    "Please upgrade 'IVistation Updater'.",
+                    "Required version: v" + str(self.entry["required_updater"]),
+                    "Current version: v" + current_version
+                )
+                raise KeyboardInterrupt
 
         # Download it using our slow downloader for large files
         for progress, download_speed in download_file(self.entry["url"], self.download_file):
@@ -124,8 +189,21 @@ class Download(object):
             )
 
         # Now let's install it
-        if self.type == "cores":
-            self._core_installer()
+        if self.self_update:
+            # This shouldn't return
+            self._self_update_install()
+        elif self.type == "cores":
+            self._generic_installer(
+                xbmc.translatePath(
+                    "special://root/ivistation/emulators"
+                )
+            )
+        elif self.type == "updates":
+            self._generic_installer(
+                xbmc.translatePath(
+                    "special://root/ivistation"
+                )
+            )
         elif self.type == "apps":
             self._apps_installer()
 

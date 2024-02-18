@@ -232,6 +232,16 @@ class UserDatabaseHelper(object):
             "override.db"
         )
 
+        try:
+            os.makedirs(os.path.dirname(self.user_db))
+        except:
+            pass
+
+        try:
+            os.makedirs(os.path.dirname(self.override_db))
+        except:
+            pass
+
         if os.path.isfile(self.override_db):
             self.override_db_connection = sqlite3.connect(self.override_db)
         else:

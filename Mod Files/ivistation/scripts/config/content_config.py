@@ -47,6 +47,11 @@ class CoreConfigManager(object):
         if not new_configuration:
             return
 
+        try:
+            os.makedirs(os.path.dirname(path))
+        except:
+            pass
+
         if os.path.isfile(path):
             try:
                 os.remove(path)

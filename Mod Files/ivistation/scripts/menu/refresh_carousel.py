@@ -4,8 +4,7 @@ import xbmc
 import shutil
 import xbmcgui
 
-# used to create folders of the supported emulators.
-EMULATORS = ["nes", "snes"]
+from ivistation.verbose import VERBOSE_SYSTEMS
 
 
 def main():
@@ -17,22 +16,10 @@ def main():
     # Create some folders first
 
     roms_path = "Q:\\ivistation\\roms\\"
-    emulators_path = "Q:\\ivistation\\emulators\\"
-    configs_path = "Q:\\ivistation\\configs\\"
 
-    for emulator in EMULATORS:
+    for emulator in VERBOSE_SYSTEMS.itervalues():
         try:
             os.makedirs(os.path.join(roms_path, emulator))
-        except Exception:
-            pass
-
-        try:
-            os.makedirs(os.path.join(emulators_path, emulator))
-        except Exception:
-            pass
-
-        try:
-            os.makedirs(os.path.join(configs_path, emulator))
         except Exception:
             pass
 
