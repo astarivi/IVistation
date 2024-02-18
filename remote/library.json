@@ -67,7 +67,7 @@
         "description": "IVistation Updater is an open-source, standalone update installer and rescue environment for IVistation in the form of a single 'update.xbe' executable.[CR][CR]Source: https://github.com/astarivi/IVistation-Updater[CR]Latest release: v1[CR]Credits: astarivi",
         "download_size": "5 MB",
         "install_size": "0 MB",
-        "url": "https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.xbe"
+        "url": "https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.zip"
       }
     ]
   }

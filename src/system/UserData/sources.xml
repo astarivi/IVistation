@@ -1,0 +1,53 @@
+<sources>
+		<programs>
+				<default pathversion="1">
+				</default>
+				<source>
+						<name>Static_Menu</name>
+						<path pathversion="1">X:\</path>
+				</source>
+				<source>
+						<name>Apps</name>
+						<path pathversion="1">E:\Applications\</path>
+						<path pathversion="1">F:\Applications\</path>
+						<path pathversion="1">G:\Applications\</path>
+						<path pathversion="1">E:\Apps\</path>
+						<path pathversion="1">F:\Apps\</path>
+						<path pathversion="1">G:\Apps\</path>
+				</source>
+				<source>
+						<name>Homebrew</name>
+						<path pathversion="1">E:\Homebrew\</path>
+						<path pathversion="1">F:\Homebrew\</path>
+						<path pathversion="1">G:\Homebrew\</path>
+				</source>
+				<source>
+						<name>Ports</name>
+						<path pathversion="1">E:\Ports\</path>
+						<path pathversion="1">F:\Ports\</path>
+						<path pathversion="1">G:\Ports\</path>
+				</source>
+				<source>
+						<name>Xbox</name>
+						<path pathversion="1">E:\Games\</path>
+						<path pathversion="1">F:\Games\</path>
+						<path pathversion="1">G:\Games\</path>
+				</source>
+		</programs>
+		<video>
+				<default pathversion="1">
+				</default>
+		</video>
+		<music>
+				<default pathversion="1">
+				</default>
+		</music>
+		<pictures>
+				<default pathversion="1">
+				</default>
+		</pictures>
+		<files>
+				<default pathversion="1">
+				</default>
+		</files>
+</sources>
