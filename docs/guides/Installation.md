@@ -20,7 +20,8 @@ to. An UnleashX DVD, Rocky5 Extras Disc, or dual booting are all excellent backu
 
 ## Installation
 
-[Download IVistation]() and decompress the lone folder contained within the .zip you have just downloaded. 
+[Download IVistation](https://github.com/astarivi/IVistation/releases/latest/download/IVistation.zip) and decompress the 
+lone folder contained within the .zip you have just downloaded.
 This `IVistation` folder is what you will transfer to the console, so go ahead and do so with your FTP
 client of choice. Note that some FTP clients let you choose the transfer type, I recommend using "Binary" transfer mode.
 

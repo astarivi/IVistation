@@ -15,7 +15,7 @@ msgstr ""
 
 ## version
 msgctxt "#31000"
-msgid "IVistation v1"
+msgid "xbmc-emustation 0.0.000"
 msgstr ""
 
 msgctxt "#31001"

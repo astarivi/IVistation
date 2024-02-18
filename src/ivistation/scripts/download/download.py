@@ -167,6 +167,14 @@ class Download(object):
 
         # If we're trying to update IVistation and require a newer update.xbe
         if self.self_update:
+            if IVISTATION_VERSION >= self.entry["version"]:
+                self.dialog.ok(
+                    "INVALID UPDATE",
+                    "You are in the latest version.",
+                    "Current version: v" + str(IVISTATION_VERSION)
+                )
+                raise KeyboardInterrupt
+
             updater_version = get_update_installer_version()
             if self.entry["required_updater"] > get_update_installer_version():
                 current_version = str(updater_version) if updater_version != -1 else "MISSING!"

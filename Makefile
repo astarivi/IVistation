@@ -33,9 +33,9 @@ build:
 	cp edits/default.xbe $(TARGET_FOLDER)/default.xbe
 	rm -f $(TARGET_FOLDER)/system/SystemInfo/changes.txt
 	cp Changes.txt $(TARGET_FOLDER)/system/SystemInfo/changes.txt
-	sed -i 's/xbmc-emustation\ 0.0.000/IVistation\ v$(VERSION)/g' src/ivistation/themes/simple/language/English/strings.po
-	sed -i 's/xbmc-emustation\ 0.0.000/IVistation\ v$(VERSION)/g' src/ivistation/themes/simple/language/French/strings.po
-	wget -P $(TARGET_FOLDER) https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.xbe
+	sed -i 's/xbmc-emustation\ 0.0.000/IVistation\ v$(VERSION)/g' $(TARGET_FOLDER)/ivistation/themes/simple/language/English/strings.po
+	sed -i 's/xbmc-emustation\ 0.0.000/IVistation\ v$(VERSION)/g' $(TARGET_FOLDER)/ivistation/themes/simple/language/French/strings.po
+	wget --no-cache -P $(TARGET_FOLDER) https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.xbe
 
 clean:
 	rm -rf $(TARGET_FOLDER)
