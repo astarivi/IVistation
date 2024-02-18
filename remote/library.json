@@ -52,7 +52,7 @@
         "version": 1,
         "required_version": 0,
         "required_updater": 1,
-        "description": "Fetches the latest IVistation update package, and installs it. Make sure to have enough storage space available.[CR]Source: https://github.com/astarivi/IVistation[CR]Latest release: v1[CR]Credits: astarivi, Rocky5",
+        "description": "Fetches the latest IVistation update package, and installs it. Make sure to have enough storage space available.[CR][CR]Source: https://github.com/astarivi/IVistation[CR]Latest release: v1[CR]Credits: astarivi, Rocky5",
         "download_size": "? MB",
         "install_size": "? MB",
         "url": "https://github.com/astarivi/IVistation/releases/latest/download/update.tar"
@@ -63,7 +63,7 @@
         "thumbnail": "https://i.imgur.com/DvV0ckx.png",
         "version": 1,
         "required_version": 0,
-        "description": "IVistation Updater is an open-source, standalone update installer and rescue environment for IVistation in the form of a single 'update.xbe' executable.[CR]Source: https://github.com/astarivi/IVistation-Updater[CR]Latest release: v1[CR]Credits: astarivi",
+        "description": "IVistation Updater is an open-source, standalone update installer and rescue environment for IVistation in the form of a single 'update.xbe' executable.[CR][CR]Source: https://github.com/astarivi/IVistation-Updater[CR]Latest release: v1[CR]Credits: astarivi",
         "download_size": "5 MB",
         "install_size": "0 MB",
         "url": "https://github.com/astarivi/IVistation-Updater/releases/latest/download/update.xbe"

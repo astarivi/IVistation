@@ -1,5 +1,7 @@
 import os
+import zlib
 import xbmc
+import base64
 import xbmcgui
 import datetime
 import traceback
@@ -70,17 +72,22 @@ class DownloadListingManager(object):
                 self.item_id += 1
 
                 img_extension = item["thumbnail"].split(".")[-1]
+                description = xml.sax.saxutils.escape(item["description"])
+                # So the encoding takes less space
+                del item["description"]
 
                 layout_target.write(
                     DOWNLOAD_ITEM.format(
                         self.item_id,
-                        xml.sax.saxutils.escape(item["description"]),
+                        description,
                         item["download_size"],
                         item["install_size"],
                         item["id"],
                         item["url"],
                         type=section,
                         title=xml.sax.saxutils.escape(item["title"]),
+                        # Compress the data, then encode it
+                        entry=base64.b64encode(zlib.compress(json.dumps(item), 9)),
                         img_extension=img_extension,
                     )
                 )
@@ -163,7 +170,7 @@ class DownloadListingManager(object):
         )
 
 
-def retrieve_from_library(item_id, dwn_type):
+def retrieve_from_library(dwn_type, item_id):
     """
     For usage with intents
     """
@@ -179,7 +186,9 @@ def retrieve_from_library(item_id, dwn_type):
         if not item["id"] == item_id:
             continue
 
-        return item["name"], item["url"], dwn_type
+        if "description" in item:
+            del item["description"]
+        return dwn_type, item
 
     raise KeyError("item_id wasn't found in the library", item_id)
 

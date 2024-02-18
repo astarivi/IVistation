@@ -66,7 +66,7 @@ class EmulatorSelector:
 
                     try:
                         run_downloader(
-                            *retrieve_from_library(selected_core, "cores")
+                            *retrieve_from_library("cores", selected_core)
                         )
                         raise KeyboardInterrupt("Redirecting to downloader")
                     except KeyboardInterrupt as e:

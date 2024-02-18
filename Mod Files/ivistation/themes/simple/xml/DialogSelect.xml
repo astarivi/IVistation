@@ -6,7 +6,7 @@
 						<!-- Image Preview -->
 						<left>290</left>
 						<top>17</top>
-						<visible>Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)</visible>
+						<visible>Skin.HasSetting(SelectPreviewMode)</visible>
 						<control type="image">
 								<description>background image</description>
 								<left>320</left>
@@ -27,20 +27,6 @@
 								<font>size_50</font>
 								<label>[UPPERCASE]preview[/UPPERCASE]</label>
 								<textcolor>menu_header_label</textcolor>
-						</control>
-						<control type="image">
-								<description>Current Icon image</description>
-								<left>400</left>
-								<top>90</top>
-								<width>540</width>
-								<height>510</height>
-								<aspectratio>keep</aspectratio>
-								<texture background="true">Special://skin/extras/urldownloader themes/previews/$INFO[Container(3).ListItem.Label].jpg</texture>
-								<aspectratio>keep</aspectratio>
-								<bordertexture border="5">white-back.png</bordertexture>
-								<bordersize>1</bordersize>
-								<fadetime>ThumbCrossfadeTime</fadetime>
-								<visible>Window.IsVisible(1901)</visible>
 						</control>
 						<control type="image">
 								<description>Current Icon image</description>
@@ -73,7 +59,7 @@
 				</control>
 				<control type="group">
 						<!-- Browser pane -->
-						<animation effect="slide" start="0,0" end="-290,0" time="0" condition="Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="-290,0" time="0" condition="Skin.HasSetting(SelectPreviewMode)">Conditional</animation>
 						<top>17</top>
 						<control type="image">
 								<description>background image</description>
@@ -168,7 +154,7 @@
 						</control>
 				</control>
 				<control type="group">
-						<animation effect="slide" start="0,0" end="-290,0" time="0" condition="Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="-290,0" time="0" condition="Skin.HasSetting(SelectPreviewMode)">Conditional</animation>
 						<control type="image">
 								<left>360r</left>
 								<top>195</top>

@@ -34,7 +34,7 @@ DOWNLOAD_ITEM = '''
                                         <onclick>Skin.SetString(downloader_label2,"$INFO[Container(9001).ListItem.Label2]")</onclick>
                                         <onclick>Skin.SetString(downloader_actualicon,"$INFO[Container(9001).ListItem.ActualIcon]")</onclick>
                                         <onclick>Skin.SetString(downloader_thumb,"$INFO[Container(9001).ListItem.Thumb]")</onclick>
-                                        <onclick>Skin.SetString(downloader_script,"RunScript(special://root/ivistation/scripts/download/download.py,{title},{},{type})")</onclick>
+                                        <onclick>Skin.SetString(downloader_script,"RunScript(special://root/ivistation/scripts/download/download.py,{type},{entry})")</onclick>
                                         <onclick>ActivateWindow(1902)</onclick>
                                 </item>
 '''

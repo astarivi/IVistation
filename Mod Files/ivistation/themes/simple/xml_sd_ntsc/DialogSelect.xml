@@ -4,7 +4,7 @@
 		<controls>
 				<control type="group">
 						<!-- Browser pane -->
-						<animation effect="slide" start="0,0" end="-110,0" time="0" condition="Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="-110,0" time="0" condition="Skin.HasSetting(SelectPreviewMode)">Conditional</animation>
 						<top>17</top>
 						<control type="image">
 								<description>background image</description>
@@ -26,7 +26,7 @@
 								<font>size_50</font>
 								<label>13406</label>
 								<textcolor>menu_header_label</textcolor>
-								<animation effect="slide" start="0,0" end="-50,0" time="0" condition="Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)">Conditional</animation>
+								<animation effect="slide" start="0,0" end="-50,0" time="0" condition="Skin.HasSetting(SelectPreviewMode)">Conditional</animation>
 						</control>
 						<control type="list" id="3">
 								<left>140</left>
@@ -100,7 +100,7 @@
 						<!-- Image Preview -->
 						<left>290</left>
 						<top>17</top>
-						<visible>Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)</visible>
+						<visible>Skin.HasSetting(SelectPreviewMode)</visible>
 						<control type="image">
 								<description>background image</description>
 								<left>70</left>
@@ -129,20 +129,6 @@
 								<width>280</width>
 								<height>420</height>
 								<aspectratio>keep</aspectratio>
-								<texture background="true">Special://skin/extras/urldownloader themes/previews/$INFO[Container(3).ListItem.Label].jpg</texture>
-								<aspectratio>keep</aspectratio>
-								<bordertexture border="5">white-back.png</bordertexture>
-								<bordersize>1</bordersize>
-								<fadetime>ThumbCrossfadeTime</fadetime>
-								<visible>Window.IsVisible(1901)</visible>
-						</control>
-						<control type="image">
-								<description>Current Icon image</description>
-								<left>95</left>
-								<top>10</top>
-								<width>280</width>
-								<height>420</height>
-								<aspectratio>keep</aspectratio>
 								<texture background="true">Special://themes_root/$INFO[Container(3).ListItem.Label]/preview.jpg</texture>
 								<aspectratio>keep</aspectratio>
 								<bordertexture border="5">white-back.png</bordertexture>
@@ -152,7 +138,7 @@
 						</control>
 				</control>
 				<control type="group">
-						<animation effect="slide" start="0,0" end="-190,0" time="0" condition="Skin.HasSetting(SelectPreviewMode) | Window.IsVisible(1901)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="-190,0" time="0" condition="Skin.HasSetting(SelectPreviewMode)">Conditional</animation>
 						<control type="image">
 								<left>170r</left>
 								<top>100</top>

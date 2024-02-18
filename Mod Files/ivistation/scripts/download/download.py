@@ -1,24 +1,27 @@
 import os
 import sys
+import zlib
 import xbmc
+import base64
 import xbmcgui
 import traceback
+import simplejson as json
 
+from contextlib import closing
 from utils.installer import install_zip
 from ivistation.downloader import download_file
 
 
 class Download(object):
-    def __init__(self, name, url, dwn_type):
+    def __init__(self, dwn_type, entry):
         xbmc.executebuiltin("Skin.Reset(SelectPreviewMode)")
 
         self.dialog = xbmcgui.Dialog()
         self.progress_dialog = xbmcgui.DialogProgress()
         self.progress_dialog.create("DOWNLOAD AND INSTALL", "Initializing...")
-        self.name = name
-        self.url = url
+        self.entry = entry
         self.type = dwn_type
-        self.extension = url.split(".")[-1]
+        self.extension = entry["url"].split(".")[-1]
 
         self.download_file = "Z:\\download." + self.extension
 
@@ -68,7 +71,7 @@ class Download(object):
         for progress, current_file in install_zip(self.download_file, core_path):
             self.progress_dialog.update(
                 progress,
-                "Installing " + self.name,
+                "Installing " + self.entry["title"],
                 "Current file: " + current_file,
                 "This can take a long time, please be patient."
             )
@@ -102,7 +105,7 @@ class Download(object):
         for progress, current_file in install_zip(self.download_file, result_point):
             self.progress_dialog.update(
                 progress,
-                "Installing " + self.name,
+                "Installing " + self.entry["title"],
                 "Current file: " + current_file,
                 "This can take a long time, please be patient."
             )
@@ -112,10 +115,10 @@ class Download(object):
             os.remove(self.download_file)
 
         # Download it using our slow downloader for large files
-        for progress, download_speed in download_file(self.url, self.download_file):
+        for progress, download_speed in download_file(self.entry["url"], self.download_file):
             self.progress_dialog.update(
                 progress,
-                "Downloading {}".format(self.name),
+                "Downloading {}".format(self.entry["title"]),
                 "Download speed: " + download_speed,
                 "This can take some time, please be patient."
             )
@@ -130,20 +133,20 @@ class Download(object):
 
         self.dialog.ok(
             "LIBRARY DOWNLOADER",
-            self.name,
+            self.entry["title"],
             "has been installed successfully."
         )
 
 
 # TODO: CHECK IF THERE'S ENOUGH STORAGE SPACE TO DOWNLOAD THIS
-def run_downloader(name, url, dwn_type):
+def run_downloader(dwn_type, entry):
     xbmc.executebuiltin('Dialog.Close(1101,true)')
-    downloader = Download(name, url, dwn_type)
+    downloader = Download(dwn_type, entry)
 
     try:
         downloader.download()
     except Exception as e:
-        print("Downloader failed!", args, e)
+        print("Downloader failed!", dwn_type, entry, e)
         traceback.print_exc()
         xbmcgui.Dialog().ok(
             "DOWNLOAD AND INSTALL",
@@ -160,5 +163,13 @@ if __name__ == '__main__':
     print("Starting download.py...")
 
     args = sys.argv[1:]
+    print(args)
 
-    run_downloader(args[0], args[1], args[2])
+    with closing(xbmcgui.DialogProgress()) as dialog_window:
+        dialog_window.create("DOWNLOAD AND INSTALL", "...Decoding data...")
+        decoded_data = json.loads(zlib.decompress(base64.b64decode(args[1])))
+
+    run_downloader(
+        args[0],
+        decoded_data
+    )
