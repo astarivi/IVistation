@@ -4,8 +4,9 @@ import glob
 import itertools
 
 from utils.xbe import XBE
-from utils.xiso import process_iso_name, process_iso
 from parse_system import ParseSystem
+from content.db_lookup import DatabaseHelper
+from utils.xiso import process_iso_name, process_iso
 
 # These aren't used, but are here just for readability purposes
 ALLOWED_EXTENSIONS = (
@@ -15,18 +16,14 @@ ALLOWED_EXTENSIONS = (
 
 
 class ParseXbox(ParseSystem):
-    entries = []
-
     def __init__(self):
         super(ParseXbox, self).__init__("xbox")
+        self.entries = []
         print("Initializing XBOX parser...")
 
         # TODO: Make this configurable
         self.paths = [
-            os.path.join(
-                xbmc.translatePath("Special://root/"),
-                "ivistation\\roms\\xbox"
-            ),
+            xbmc.translatePath("Special://root/ivistation/roms/xbox"),
             "E:\\Games",
             "F:\\Games",
             "G:\\Games",
@@ -40,6 +37,12 @@ class ParseXbox(ParseSystem):
         ]
 
         print("XBOX search paths: ", self.paths)
+
+        content_database = xbmc.translatePath("Special://root/ivistation/data/content_db/xbox.db")
+
+        print("XBOX content database location: ", content_database)
+
+        self.content_database = DatabaseHelper(content_database)
 
     @staticmethod
     def get_progress_title():
@@ -55,8 +58,7 @@ class ParseXbox(ParseSystem):
         return False
 
     def finalize(self):
-        # No cleanup needed
-        pass
+        self.content_database.close()
 
     def prepare_entries(self):
         potential_files = []
@@ -102,6 +104,20 @@ class ParseXbox(ParseSystem):
                 parsed_xbe = XBE(potential_file)
                 title_name = parsed_xbe.cert.cleanTitleName
                 title_id = parsed_xbe.cert.dwTitleId
+
+                if title_id == "":
+                    title_id = None
+
+                if title_name == "":
+                    folder_name = os.path.basename(os.path.dirname(potential_file))
+
+                    if title_id is None:
+                        title_name = folder_name
+                    else:
+                        lookup_name = self.content_database.get_title_from_crc32(title_id)
+                        title_name = lookup_name if lookup_name is not None else folder_name
+
+                title_name = title_name.encode('ascii', 'ignore').decode('ascii').strip()
             except Exception as e:
                 print("XBOX file ", potential_file, " failed to parse due to ", e)
                 yield int((count / float(len(potential_files))) * 100), "Invalid file, skipping..."

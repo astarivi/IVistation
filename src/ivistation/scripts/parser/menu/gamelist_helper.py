@@ -39,7 +39,8 @@ class GameListCreator:
 
         # Remove the old stuff
         try:
-            shutil.rmtree(path)
+            if os.path.isdir(path):
+                shutil.rmtree(path)
         except Exception:
             print("Failed to erase gamelist folder at ", path)
 

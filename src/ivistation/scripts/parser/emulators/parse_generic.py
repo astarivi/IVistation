@@ -12,7 +12,7 @@ EXTENSION_MATRIX = {
 
 
 class ParseGeneric(ParseSystem):
-    def __init__(self, system):
+    def __init__(self, system, crc_support=True):
         super(ParseGeneric, self).__init__(system)
 
         self.system = system
@@ -31,7 +31,7 @@ class ParseGeneric(ParseSystem):
 
         content_database = xbmc.translatePath("Special://root/ivistation/data/content_db/{}.db".format(system))
 
-        self.crc32_support = os.path.isfile(content_database)
+        self.crc32_support = crc_support and os.path.isfile(content_database)
 
         if self.crc32_support:
             print("Generic {} content database location: ".format(system), content_database)

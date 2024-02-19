@@ -4,6 +4,7 @@ import xbmc
 from emulators.parse_nes import ParseNES
 from emulators.parse_snes import ParseSNES
 from emulators.parse_xbox import ParseXbox
+from ivistation.utils import get_artwork_type
 from emulators.parse_generic import ParseGeneric
 from menu.gamelist_helper import GameListCreator
 from menu.boxart_downloader import DownloadResult, BoxArtDownloader
@@ -28,6 +29,9 @@ def parse_roms(system, progress_dialog):
         parser = parser_class(system)
     else:
         parser = parser_class()
+
+    # Will set the artwork type to boxart if nothing is set
+    get_artwork_type(system)
 
     # Prepare entries
     progress_title = parser.get_progress_title().format(system.upper())
