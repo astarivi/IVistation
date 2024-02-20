@@ -125,7 +125,7 @@ class ParseXbox(ParseSystem):
 
             # Check for title name duplicates
             if any(entry and entry[0] == title_name for entry in self.entries):
-                title_name = title_name + " 2"
+                title_name = "{} {}".format(title_name, len(potential_files))
 
             self.entries.append(
                 (title_name, title_id, potential_file)

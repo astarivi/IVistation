@@ -1,10 +1,10 @@
 # IVistation
 
 ### XBMC-Emustation powered OG Xbox emulators frontend
-#### IViStation is under active development, most things do not work
+#### IVistation is under active development, most things do not work
 
 
-IViStation is an original Xbox project that enhances the functionality and core integration of XBMC-Emustation.
+IVistation is an original Xbox project that enhances the functionality and core integration of XBMC-Emustation.
 Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing features, and introduces new ones.
  
 ## Index:

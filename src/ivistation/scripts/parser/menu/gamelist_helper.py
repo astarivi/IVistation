@@ -78,7 +78,7 @@ class GameListCreator:
     def add_entry(self, count, rom):
         if self.system == "xbox":
             launcher = "RunScript(special://root/ivistation/scripts/xbox_launcher.py,{1},{2})"
-            raw_rom_name = rom[1]
+            raw_rom_name = os.path.basename(os.path.dirname(rom[2]))
         else:
             launcher = "RunScript(special://root/ivistation/scripts/emulator_launcher.py,{},{},{})"
             raw_rom_name = os.path.splitext(

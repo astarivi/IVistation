@@ -87,13 +87,23 @@ def parse_roms(system, progress_dialog):
         for rom in parser.get_entries():
             c_entry += 1
 
-            raw_rom_name = os.path.splitext(
-                os.path.basename(
-                    rom[2]
-                )
-            )[0]
+            # Use Title ID to search, and use folder name as artwork name.
+            if rom[2].endswith(".xbe"):
+                if rom[1] is None:
+                    continue
 
-            download_result = boxart_downloader.download_artwork(rom[0], raw_rom_name)
+                download_result = boxart_downloader.download_artwork(
+                    rom[1],
+                    os.path.basename(os.path.dirname(rom[2]))
+                )
+            else:
+                raw_rom_name = os.path.splitext(
+                    os.path.basename(
+                        rom[2]
+                    )
+                )[0]
+
+                download_result = boxart_downloader.download_artwork(rom[0], raw_rom_name)
 
             # No internet connection?
             if download_result == DownloadResult.FAILED:
