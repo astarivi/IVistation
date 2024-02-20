@@ -17,7 +17,7 @@ def main():
 
     roms_path = "Q:\\ivistation\\roms\\"
 
-    for emulator in VERBOSE_SYSTEMS.itervalues():
+    for emulator in VERBOSE_SYSTEMS.values():
         try:
             os.makedirs(os.path.join(roms_path, emulator))
         except Exception:

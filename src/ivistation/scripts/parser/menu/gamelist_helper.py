@@ -75,17 +75,26 @@ class GameListCreator:
         self.jump_count = 8000
         self.synopsis_helper = SynopsisHelper(self.system)
 
+    @staticmethod
+    def _cut_filename(filename):
+        """
+        If the sole filename is too long to fit the extension, cut it down.
+        """
+        return filename[:38] if len(filename) > 38 else filename
+
     def add_entry(self, count, rom):
         if self.system == "xbox":
             launcher = "RunScript(special://root/ivistation/scripts/xbox_launcher.py,{1},{2})"
-            raw_rom_name = os.path.basename(os.path.dirname(rom[2]))
+            raw_rom_name = self._cut_filename(os.path.basename(os.path.dirname(rom[2])))
         else:
             launcher = "RunScript(special://root/ivistation/scripts/emulator_launcher.py,{},{},{})"
-            raw_rom_name = os.path.splitext(
-                os.path.basename(
-                    rom[2]
-                )
-            )[0]
+            raw_rom_name = self._cut_filename(
+                os.path.splitext(
+                    os.path.basename(
+                        rom[2]
+                    )
+                )[0]
+            )
 
         try:
             if not self.synopsis_helper.enabled:

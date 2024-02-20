@@ -28,6 +28,7 @@ class EmuConfigMenu:
         if self.config is not None and "core" in self.config:
             core_exists = verify_emulator_existence(self.system, self.config["core"])
             if not core_exists:
+                print("Core doesn't exist: ", self.config["core"])
                 self.config_manager.delete_config()
                 self.config = None
             else:
@@ -226,10 +227,16 @@ class EmuConfigMenu:
                 xports_config.show_menu(self.dialog)
                 xports_config.save()
 
+    def close(self):
+        if self.should_save and hasattr(self, 'config_manager') and self.config_manager is not None:
+            self.config_manager.save_config(self.config)
+
     # Save when this stuff gets recycled, which would be pronto
     def __del__(self):
-        if self.should_save:
-            self.config_manager.save_config(self.config)
+        try:
+            self.close()
+        except Exception as ex:
+            print("Couldn't destroy core config for {}".format(self.system), ex)
 
 
 def main():
@@ -240,7 +247,9 @@ def main():
     if system in ["xbox", "homebrew", "apps"]:
         return
 
-    EmuConfigMenu(system).main_menu()
+    emu_config_menu = EmuConfigMenu(system)
+    emu_config_menu.main_menu()
+    emu_config_menu.close()
 
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 import time
+import urllib
 import urllib2
 
 from contextlib import closing
@@ -70,6 +71,43 @@ def turbo_download(url, save_to, timeout=8, chunk_size=8192):
             if not chunk:
                 break
             output_file.write(chunk)
+
+
+def libretro_thumbnail_download(url, save_to, timeout=8, chunk_size=8192):
+    """
+    Downloads a file as fast as possible, disregarding progress.
+    Used to download small files, or many sequential files.
+    """
+
+    with closing(urllib2.urlopen(url, timeout=timeout)) as response, open(save_to, 'wb') as output_file:
+        content_type = response.headers.get('Content-Type')
+
+        if not content_type:
+            print("No content type for url ", url)
+            return
+
+        # We got an image, download it and exit
+        if content_type.startswith('image'):
+            while True:
+                chunk = response.read(chunk_size)
+                if not chunk:
+                    break
+                output_file.write(chunk)
+
+            return
+
+        # If it's anything other than text, it's not a symlink
+        if not content_type.startswith('text'):
+            print("Content type is other than image or text for ", url, content_type)
+            return
+
+        # Symlink
+        next_name = response.read()
+
+    url_parts = url.split("/")
+    url_parts[-1] = urllib.quote(next_name)
+
+    libretro_thumbnail_download("/".join(url_parts), save_to, timeout, chunk_size)
 
 
 def memory_download(url, timeout=8):

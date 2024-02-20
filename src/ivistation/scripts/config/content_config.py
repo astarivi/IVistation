@@ -72,10 +72,10 @@ def get_core_path(emu_system, core):
     Returns the full path to a core, for a given system.
     """
 
-    possible_paths = (
+    possible_paths = [
         os.path.join(EMULATORS_DIR, emu_system, core),
         os.path.join(EMULATORS_DIR, "multi", core)
-    )
+    ]
 
     for path in possible_paths:
         if os.path.isdir(path):
@@ -133,9 +133,6 @@ def verify_emulator_existence(system, emulator):
     Verifies if an emulator really exists. If the emulator isn't valid,
     it will be deleted.
     """
-
-    if not isinstance(emulator, str) or emulator.strip() == "":
-        return False
 
     try:
         emu_exe = os.path.join(get_core_path(system, emulator), "default.xbe")
