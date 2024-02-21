@@ -91,7 +91,7 @@ class SynopsisHelper(object):
 
     @staticmethod
     def _parse_synopsis(raw_synopsis):
-        decoded_synopsis = xml.sax.saxutils.escape(zlib.decompress(str(raw_synopsis)).decode('utf-8'))
+        decoded_synopsis = xml.sax.saxutils.escape(zlib.decompress(str(raw_synopsis)).decode('utf-8', errors="ignore"))
 
         return decoded_synopsis.split("_________________________")[:2]
 
@@ -102,5 +102,5 @@ class SynopsisHelper(object):
     def __del__(self):
         try:
             self.close()
-        except Exception:
-            print("Couldn't destroy database helper for {}".format(self.database))
+        except Exception as e:
+            print("Couldn't destroy database helper for {}".format(self.system), e)

@@ -82,7 +82,7 @@
 								<align>center</align>
 								<aligny>-</aligny>
 								<font>size_17</font>
-								<label>[UPPERCASE]Emulation cores are found in the downloader, at the [B]XBMC Options -> Downloader[\B] section.[CR][CR]Game roms are placed in the subdirectories inside the [B]ivistation\roms\[/B] directory[/UPPERCASE]</label>
+								<label>[UPPERCASE]Emulation cores are found in the downloader, at the [B]XBMC Options -> Downloader[/B] section.[CR][CR]Game roms are placed in the subdirectories inside the [B]ivistation\roms\[/B] directory[/UPPERCASE]</label>
 								<textcolor>menu_header_label</textcolor>
 								<visible>Control.HasFocus(2)</visible>
 								<animation effect="fade" time="200">visible</animation>
@@ -105,7 +105,7 @@
 								<align>center</align>
 								<aligny>-</aligny>
 								<font>size_17</font>
-								<label>[UPPERCASE]Remember to scan your games after updating your roms library[CR][CR]to do so, press the [B]START[\B] button at the main menu, and access the [B]SCANNER[\B] section.[CR][CR][B]ivistation will rename your roms, and even delete invalid files[\B][/UPPERCASE]</label>
+								<label>[UPPERCASE]Remember to scan your games after updating your roms library[CR][CR]to do so, press the [B]START[/B] button at the main menu, and access the [B]SCANNER[/B] section.[CR][CR][B]ivistation will rename your roms, and even delete invalid files[/B][/UPPERCASE]</label>
 								<textcolor>menu_header_label</textcolor>
 								<visible>Control.HasFocus(3)</visible>
 								<animation effect="fade" time="200">visible</animation>
@@ -128,7 +128,7 @@
 								<align>center</align>
 								<aligny>-</aligny>
 								<font>size_17</font>
-								<label>[UPPERCASE]game images must be placed in the subdirectories inside the [B]ivistation\media\&lt;system&gt;\[/B] directories. image names must match the target rom name, not the display name.[CR][CR][B]ivistation will download game covers automatically, if they're available[\B][/UPPERCASE]</label>
+								<label>[UPPERCASE]game images must be placed in the subdirectories inside the [B]ivistation\media\&lt;system&gt;\[/B] directories. image names must match the target rom name, not the display name.[CR][CR][B]ivistation will download game covers automatically, if they're available[/B][/UPPERCASE]</label>
 								<textcolor>menu_header_label</textcolor>
 								<visible>Control.HasFocus(4)</visible>
 								<animation effect="fade" time="200">visible</animation>
@@ -151,7 +151,7 @@
 								<align>center</align>
 								<aligny>-</aligny>
 								<font>size_17</font>
-								<label>[UPPERCASE][CR]Now, please calibrate your screen[CR][CR]This process can be repeated any time from the [B]XBMC Options -> CALIBRATE SCREEN[\B] section[/UPPERCASE]</label>
+								<label>[UPPERCASE][CR]Now, please calibrate your screen[CR][CR]This process can be repeated any time from the [B]XBMC Options -> CALIBRATE SCREEN[/B] section[/UPPERCASE]</label>
 								<textcolor>menu_header_label</textcolor>
 								<visible>Control.HasFocus(5)</visible>
 								<animation effect="fade" time="200">visible</animation>

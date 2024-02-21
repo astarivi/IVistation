@@ -37,6 +37,9 @@ class LibRetroBoxArtDownloader(object):
     def download_artwork(self, title, target):
         target_path = os.path.join(self.media_path, target + ".jpg")
 
+        if os.path.isfile(target_path):
+            return DownloadResult.LOCAL_EXISTS
+
         download_url = self.remote_url.format(self.remote_system, urllib.quote(title))
 
         try:
@@ -72,10 +75,6 @@ class IViBoxArtDownloader(object):
     def download_artwork(self, title, target):
         target_path = os.path.join(self.media_path, target + ".jpg")
         cleaned_title = clean_rom_name(title.replace("'", "_"))
-
-        # It already exists
-        if os.path.isfile(target_path):
-            return DownloadResult.LOCAL_EXISTS
 
         with closing(self.db_connection.cursor()) as cursor:
             select_query = '''
