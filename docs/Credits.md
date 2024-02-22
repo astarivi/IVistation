@@ -2,7 +2,6 @@
 
 ### Madmab
 For his amazing, well maintained emulators, and for keeping the emulation scene alive.
-(I also used your game synopsis lists, ~~sorry~~)
 
 ### XPorts
 For their old-school emulators, some bundled with IVistation, and others forked by Madmab.

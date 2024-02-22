@@ -6,7 +6,7 @@ Before transferring roms to IVistation, perhaps it would be a good idea to check
 [supported file formats per emulated system table](../Extensions.tsv) to know what type of roms are supported by
 IVistation per system. Roms are placed in a sub-folder located at `ivistation\roms`, the folder will be called by the
 "System ID" (refer to the table, again). So, for example, NES (Nintendo Entertainment System) roms are placed in
-`ivistation\roms\nes`, and `.nes` is the supported format for the roms.
+`ivistation\roms\nes`, and `.nes` is the supported format for this system.
 
 After transferring the roms, boot IVistation up and run the scanner by pressing **START** at the main menu and
 selecting "SCANNER".
@@ -61,7 +61,7 @@ wait for the main menu to come up, and press the **START** button to bring up th
 - ### Auto scan:
     Will scan each system sequentially, even if nothing has changed for other systems. It will do this until every 
     single system has been scanned for roms. This is useful if you have transferred a pretty big amount of roms to
-    IVistation covering multiple systems, as it will take of all the scanning for you. Nonetheless, it may be a bad
+    IVistation covering multiple systems, as it will take care of all the scanning for you. Nonetheless, it may be a bad
     idea to use this option when you have transferred just a couple roms.
 - ### Manual scan:
     Allows for the user to select what individual system they want to scan games for. This is usually the fastest way
