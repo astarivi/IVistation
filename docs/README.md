@@ -4,6 +4,7 @@
 
  * ### [Guides and How-tos](guides/README.md)
  * ### [Supported Cores](Cores.tsv)
+ * ### [Supported Rom File Extensions](Extensions.tsv)
  * ### [Credits](Credits.md)
  * ### [IVistation Changes](IVistation_changes.md)
 

@@ -1,0 +1,7 @@
+System ID	System Name	Supported extensions
+NES	Nintendo Entertainment System	.nes
+SNES	Super Nintendo Entertainment System	.sfc, .smc
+GBA	Game Boy Advance	.gba
+GBC	Game Boy Color	.gbc
+GB	Game Boy	.gb
+XBOX	Microsoft Xbox	/default.xbe, /*.iso

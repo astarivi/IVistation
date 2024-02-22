@@ -6,7 +6,7 @@ found in their respective guide pages, too)
 
 ## Features:
 
-* ### Rom parser (scanner)
+* ### [Rom parser (scanner)](Rom_transfer.md)
     Parse (scan) the roms you transfer to have them recognized by IVistation. Scanning roms is a process that involves
     identifying the rom by comparing its fingerprint with a known base of roms for each system, thus identifying
     characteristics such as the official title, synopsis, and even the boxart at times.

@@ -5,7 +5,7 @@
 
 
 IVistation is an original Xbox project that enhances the functionality and core integration of XBMC-Emustation.
-Leveraging XBMC-Emustation by Rocky5 as its base, IViStation refines existing features, and introduces new ones.
+Leveraging XBMC-Emustation by Rocky5 as its base, IVistation refines existing features, and introduces new ones.
  
 ## Index:
  * ### [Installation](docs/guides/Installation.md)
