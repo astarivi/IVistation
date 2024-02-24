@@ -91,7 +91,7 @@ class SynopsisHelper(object):
 
     @staticmethod
     def _parse_synopsis(raw_synopsis):
-        decoded_synopsis = xml.sax.saxutils.escape(zlib.decompress(str(raw_synopsis)).decode('utf-8', errors="ignore"))
+        decoded_synopsis = xml.sax.saxutils.escape(zlib.decompress(str(raw_synopsis)).decode('ascii', errors="ignore"))
 
         return decoded_synopsis.split("_________________________")[:2]
 
