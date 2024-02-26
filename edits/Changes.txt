@@ -1,3 +1,8 @@
+IVistation changes:
+
+- Enabled the use of the special structure when launching emulators via .cut files
+- Enabled the functionality to return to XBMC after launching an emulator that supports it (MM and XPorts mostly)
+- Fixed a bug where the return path to XBMC ended in "\\" instead of "\"
 
 I have stopped adding to this file, so you will need to look through the source for changes.
 

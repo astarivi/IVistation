@@ -1,8 +1,9 @@
 import os
-import sys
 import zlib
 import xbmc
 import zipfile
+
+from ivistation.xbe import XBE
 
 
 def install_zip(zip_file, root_dir):
@@ -128,14 +129,6 @@ def get_update_installer_version():
 
     if not os.path.isfile(update_xbe_path):
         return -1
-
-    # Add scripts root dir to path, and import from it
-    sys.path.append(
-        xbmc.translatePath("Special://root/ivistation/scripts/parser/emulators/utils")
-    )
-
-    # noinspection PyUnresolvedReferences
-    from xbe import XBE
 
     xbe_info = XBE(update_xbe_path)
 

@@ -24,6 +24,8 @@ class LibRetroBoxArtDownloader(object):
         "gbc": "Nintendo_-_Game_Boy_Color",
         "gb": "Nintendo_-_Game_Boy",
         "n64": "Nintendo_-_Nintendo_64",
+        "snes": "Nintendo_-_Super_Nintendo_Entertainment_System",
+        "nes": "Nintendo_-_Nintendo_Entertainment_System"
 
     }
     remote_url = "https://raw.githubusercontent.com/libretro-thumbnails/{}/master/Named_Boxarts/{}.png"
@@ -74,6 +76,10 @@ class IViBoxArtDownloader(object):
 
     def download_artwork(self, title, target):
         target_path = os.path.join(self.media_path, target + ".jpg")
+
+        if os.path.isfile(target_path):
+            return DownloadResult.LOCAL_EXISTS
+
         cleaned_title = clean_rom_name(title.replace("'", "_"))
 
         with closing(self.db_connection.cursor()) as cursor:
@@ -127,12 +133,20 @@ class BoxArtDownloader(object):
             self.enabled = False
             return
 
-        if system in self.ivi_systems:
-            self.downloader = IViBoxArtDownloader(system)
-        elif system in self.libretro_systems:
-            self.downloader = LibRetroBoxArtDownloader(system)
+        if xbmc.getCondVisibility('Skin.HasSetting(prefer_libretro_thumbs)'):
+            if system in self.libretro_systems:
+                self.downloader = IViBoxArtDownloader(system)
+            elif system in self.ivi_systems:
+                self.downloader = LibRetroBoxArtDownloader(system)
+            else:
+                self.enabled = False
         else:
-            self.enabled = False
+            if system in self.ivi_systems:
+                self.downloader = IViBoxArtDownloader(system)
+            elif system in self.libretro_systems:
+                self.downloader = LibRetroBoxArtDownloader(system)
+            else:
+                self.enabled = False
 
     @staticmethod
     def _cut_filename(filename):

@@ -3,7 +3,7 @@ import xbmc
 import glob
 import itertools
 
-from utils.xbe import XBE
+from ivistation.xbe import XBE
 from parse_system import ParseSystem
 from content.db_lookup import DatabaseHelper
 from utils.xiso import process_iso_name, process_iso

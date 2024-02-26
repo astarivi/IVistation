@@ -116,6 +116,7 @@ class Download(object):
 
     def _self_update_install(self):
         if "checksum" in self.entry and self.entry["checksum"] is not None:
+            print("Checksum for update found.")
             expected_checksum = self.entry["checksum"].lower()
             crc32_checksum = None
 
@@ -123,6 +124,7 @@ class Download(object):
                 self.progress_dialog.update(
                     progress,
                     "Verifying update integrity",
+                    "",
                     "This can take a long time, please be patient."
                 )
 
@@ -143,6 +145,8 @@ class Download(object):
                 os.remove(self.download_file)
                 raise KeyboardInterrupt
 
+        print("Launching update.xbe")
+        self.progress_dialog.close()
         # Valid file, keep going with the installation
         xbmc.executebuiltin("runxbe({})".format(
             xbmc.translatePath(
@@ -231,6 +235,8 @@ def run_downloader(dwn_type, entry):
 
     try:
         downloader.download()
+    except KeyboardInterrupt:
+        return
     except Exception as e:
         print("Downloader failed!", dwn_type, entry, e)
         traceback.print_exc()

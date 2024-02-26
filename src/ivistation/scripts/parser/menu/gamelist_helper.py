@@ -1,6 +1,8 @@
 import os
 import xbmc
 import shutil
+import xml.sax.saxutils
+
 from synopsis_helper import SynopsisHelper, DEFAULT_GAME_DETAILS
 
 GAMELIST_ENTRY = '''\n
@@ -116,7 +118,7 @@ class GameListCreator:
         self.gamelist_file.write(
             GAMELIST_ENTRY.format(
                 count,
-                rom[0],
+                xml.sax.saxutils.escape(rom[0].encode('utf-8', 'ignore').decode('ascii', 'ignore')),
                 game_details,
                 game_synopsis,
                 "{}.jpg".format(

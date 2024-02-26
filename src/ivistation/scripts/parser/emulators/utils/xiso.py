@@ -13,7 +13,7 @@ from struct import unpack
 from binascii import unhexlify
 from os.path import basename, getsize, join
 from xbmc import log, LOGDEBUG, LOGERROR, LOGFATAL, LOGINFO, translatePath
-from xbe import XBE
+from ivistation.xbe import XBE
 
 ATTACH_XBE_PATH = translatePath("Special://root/ivistation/data/attach.xbe")
 

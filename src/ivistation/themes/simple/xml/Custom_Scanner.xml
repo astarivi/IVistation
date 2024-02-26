@@ -73,6 +73,14 @@
 										<onclick>Skin.ToggleSetting(disable_art_download)</onclick>
 										<selected>!Skin.HasSetting(disable_art_download)</selected>
 								</control>
+								<control type="radiobutton" id="13">
+										<left>0</left>
+										<top>0</top>
+										<label>[UPPERCASE]prefer libretro art[/UPPERCASE]</label>
+										<include>MenuButtonMenuAltValues</include>
+										<onclick>Skin.ToggleSetting(prefer_libretro_thumbs)</onclick>
+										<selected>Skin.HasSetting(prefer_libretro_thumbs)</selected>
+								</control>
 <!--								<control type="radiobutton" id="14">-->
 <!--										<left>0</left>-->
 <!--										<top>0</top>-->
