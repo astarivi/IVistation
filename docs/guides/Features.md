@@ -20,7 +20,7 @@ found in their respective guide pages, too)
         For certain select systems, IVistation contains a base of downloadable boxart. This feature needs an internet
         connection. Enabled by default. Can be disabled from `SCANNER -> AUTOMATIC BOXART DOWNLOADS`
 
-* ### Emulation cores
+* ### [Emulation cores](../Cores.tsv)
     In IVistation, emulation cores are closely related to their RetroArch definition. They are emulators that can be
     configured, or swapped, before launching a game. Depending on the emulator, they may have different configuration
     options and types. Some of the most notable are:

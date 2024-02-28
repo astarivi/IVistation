@@ -5,6 +5,7 @@ Rocky5 - XBMC4Gamers
 """
 
 import os
+import re
 import shutil
 import traceback
 
@@ -112,85 +113,81 @@ def swap_order(data, wsz=16, gsz=2):
 
 
 def create_attach_xbe(game_iso_folder):
+    attach_xbe_path = join(game_iso_folder, 'attach.xbe')
+
+    shutil.copy(ATTACH_XBE_PATH, attach_xbe_path)
+
     original_xbe = XBE(join(game_iso_folder, 'default.xbe'), keep_raw_cert=True)
+    attach_xbe_info = XBE(attach_xbe_path)
     # Copy attach.xbe from data to the iso folder
-    shutil.copy(ATTACH_XBE_PATH, join(game_iso_folder, 'attach.xbe'))
 
     # ATTACH XBE FILE
-    with open(join(game_iso_folder, 'attach.xbe'), 'r+b') as attach_xbe:
-        attach_xbe.seek(260, 0)  # move to base address
-        base = attach_xbe.read(4)
-
-        attach_xbe.seek(280, 0)  # move to cert address
-        cert = attach_xbe.read(4)
-
-        # get the location of the cert
-        certAddress = unpack("i", cert)[0]  # init32 values
-        baseAddress = unpack("i", base)[0]  # init32 values
-
-        attach_xbe.seek((certAddress - baseAddress), 0)  # move to the titleid
+    with open(attach_xbe_path, 'r+b') as attach_xbe, open(original_xbe.path, 'rb') as og_xbe:
+        attach_xbe.seek(attach_xbe_info.cert_address)
         attach_xbe.write(original_xbe.raw_cert)
 
-        attach_xbe.seek((certAddress - baseAddress + 172), 0)  # move to the version
+        attach_xbe.seek(attach_xbe_info.cert_address + 92)  # move to the version
         attach_xbe.write(unhexlify('01000080'))
 
+        # TODO: Implement this (transfering titleimage)
         # Transfer TitleImage, if found
-        try:
-            image_sector = original_xbe.get_xbx_sector()
-        except ValueError:
-            image_sector = None
+        # try:
+        #     image_sector = original_xbe.get_xbx_sector()
+        # except ValueError:
+        #     image_sector = None
 
-        if image_sector is not None:
-            with open(original_xbe.path, 'rb') as og_xbe:
-                # Move attach.xbe to xpr0 virtual address
-                attach_xbe.seek(1060)
-                image_address = unpack("i", attach_xbe.read(4))[0]
+        # if image_sector is not None:
+        #     # Move attach.xbe to xpr0 virtual address
+        #     attach_xbe.seek(1060)
+        #     image_address = unpack("i", attach_xbe.read(4))[0]
+        #
+        #     base_size = (image_sector.dwSizeofRaw + image_address)  # <-- is the data size before the XPR0 required
+        #     base_sizehex = hex(base_size)[2:-1].zfill(8)
+        #
+        #     # Write size values to attach.xbe
+        #     attach_xbe.seek(268)  # move to base file size
+        #     # Write the size of the base image
+        #     attach_xbe.write(unhexlify(swap_order(base_sizehex)))
+        #
+        #     xbx_sizehex = hex(image_sector.dwSizeofRaw)[2:-1].zfill(8)
+        #
+        #     attach_xbe.seek(1056, 0)  # move to xpr0 virtual size address
+        #     attach_xbe.write(unhexlify(swap_order(xbx_sizehex)))
+        #
+        #     attach_xbe.seek(1064, 0)  # move to xpr0 raw size address
+        #     attach_xbe.write(unhexlify(swap_order(xbx_sizehex)))
+        #
+        #     # Move default.xbe to title image raw address
+        #     og_xbe.seek(image_sector.dwRawAddr)
+        #     # Move attach.xbe to the title image address xpr0
+        #     attach_xbe.seek(image_address)
+        #
+        #     remaining_bytes = image_sector.dwSizeofRaw
+        #
+        #     # Be extra careful with memory management
+        #     while remaining_bytes > 0:
+        #         chunk_size = min(4096, remaining_bytes)
+        #
+        #         chunk = og_xbe.read(chunk_size)
+        #
+        #         if not chunk:
+        #             break
+        #
+        #         attach_xbe.write(chunk)
+        #
+        #         remaining_bytes -= chunk_size
 
-                base_size = (image_sector.dwSizeofRaw + image_address)  # <-- is the data size before the XPR0 required
-                base_sizehex = hex(base_size)[2:-1].zfill(8)
-
-                # Write size values to attach.xbe
-                attach_xbe.seek(268, 0)  # move to base file size
-                # Write the size of the base image
-                attach_xbe.write(unhexlify(swap_order(base_sizehex)))
-
-                xbx_sizehex = hex(image_sector.dwSizeofRaw)[2:-1].zfill(8)
-
-                attach_xbe.seek(1056, 0)  # move to xpr0 virtual size address
-                attach_xbe.write(unhexlify(swap_order(xbx_sizehex)))
-
-                attach_xbe.seek(1064, 0)  # move to xpr0 raw size address
-                attach_xbe.write(unhexlify(swap_order(xbx_sizehex)))
-
-                # Move default.xbe to title image raw address
-                og_xbe.seek(image_sector.dwRawAddr)
-                # Move attach.xbe to the title image address xpr0
-                attach_xbe.seek(image_address)
-
-                remaining_bytes = image_sector.dwSizeofRaw
-
-                # Be extra careful with memory management
-                while remaining_bytes > 0:
-                    chunk_size = min(4096, remaining_bytes)
-
-                    chunk = og_xbe.read(chunk_size)
-
-                    if not chunk:
-                        break
-
-                    attach_xbe.write(chunk)
-
-                    remaining_bytes -= chunk_size
-
-    default_xbe = join(game_iso_folder, "default.xbe")
-    os.remove(default_xbe)
-    os.rename(join(game_iso_folder, "attach.xbe"), default_xbe)
+    os.remove(original_xbe.path)
+    os.rename(join(game_iso_folder, "attach.xbe"), original_xbe.path)
 
 
 def process_iso_name(file_name):
-    iso_full_name = file_name[:-4].replace('_1', '').replace('_2', '').replace('.1', '').replace('.2', '')
+    iso_full_name = file_name[:-4]
+    iso_full_name = re.sub(r'_\d+', '', iso_full_name)
+    iso_full_name = re.sub(r'\.\d+', '', iso_full_name)
     iso_name = iso_full_name.split('(', 1)[0]
     # truncate the name to 42 characters, reason is the .iso
+    # unused as the iso is already in a folder. TODO: Add support for bare iso in no folders
     iso_folder_name = iso_name[:36] if len(iso_name) > 36 else iso_name
 
     return iso_full_name

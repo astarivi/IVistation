@@ -77,6 +77,8 @@ def libretro_thumbnail_download(url, save_to, timeout=8, chunk_size=8192):
     """
     Downloads a file as fast as possible, disregarding progress.
     Used to download small files, or many sequential files.
+
+    Specialized in thumbnails download
     """
 
     with closing(urllib2.urlopen(url, timeout=timeout)) as response, open(save_to, 'wb') as output_file:

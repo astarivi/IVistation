@@ -132,13 +132,14 @@ class XBE(object):
         with open(xbe_path, "rb") as xbe_file:
             # Read the first 376 bytes to populate the header
             self.header = XBE_HEADER(xbe_file.read(376))
-            xbe_file.seek(self.header.dwCertificateAddr - self.header.dwBaseAddr)
+            self.cert_address = self.header.dwCertificateAddr - self.header.dwBaseAddr
+            xbe_file.seek(self.cert_address)
             # Read the required certificate bytes (388)
             self.cert = XBE_CERT(xbe_file.read(388))
             # We're not reading anything more as we don't need to.
 
             if keep_raw_cert:
-                xbe_file.seek(self.header.dwCertificateAddr - self.header.dwBaseAddr)
+                xbe_file.seek(self.cert_address)
                 self.raw_cert = xbe_file.read(464)
 
     def get_xbx_sector(self):
