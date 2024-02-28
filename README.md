@@ -17,7 +17,7 @@ metadata, and emulation cores. All of this in a simple-to-use and convenient pac
 # Preview
 
 <p align="center">
-    <img src="https://i.ibb.co/4FfbqrZ/1.png" width="98%" />
+    <img src="https://i.ibb.co/4FfbqrZ/1.png" width="100%" />
     <img src="https://i.ibb.co/7vN3r7d/2.png" width="49%" />
     <img src="https://i.ibb.co/v3kTFdf/3.png" width="49%" />
 </p>

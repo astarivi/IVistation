@@ -43,6 +43,13 @@
 										<include>MenuButtonMenuAltValues</include>
 										<onclick>RunScript(special://root/ivistation/scripts/gui/text_reader.py,2,)</onclick>
 								</control>
+								<control type="button" id="4">
+										<left>0</left>
+										<top>0</top>
+										<label>[UPPERCASE]check for update[/UPPERCASE]</label>
+										<include>MenuButtonMenuAltValues</include>
+										<onclick>RunScript(special://root/ivistation/scripts/download/update_check.py)</onclick>
+								</control>
 								<!-- requires download label -->
 <!--								<control type="label" id="4">-->
 <!--										<left>320</left>-->
