@@ -1,5 +1,4 @@
 # Credits to LoveMHz and Rocky5
-# https://github.com/LoveMHz/XBEpy/blob/87568a3d2d9c89e80a12f5261331b90e543e5f29/XBE.py
 
 import struct
 
@@ -59,42 +58,38 @@ class XBE_HEADER():
 
 class XBE_CERT():
     def __init__(self, data):
-        self.dwSize = struct.unpack('I', data[0:4])[0]  # 0x0000 - size of certificate
-        self.dwTimeDate = struct.unpack('I', data[4:8])[0]  # 0x0004 - timedate stamp
+        self.dwSize = self._unpack(data, 'I', 0x0004, 0x0000)[0]
+        self.dwTimeDate = self._unpack(data, 'I', 0x0004, 0x0004)[0]
         # Title ID
-        intermediate_title_id = struct.unpack('L', data[8:12])[0]  # 0x0008 - title id
+        intermediate_title_id = self._unpack(data, 'L', 0x0004, 0x0008)[0]
         self.dwTitleId = str(hex(intermediate_title_id)[2:10]).upper().zfill(8)
-        self.wszTitleName = struct.unpack('40s', data[12:52])[0]  # 0x000C - title name (unicode)
-        self.dwAlternateTitleId = struct.unpack('16B', data[52:68])  # 0x005C - alternate title ids
-        self.dwAllowedMedia = struct.unpack('I', data[68:72])[0]  # 0x009C - allowed media types
-        self.dwGameRegion = struct.unpack('I', data[72:76])[0]  # 0x00A0 - game region
-        self.dwGameRatings = struct.unpack('I', data[80:84])[0]  # 0x00A4 - game ratings
-        self.dwDiskNumber = struct.unpack('I', data[84:88])[0]  # 0x00A8 - disk number
-        self.dwVersion = struct.unpack('I', data[92:96])[0]  # 0x00AC - version
-        self.bzLanKey = struct.unpack('16B', data[100:116])  # 0x00B0 - lan key
-        self.bzSignatureKey = struct.unpack('16B', data[116:132])  # 0x00C0 - signature key
-        self.bzTitleAlternateSignatureKey = [  # 0x00D0 - alternate signature keys
-            struct.unpack('16B', data[132:148]),
-            struct.unpack('16B', data[148:164]),
-            struct.unpack('16B', data[164:180]),
-            struct.unpack('16B', data[180:196]),
-            struct.unpack('16B', data[196:212]),
-            struct.unpack('16B', data[212:228]),
-            struct.unpack('16B', data[228:244]),
-            struct.unpack('16B', data[244:260]),
-            struct.unpack('16B', data[260:276]),
-            struct.unpack('16B', data[276:292]),
-            struct.unpack('16B', data[292:308]),
-            struct.unpack('16B', data[308:324]),
-            struct.unpack('16B', data[324:340]),
-            struct.unpack('16B', data[340:356]),
-            struct.unpack('16B', data[356:372]),
-            struct.unpack('16B', data[372:388])
-        ]
+
+        self.wszTitleName = self._unpack(data, "80s", 0x0050, 0x000C)[0]
+
+        self.dwAlternateTitleId = self._unpack(data, "64B", 0x0040, 0x005C)
+        self.dwAllowedMedia = self._unpack(data, "I", 0x0004, 0x009C)[0]
+        self.dwGameRegion = self._unpack(data, "I", 0x0004, 0x00A0)[0]
+        self.dwGameRatings = self._unpack(data, "I", 0x0004, 0x00A4)[0]
+        self.dwDiskNumber = self._unpack(data, "I", 0x0004, 0x00A8)[0]
+        self.dwVersion = self._unpack(data, "I", 0x0004, 0x00AC)[0]
+        self.bzLanKey = self._unpack(data, "16B", 0x0010, 0x00B0)
+        self.bzSignatureKey = self._unpack(data, "16B", 0x0010, 0x00C0)
+
+        self.bzTitleAlternateSignatureKey = []
+
+        alt_sig_root = 0x00D0
+        for i in range(16):
+            self.bzTitleAlternateSignatureKey.append(
+                self._unpack(data, "16B", 0x0010, alt_sig_root)
+            )
+            alt_sig_root += 0x0010
 
         # Title name cleanup
         self.cleanTitleName = self.wszTitleName.decode('utf-16').rstrip(chr(0))
 
+    @staticmethod
+    def _unpack(data, s_format, size, offset):
+        return struct.unpack("<" + s_format, data[offset:offset+size])
 
 class XBE_SECTION(object):
     def __init__(self, data):
@@ -135,7 +130,7 @@ class XBE(object):
             self.cert_address = self.header.dwCertificateAddr - self.header.dwBaseAddr
             xbe_file.seek(self.cert_address)
             # Read the required certificate bytes (388)
-            self.cert = XBE_CERT(xbe_file.read(388))
+            self.cert = XBE_CERT(xbe_file.read(464))
             # We're not reading anything more as we don't need to.
 
             if keep_raw_cert:
